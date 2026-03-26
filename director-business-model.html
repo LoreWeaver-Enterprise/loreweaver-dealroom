@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Business Model - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="LoreWeaver">
+                <h2>Deal Room</h2>
+            </div>
+
+            <div class="nav-section">
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="executive-summary.html" class="nav-link">Executive Summary</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Product</div>
+                <a href="product-demo.html" class="nav-link">Product Demo</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Market Sizing</div>
+                <a href="tam-sam-som.html" class="nav-link">TAM / SAM / SOM</a>
+                <a href="narrative-cost-model.html" class="nav-link">Narrative Cost Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Competitive Analysis</div>
+                <a href="competitor-landscape.html" class="nav-link">Competitor Landscape</a>
+                <a href="market-trends.html" class="nav-link">Market Trends and Timing</a>
+                <a href="competitive-moat.html" class="nav-link">Competitive Moat and IP</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Customers and Strategy</div>
+                <a href="buyer-personas.html" class="nav-link">Buyer Personas</a>
+                <a href="gtm-distribution.html" class="nav-link">GTM and Distribution</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Model</div>
+                <a href="architect-business-model.html" class="nav-link">Architect Business Model</a>
+                <a href="director-business-model.html" class="nav-link active">Director Business Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Investment</div>
+                <a href="deal-terms.html" class="nav-link">Deal Terms</a>
+                <a href="timeline-milestones.html" class="nav-link">Timeline and Milestones</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Director Business Model <span class="version-badge">v1.0</span></h1>
+                <p class="subtitle">Royalty-based runtime revenue model</p>
+            </div>
+
+<h3>Key Takeaways</h3>
+<ol>
+<li><strong>5% royalty on game revenue above €1M/year</strong>, mirroring Epic/Unreal Engine's proven structure. Studios pay nothing until they succeed.</li>
+<li><strong>91% gross margin</strong> because Director runs entirely on the player's device. No cloud compute, no inference costs, no per-session API calls.</li>
+<li><strong>Seat-based alternative at €10K/month</strong> for studios that prefer predictable costs over royalty exposure.</li>
+<li><strong>Revenue begins Year 3 (2028)</strong> because game development cycles mean studios integrating Director in 2026 ship games in 2027/2028. First Architect revenue arrives Q2 2026.</li>
+<li><strong>64 identified enterprise targets</strong> across MMO studios and AI world-model startups, with a clear pilot-to-production pathway.</li>
+</ol>
+<hr>
+<h3>How Director Makes Money</h3>
+<p>Director generates revenue through two complementary streams.</p>
+<p><strong>Stream 1: Royalty Model (primary)</strong></p>
+<p>Studios integrate Director into their game during development at no cost. Once the shipped game earns more than €1M in annual revenue, LoreWeaver collects a 5% royalty on all revenue above that threshold. This is the same structure Epic uses for Unreal Engine: free to use, royalty kicks in only after commercial success.</p>
+<p>This model aligns incentives perfectly. LoreWeaver earns more only when the studio earns more. Studios face zero upfront cost and zero risk during development. The €1M threshold ensures small and indie titles never pay a cent.</p>
+<p><strong>Stream 2: Seat-Based Licensing (alternative)</strong></p>
+<p>Studios that prefer predictable costs can opt for a flat license at €10,000/month plus add-ons. This appeals to large publishers running multiple titles who want budget certainty. It also provides LoreWeaver with stable baseline revenue independent of game performance.</p>
+<p><strong>Why revenue starts in Year 3 (2028)</strong></p>
+<p>Director is a runtime engine embedded in shipped games. The development cycle matters: a studio integrating Director in 2026 ships their game in 2027 or 2028. Only then does that game generate revenue, and only above the €1M threshold does LoreWeaver collect royalties. This lag is inherent to the B2B game middleware model and matches the ramp profile Unreal Engine experienced in its early years.</p>
+<hr>
+<h3>Revenue Model Mechanics</h3>
+<h4>Royalty Examples</h4>
+<table>
+<thead><tr>
+<th>Scenario</th>
+<th>Annual Game Revenue</th>
+<th>Revenue Above €1M</th>
+<th>5% Royalty to LoreWeaver</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Indie hit</td>
+<td>€2M</td>
+<td>€1M</td>
+<td>€50,000</td>
+</tr>
+<tr>
+<td>Mid-tier success</td>
+<td>€10M</td>
+<td>€9M</td>
+<td>€450,000</td>
+</tr>
+<tr>
+<td>AAA title</td>
+<td>€50M</td>
+<td>€49M</td>
+<td>€2,450,000</td>
+</tr>
+<tr>
+<td>Live-service MMO</td>
+<td>€200M</td>
+<td>€199M</td>
+<td>€9,950,000</td>
+</tr>
+<tr>
+<td>Blockbuster franchise</td>
+<td>€500M</td>
+<td>€499M</td>
+<td>€24,950,000</td>
+</tr>
+</tbody></table>
+<h4>Key Mechanics</h4>
+<ul>
+<li>The €1M threshold resets annually. Each calendar year, the first €1M is royalty-free.</li>
+<li>Royalties compound across titles. A studio with 5 games each earning €20M pays royalties on all five.</li>
+<li>Live-service games (MMOs, GaaS) generate recurring royalties year after year, creating compounding revenue streams from each integration.</li>
+</ul>
+<hr>
+<h3>Pricing Options</h3>
+<table>
+<thead><tr>
+<th>Option</th>
+<th>Structure</th>
+<th>Best For</th>
+<th>LoreWeaver Upside</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Royalty</strong></td>
+<td>Free during dev; 5% above €1M/yr</td>
+<td>Studios building high-revenue titles; studios wanting zero upfront cost</td>
+<td>Uncapped; scales with game success</td>
+</tr>
+<tr>
+<td><strong>Seat License</strong></td>
+<td>€10,000/month flat + add-ons</td>
+<td>Large publishers with multiple titles; budget-sensitive procurement</td>
+<td>Predictable; not tied to game performance</td>
+</tr>
+</tbody></table>
+<p><strong>Crossover point:</strong> The seat-based license (€120K/year) costs less than the royalty model when a single title earns above ~€3.4M/year. Studios with high-revenue games save money on seat licenses. Studios with uncertain revenue prefer the royalty model because it costs nothing if the game underperforms.</p>
+<p>Both options include the same Director runtime, SDK, engine plugins, and documentation. The difference is purely commercial.</p>
+<hr>
+<h3>Unit Economics</h3>
+<table>
+<thead><tr>
+<th>Metric</th>
+<th>Value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Gross Margin</td>
+<td>~91%</td>
+</tr>
+<tr>
+<td>COGS as % of Revenue</td>
+<td>~9%</td>
+</tr>
+<tr>
+<td>Primary COGS Components</td>
+<td>Infrastructure support, QA, integration engineering</td>
+</tr>
+<tr>
+<td>Cloud/Inference Cost per Session</td>
+<td>€0 (runs on device)</td>
+</tr>
+<tr>
+<td>Marginal Cost per New Player</td>
+<td>€0</td>
+</tr>
+</tbody></table>
+<p><strong>Why 91% gross margin is sustainable:</strong></p>
+<p>Director runs entirely on the player's hardware. Unlike cloud-based AI services (which incur GPU inference costs per request), Director's local model executes on the CPU/GPU already in the player's PC or console. This means:</p>
+<ul>
+<li>No cloud compute scaling costs as player counts grow.</li>
+<li>No per-session API fees that erode margin at scale.</li>
+<li>COGS consists only of support staff, QA testing for new integrations, and engineering resources for studio onboarding.</li>
+<li>As the customer base grows, COGS scales sub-linearly because integration patterns become standardized.</li>
+</ul>
+<p>This margin profile is comparable to traditional middleware (Wwise, Havok) and significantly better than cloud AI services (which typically run 40 to 60% gross margins due to inference costs).</p>
+<hr>
+<h3>Customer Pipeline</h3>
+<h4>64 Identified Enterprise Targets</h4>
+<table>
+<thead><tr>
+<th>Segment</th>
+<th>Count</th>
+<th>Examples</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AAA / MMO Studios</td>
+<td>34</td>
+<td>Amazon Games, Blizzard Entertainment, Riot Games, Digital Extremes, Cloud Imperium Games, Hello Games, Funcom, Square Enix</td>
+</tr>
+<tr>
+<td>AI World-Model Startups</td>
+<td>30</td>
+<td>Decart, World Labs, Odyssey, Fable Studio, Runway, Artificial Agency, Versed</td>
+</tr>
+</tbody></table>
+<h4>Pilot-to-Production Pathway</h4>
+<table>
+<thead><tr>
+<th>Stage</th>
+<th>Timeline</th>
+<th>Activity</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Discovery</td>
+<td>Month 1 to 2</td>
+<td>Technical demo, prototype integration with studio's game engine</td>
+</tr>
+<tr>
+<td>Pilot</td>
+<td>Month 3 to 6</td>
+<td>Director integrated into a test level or side quest system. Studio evaluates NPC behavior quality, performance, and narrative coherence</td>
+</tr>
+<tr>
+<td>Pre-Production</td>
+<td>Month 7 to 12</td>
+<td>Full integration into production pipeline. Architect content authored for Director runtime. Performance optimization for target platforms</td>
+</tr>
+<tr>
+<td>Ship</td>
+<td>Month 12 to 24</td>
+<td>Game ships with Director embedded. Royalty clock starts when revenue exceeds €1M</td>
+</tr>
+</tbody></table>
+<p>The 34 MMO/live-service studios represent the highest value targets because their games generate recurring revenue over many years, meaning each integration produces compounding royalty streams.</p>
+<p>See the Runtime Current Potential Customers doc for the full list of 64 targets with project details.</p>
+<hr>
+<h3>Beyond Gaming Upside</h3>
+<p>Director's runtime AI narrative engine applies to any interactive 3D environment that needs coherent scenarios, adaptive dialogue, or procedural storytelling. Target verticals beyond gaming:</p>
+<table>
+<thead><tr>
+<th>Market</th>
+<th>Application</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Film / TV Virtual Production</td>
+<td>AI-driven virtual actors, dynamic scene generation for LED volume stages</td>
+</tr>
+<tr>
+<td>Military Simulation</td>
+<td>Adaptive training scenarios with intelligent adversaries and civilian NPCs</td>
+</tr>
+<tr>
+<td>Immersive Training</td>
+<td>Corporate and medical training with responsive scenario branching</td>
+</tr>
+<tr>
+<td>Spatial Computing</td>
+<td>Dynamic AI characters for AR/VR social and entertainment platforms</td>
+</tr>
+</tbody></table>
+<p>The same royalty or seat-based licensing applies to these verticals. See the TAM / SAM / SOM report (Section 5) for full market sizing.</p>
+<hr>
+<h3>Comparable Business Models</h3>
+<table>
+<thead><tr>
+<th>Company</th>
+<th>Product</th>
+<th>Pricing Model</th>
+<th>Royalty Rate</th>
+<th>Free Tier</th>
+<th>Gross Margin</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>LoreWeaver</strong></td>
+<td>Director</td>
+<td>Royalty + seat license</td>
+<td>5% above €1M</td>
+<td>Yes (dev + small titles)</td>
+<td>~91%</td>
+</tr>
+<tr>
+<td>Epic Games</td>
+<td>Unreal Engine</td>
+<td>Royalty</td>
+<td>5% above $1M</td>
+<td>Yes</td>
+<td>~85% (est.)</td>
+</tr>
+<tr>
+<td>Unity</td>
+<td>Unity Engine</td>
+<td>Subscription + runtime fee</td>
+<td>Varies</td>
+<td>Yes (< $100K rev)</td>
+<td>~70 to 75%</td>
+</tr>
+<tr>
+<td>Audiokinetic</td>
+<td>Wwise (audio)</td>
+<td>Seat license + per title</td>
+<td>None (flat fee)</td>
+<td>Yes (indie)</td>
+<td>~85% (est.)</td>
+</tr>
+<tr>
+<td>Havok</td>
+<td>Physics engine</td>
+<td>Per-title license</td>
+<td>None</td>
+<td>No</td>
+<td>~80% (est.)</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Azure PlayFab</td>
+<td>Usage-based cloud</td>
+<td>N/A</td>
+<td>Free tier</td>
+<td>~60%</td>
+</tr>
+<tr>
+<td>Inworld AI</td>
+<td>Cloud AI NPCs</td>
+<td>Per API call</td>
+<td>N/A</td>
+<td>Limited</td>
+<td>~40 to 50%</td>
+</tr>
+</tbody></table>
+<p><strong>Key differentiator:</strong> Director's on-device architecture gives it middleware-class margins (~90%) while competing in the AI narrative space where cloud-based competitors operate at 40 to 60% margins. The royalty model provides the same "free to start, pay on success" dynamic that made Unreal Engine the industry standard.</p>
+<hr>
+<h3>Sources and Assumptions</h3>
+<table>
+<thead><tr>
+<th>Item</th>
+<th>Source / Basis</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>5% royalty rate</td>
+<td>Benchmarked to Unreal Engine royalty structure</td>
+</tr>
+<tr>
+<td>€1M threshold</td>
+<td>Matched to Unreal Engine; protects indie/small studio segment</td>
+</tr>
+<tr>
+<td>€10K/month seat license</td>
+<td>Comparable to Wwise and other premium middleware seat pricing</td>
+</tr>
+<tr>
+<td>91% gross margin</td>
+<td>Bottom-up COGS model: 9% of revenue allocated to support, QA, and integration engineering</td>
+</tr>
+<tr>
+<td>64 target customers</td>
+<td>Pipeline analysis from LoreWeaver BD team (see GTM and Distribution report)</td>
+</tr>
+<tr>
+<td>Beyond-gaming verticals</td>
+<td>See TAM / SAM / SOM report Section 5 for detailed methodology</td>
+</tr>
+<tr>
+<td>First Architect revenue: Q2 2026</td>
+<td>Product launches in April 2026</td>
+</tr>
+<tr>
+<td>First Director revenue: 2028</td>
+<td>18 to 24 month game development cycle from first integrations</td>
+</tr>
+</tbody></table>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>

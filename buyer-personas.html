@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Personas - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="LoreWeaver">
+                <h2>Deal Room</h2>
+            </div>
+
+            <div class="nav-section">
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="executive-summary.html" class="nav-link">Executive Summary</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Product</div>
+                <a href="product-demo.html" class="nav-link">Product Demo</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Market Sizing</div>
+                <a href="tam-sam-som.html" class="nav-link">TAM / SAM / SOM</a>
+                <a href="narrative-cost-model.html" class="nav-link">Narrative Cost Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Competitive Analysis</div>
+                <a href="competitor-landscape.html" class="nav-link">Competitor Landscape</a>
+                <a href="market-trends.html" class="nav-link">Market Trends and Timing</a>
+                <a href="competitive-moat.html" class="nav-link">Competitive Moat and IP</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Customers and Strategy</div>
+                <a href="buyer-personas.html" class="nav-link active">Buyer Personas</a>
+                <a href="gtm-distribution.html" class="nav-link">GTM and Distribution</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Model</div>
+                <a href="architect-business-model.html" class="nav-link">Architect Business Model</a>
+                <a href="director-business-model.html" class="nav-link">Director Business Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Investment</div>
+                <a href="deal-terms.html" class="nav-link">Deal Terms</a>
+                <a href="timeline-milestones.html" class="nav-link">Timeline and Milestones</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Buyer Personas <span class="version-badge">v1.0</span></h1>
+                <p class="subtitle">Target customer profiles from solo indie dev to publisher VP</p>
+            </div>
+
+<p><strong>Date:</strong> March 2026</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Purpose:</strong> Investor due diligence, go to market planning, sales enablement</p>
+<hr>
+<h3>1. Overview: Who Buys Narrative Tools and Why</h3>
+<p>Game studios spend 15 to 30% of total development budgets on content creation, including writing, dialogue, quest design, and localization. For a mid range AAA title at $80M total budget, that translates to $12M to $24M on narrative content alone. Even a 20 person indie studio burning $150K/month allocates meaningful hours to writing and content structuring.</p>
+<p>The buying decision for narrative tools differs sharply by studio size:</p>
+<table>
+<thead><tr>
+<th>Studio Size</th>
+<th>Who Decides</th>
+<th>What They Buy</th>
+<th>Budget Range (Annual Tools)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Solo / 1 to 5</td>
+<td>Founder or lead dev</td>
+<td>Free tier, then upgrade on need</td>
+<td>$0 to $2,000</td>
+</tr>
+<tr>
+<td>Indie / AA (6 to 80)</td>
+<td>Narrative Director or Creative Director</td>
+<td>Authoring tools, middleware licenses</td>
+<td>$5,000 to $50,000</td>
+</tr>
+<tr>
+<td>AA / AAA (80 to 500+)</td>
+<td>Technical Director + Producer sign off</td>
+<td>Pipeline tools, runtime middleware</td>
+<td>$50,000 to $500,000+</td>
+</tr>
+<tr>
+<td>Live Service</td>
+<td>Game Director + Live Ops Lead</td>
+<td>Content velocity tools, runtime systems</td>
+<td>$100,000 to $1M+</td>
+</tr>
+<tr>
+<td>AI Startups</td>
+<td>CTO / Founder</td>
+<td>Middleware APIs, runtime SDKs</td>
+<td>$10,000 to $200,000</td>
+</tr>
+<tr>
+<td>Publishers</td>
+<td>VP of Production or EP</td>
+<td>Mandated across portfolio studios</td>
+<td>$200,000 to $2M+ across portfolio</td>
+</tr>
+</tbody></table>
+<p>Two forces drive adoption right now. First, content scale requirements have exploded. Open world and live service games now ship 500K to 3M+ words of narrative content per title. Second, AI sentiment is polarized: 84% of gaming executives have tested AI tools, but 52% of developers view generative AI negatively (GDC 2026 survey). Tools that keep writers in control while multiplying their output thread this needle.</p>
+<p>LoreWeaver targets both sides of the pipeline. Architect serves the authoring and structuring phase (offline, pre production heavy). Director serves the runtime phase (on device, live, shipping with the game). This dual coverage means LoreWeaver touches multiple buyer personas across a single studio.</p>
+<hr>
+<h3>2. Persona Cards</h3>
+<hr>
+<h4>Persona 1: "Jordan Reeves", Solo Indie Dev / Tiny Team Lead</h4>
+<p><strong>Product fit:</strong> Architect (primary), Director (aspirational)</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>Solo developer or team lead at a 1 to 5 person studio</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>24 to 35</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>2 to 8 years, often self taught or bootcamp trained</td>
+</tr>
+<tr>
+<td>Studio revenue</td>
+<td>$0 to $200K/year (pre revenue or early revenue)</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>Full authority, but the budget is personal savings or small grant money</td>
+</tr>
+<tr>
+<td>Annual tools budget</td>
+<td>$0 to $2,000 total across all tools</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Global, remote first</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Ship a complete, narrative driven game (RPG, visual novel, adventure)</li>
+<li>Wear every hat: design, code, art direction, writing, marketing</li>
+<li>Minimize time on tasks that do not directly move the game forward</li>
+<li>Maintain narrative consistency without a dedicated writer</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td>Unity (48% of indie devs), Godot (growing fast), Unreal (20%)</td>
+</tr>
+<tr>
+<td>Narrative</td>
+<td>Google Docs, Twine, Ink/Inky, spreadsheets</td>
+</tr>
+<tr>
+<td>Project management</td>
+<td>Trello, Notion, or nothing</td>
+</tr>
+<tr>
+<td>AI (if any)</td>
+<td>ChatGPT/Claude directly, copy pasting into docs</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>FMOD free tier</td>
+</tr>
+<tr>
+<td>Version control</td>
+<td>Git with GitHub, sometimes none</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>Spends 30 to 40% of dev time on content structuring that a narrative designer would handle at a larger studio</li>
+<li>Dialogue sprawls across dozens of loose documents with no central source of truth</li>
+<li>AI tools (ChatGPT, Claude) produce generic output that does not match the game's established tone or lore</li>
+<li>No pipeline to go from "written content" to "game ready data structures" without manual coding</li>
+<li>Cannot afford articy:draft professional tiers; free tier caps at 700 objects</li>
+</ul>
+<p><strong>What Would Make Them Adopt LoreWeaver</strong></p>
+<ul>
+<li>Free tier that handles their full project scope (more generous than articy:draft free)</li>
+<li>One click export to Unity/Godot/Unreal that produces documented, usable code</li>
+<li>AI generation that actually reads their existing lore and produces consistent output</li>
+<li>Visible time savings in the first session (under 30 minutes to see value)</li>
+<li>No subscription lock in; pay per use for AI features aligns with irregular income</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"I can just use ChatGPT for free"</td>
+<td>ChatGPT has no context on your world. Every prompt requires re explaining your lore. Architect maintains full context natively.</td>
+</tr>
+<tr>
+<td>"I do not want AI writing my game"</td>
+<td>Architect is a structuring and consistency tool first. AI generation is optional. Writers stay in control.</td>
+</tr>
+<tr>
+<td>"I cannot afford another tool"</td>
+<td>Core Architect is free. AI features use pay as you go token pricing. Most solo projects cost under $50 total.</td>
+</tr>
+<tr>
+<td>"Will players backlash if I use AI?"</td>
+<td>LoreWeaver positions as AI assisted, writer controlled. 85% of player backlash targets replacement of human creatives, not tools that help them.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Reddit: r/gamedev (869K members), r/indiegaming, r/unrealengine, r/godot, r/gamedesign</li>
+<li>Discord: Godot community server, Unity developer server, Indie Game Developers server</li>
+<li>Conferences: GDC Independent Games Summit, local game jams, itch.io community events</li>
+<li>YouTube/Twitch: Game dev tutorial channels (Brackeys alumni community, Game Maker's Toolkit)</li>
+<li>Forums: TIGSource, GameDev.net, itch.io devlogs</li>
+</ul>
+<hr>
+<h4>Persona 2: "Alex Winters" (Updated), Narrative Director at Indie/AA Studio</h4>
+<p><strong>Product fit:</strong> Architect (daily driver) + Director (integration champion)</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>Narrative Director or Creative Director</td>
+</tr>
+<tr>
+<td>Company size</td>
+<td>20 to 100 people</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>32 to 45</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>8 to 15 years in game writing and design</td>
+</tr>
+<tr>
+<td>Salary</td>
+<td>$90K to $150K USD (varies by location; EU equivalents lower)</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>$100K to $300K/year for narrative tools, contractors, and content</td>
+</tr>
+<tr>
+<td>Reports to</td>
+<td>Studio Head or Creative Director (if separate role)</td>
+</tr>
+<tr>
+<td>Direct reports</td>
+<td>2 to 8 narrative designers and writers</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Own the narrative vision for one or more titles in active development</li>
+<li>Maintain character voice consistency across 200K to 800K words of content</li>
+<li>Coordinate a narrative team producing content in parallel without contradictions</li>
+<li>Bridge the gap between creative writing and technical implementation</li>
+<li>Ship on schedule without sacrificing narrative quality</li>
+<li>Protect studio IP; no lore leaks to cloud services</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Narrative design</td>
+<td>articy:draft X ($500 to $2,500/seat estimated), Arcweave, custom spreadsheets</td>
+</tr>
+<tr>
+<td>Writing</td>
+<td>Final Draft, Google Docs, Scrivener</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>Custom dialogue tools, Unreal Blueprints, or proprietary engine scripting</td>
+</tr>
+<tr>
+<td>Consistency tracking</td>
+<td>Wiki (Confluence, Notion), manual review passes</td>
+</tr>
+<tr>
+<td>AI (if any)</td>
+<td>Cautious experimentation; worried about IP exposure and team pushback</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>Dialogue volume outpaces team capacity by 2x to 3x; contractors introduce voice drift</li>
+<li>Manual consistency checking takes 15 to 20 hours per week across the team</li>
+<li>articy:draft lacks AI integration that understands the full lore graph</li>
+<li>Cloud based AI tools (Inworld, Charisma.ai) require uploading proprietary IP to external servers</li>
+<li>Handoff from narrative docs to game implementation creates a 2 to 4 week lag per content batch</li>
+<li>Writer burnout: narrative teams face 60+ hour weeks during content crunches</li>
+</ul>
+<p><strong>KPIs They Care About</strong></p>
+<table>
+<thead><tr>
+<th>KPI</th>
+<th>Current</th>
+<th>Target with LoreWeaver</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Writer hours per 10K words of final content</td>
+<td>80 to 120 hrs</td>
+<td>50 to 80 hrs (30%+ reduction)</td>
+</tr>
+<tr>
+<td>Continuity bugs per milestone</td>
+<td>15 to 30</td>
+<td>Under 5</td>
+</tr>
+<tr>
+<td>Narrative burn rate</td>
+<td>$40K to $80K/month</td>
+<td>$30K to $55K/month</td>
+</tr>
+<tr>
+<td>Content handoff lag</td>
+<td>2 to 4 weeks</td>
+<td>Under 1 week</td>
+</tr>
+</tbody></table>
+<p><strong>What Would Make Them Adopt LoreWeaver</strong></p>
+<ul>
+<li>On device processing with zero cloud dependency (IP never leaves studio machines)</li>
+<li>Demonstrable lore aware generation that maintains established character voices</li>
+<li>Direct export pipeline to their engine, eliminating the handoff lag</li>
+<li>Ability to run a 2 week pilot with their actual project data, not a demo dataset</li>
+<li>Writer team buy in: the tool must feel like it empowers writers, not replaces them</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"My writers will revolt if I bring in AI"</td>
+<td>Architect keeps writers in the driver's seat. AI suggests; humans approve. Position it as "autocomplete for narrative design" not "AI writer."</td>
+</tr>
+<tr>
+<td>"We already use articy:draft"</td>
+<td>LoreWeaver complements articy, not replaces it. Architect adds AI powered extraction, generation, and consistency checking on top of existing workflows.</td>
+</tr>
+<tr>
+<td>"On device sounds slow"</td>
+<td>Director runs optimized small language models locally. Benchmarks show sub 200ms response for NPC dialogue on current gen hardware.</td>
+</tr>
+<tr>
+<td>"What if the startup folds?"</td>
+<td>Architect outputs are standard data formats (JSON, engine native). No vendor lock in; your data remains usable without LoreWeaver.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Conferences: GDC Narrative Summit (now Narrative and Performance track), Nordic Game, Develop:Brighton, Game Developers Session (Prague)</li>
+<li>Communities: IGDA Writing SIG, Narrative Design Discord servers</li>
+<li>Reddit: r/narrativedesign, r/gamewriting, r/gamedev</li>
+<li>Publications: Game Developer (gamedeveloper.com), Gamasutra archives</li>
+<li>Professional networks: LinkedIn game narrative groups, private Slack groups among narrative directors</li>
+</ul>
+<hr>
+<h4>Persona 3: "Priya Okonkwo", Technical Director at AA/AAA Studio</h4>
+<p><strong>Product fit:</strong> Director (primary evaluation), Architect (secondary awareness)</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>Technical Director or Lead Programmer</td>
+</tr>
+<tr>
+<td>Company size</td>
+<td>80 to 500+ people</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>35 to 50</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>12 to 20 years, shipped 3 to 8 titles</td>
+</tr>
+<tr>
+<td>Salary</td>
+<td>$120K to $200K USD (higher at AAA; $150K to $250K in HCOL areas)</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>Technical tool decisions up to $200K; larger purchases need VP/CTO sign off</td>
+</tr>
+<tr>
+<td>Reports to</td>
+<td>CTO, VP of Engineering, or Studio Head</td>
+</tr>
+<tr>
+<td>Direct reports</td>
+<td>5 to 30 engineers across systems, tools, and gameplay teams</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Own the technical architecture of the game, including runtime systems</li>
+<li>Evaluate and approve all middleware integrations (audio, physics, networking, AI)</li>
+<li>Ensure the game ships at target performance (60fps on console, stable memory)</li>
+<li>Manage technical debt and engine customizations across a multi year dev cycle</li>
+<li>Reduce integration risk; every new dependency is a potential failure point</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td>Unreal Engine 5, proprietary engines (at larger studios)</td>
+</tr>
+<tr>
+<td>Middleware</td>
+<td>Wwise/FMOD (audio), Havok/PhysX (physics), Photon/Mirror (networking)</td>
+</tr>
+<tr>
+<td>AI/NPC systems</td>
+<td>Behavior trees (custom built), GOAP, utility AI, state machines</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>PIX, RenderDoc, Tracy, custom profilers</td>
+</tr>
+<tr>
+<td>Build pipeline</td>
+<td>Jenkins, TeamCity, Perforce</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>NPC behavior systems are custom built per title, costing 6 to 18 months of engineering time</li>
+<li>Dialogue systems require deep integration between narrative tools and gameplay code</li>
+<li>Cloud based AI middleware introduces latency (50 to 200ms round trip) that breaks real time gameplay</li>
+<li>Every middleware dependency adds certification risk for console submissions (Sony, Microsoft, Nintendo)</li>
+<li>Engineering time spent on narrative tooling is time not spent on core gameplay systems</li>
+<li>Existing AI NPC solutions (Inworld, NVIDIA ACE) require cloud connectivity and do not guarantee IP security</li>
+</ul>
+<p><strong>What Would Make Them Adopt LoreWeaver Director</strong></p>
+<ul>
+<li>Proven on device performance: sub 10ms overhead per frame, predictable memory footprint</li>
+<li>Clean SDK with documented APIs, not a black box</li>
+<li>Zero cloud dependency; works in offline dev environments and passes console certification</li>
+<li>Benchmark data on target platforms (PS5, Xbox Series X, Switch 2, Steam Deck)</li>
+<li>Gradual integration path: can replace one system (e.g., NPC barks) before committing to full adoption</li>
+<li>Source code access or escrow agreement for risk mitigation</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"We build our own NPC systems"</td>
+<td>Director replaces 6 to 18 months of custom engineering. Your team focuses on gameplay, not reinventing dialogue trees every title.</td>
+</tr>
+<tr>
+<td>"I do not trust middleware performance claims"</td>
+<td>Provide benchmark suite they can run on their hardware. On device means no network variance; performance is deterministic.</td>
+</tr>
+<tr>
+<td>"Console certification risk"</td>
+<td>Director uses no network calls at runtime. No platform specific APIs that would trigger cert flags. Static library integration, same as Wwise or FMOD.</td>
+</tr>
+<tr>
+<td>"What about memory budget on console?"</td>
+<td>Director's model footprint is configurable. Small models for NPC barks (under 50MB), larger models for complex narrative (under 500MB). Trade offs documented.</td>
+</tr>
+<tr>
+<td>"LLMs hallucinate"</td>
+<td>Director uses constrained generation with lore grounding from Architect output. Not open ended generation; output is bounded by authored narrative data.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Conferences: GDC (Tools Summit, Programming track), SIGGRAPH, Unreal Fest, CppCon</li>
+<li>Communities: Handmade Network, C++ game dev Discord servers</li>
+<li>Reddit: r/gamedev, r/unrealengine, r/GraphicsProgramming</li>
+<li>Publications: Technical blog posts from Insomniac, Naughty Dog, id Software</li>
+<li>Professional: Speaking circuits at GDC, personal tech blogs, Twitter/X game dev tech community</li>
+</ul>
+<hr>
+<h4>Persona 4: "Marcus Chen", Game Director for Live Service / MMO</h4>
+<p><strong>Product fit:</strong> Director (primary, high value), Architect (content pipeline)</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>Game Director or Live Ops Director</td>
+</tr>
+<tr>
+<td>Company size</td>
+<td>50 to 300+ (live team can be 35 to 200 people)</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>38 to 52</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>15 to 22 years, shipped and operated at least one live title</td>
+</tr>
+<tr>
+<td>Salary</td>
+<td>$150K to $250K USD</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>$500K to $5M/year for live content and tools</td>
+</tr>
+<tr>
+<td>Reports to</td>
+<td>VP of Product, Studio Head, or Publisher EP</td>
+</tr>
+<tr>
+<td>Direct reports</td>
+<td>Leads across content, engineering, community, QA, and analytics</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Sustain and grow a live game generating $10M to $500M+/year in revenue</li>
+<li>Ship content drops on a fixed cadence (biweekly events, monthly updates, quarterly expansions)</li>
+<li>Maintain player retention metrics: DAU, session length, D7/D30 retention</li>
+<li>Keep the expanding game world internally consistent (200 to 500+ named entities, growing)</li>
+<li>Manage a content team producing 50K to 200K words of new narrative per quarter</li>
+<li>Control operational costs; live teams burn $1M to $3M/month</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Content pipeline</td>
+<td>articy:draft, proprietary CMS, Jira for content tracking</td>
+</tr>
+<tr>
+<td>Live ops platform</td>
+<td>PlayFab, GameSparks, custom backends</td>
+</tr>
+<tr>
+<td>NPC/dialogue runtime</td>
+<td>Hardcoded state machines, scripted events, zero procedural capability</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Mixpanel, Amplitude, custom dashboards</td>
+</tr>
+<tr>
+<td>Player feedback</td>
+<td>Discord bot analysis, Reddit monitoring, CS ticket categorization</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>Content production is the bottleneck; players consume content faster than the team creates it</li>
+<li>Every new quest line requires full QA pass for narrative consistency with 2+ years of existing content</li>
+<li>NPC dialogue feels repetitive; players mock "I used to be an adventurer" syndrome within weeks</li>
+<li>No ability to personalize narrative experiences; every player sees identical content</li>
+<li>Seasonal events require 3 to 4 months of lead time; competitors ship faster</li>
+<li>Writer burnout is acute; live service narrative teams have 30 to 40% annual turnover</li>
+</ul>
+<p><strong>What Would Make Them Adopt LoreWeaver</strong></p>
+<ul>
+<li>Director enabling dynamic NPC dialogue that stays consistent with authored lore (not random hallucination)</li>
+<li>Measurable content velocity increase: 2x output per writer per sprint</li>
+<li>Player facing narrative variety without proportional content team scaling</li>
+<li>Architect reducing consistency QA from weeks to hours via automated evaluation</li>
+<li>Proven stability at scale: thousands of concurrent players, each getting unique NPC interactions</li>
+<li>Revenue impact data: correlation between narrative freshness and retention metrics</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"Live games cannot tolerate runtime failures"</td>
+<td>Director runs on device; no server dependency. If the model produces low confidence output, it falls back to authored content. Graceful degradation, not crash.</td>
+</tr>
+<tr>
+<td>"Players will notice AI generated content"</td>
+<td>Director generates within authored narrative bounds, not open ended. Players experience variety, not visible AI artifacts. A/B test results speak louder than promises.</td>
+</tr>
+<tr>
+<td>"We cannot retrain our entire content team"</td>
+<td>Architect integrates into existing pipelines (articy, custom CMS). Director is an SDK the engineering team integrates. Writers keep their workflow; output improves.</td>
+</tr>
+<tr>
+<td>"Regulatory risk for live games"</td>
+<td>On device processing means no player data leaves the client. No GDPR issues with cloud AI processing of player behavior.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Conferences: GDC (Live Ops Roundtable, Production track), GamesBeat Summit, PG Connects, Game Developers Session</li>
+<li>Communities: Live Ops focused Slack groups, MMO developer Discord servers</li>
+<li>Reddit: r/MMORPG (industry lurking), r/gamedev, r/LiveService</li>
+<li>Publications: Deconstructor of Fun (blog), GamesBeat, PocketGamer.biz</li>
+<li>Professional: GDC Advisory Board, IGDA Production SIG, private executive Slack groups</li>
+</ul>
+<hr>
+<h4>Persona 5: "Sanna Lindqvist", CTO / Co founder at AI Gaming Startup</h4>
+<p><strong>Product fit:</strong> Director (core middleware), Architect (content bootstrapping)</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>CTO or Technical Co founder</td>
+</tr>
+<tr>
+<td>Company size</td>
+<td>5 to 30 people</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>28 to 42</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>5 to 15 years, mix of ML/AI research and game/interactive media engineering</td>
+</tr>
+<tr>
+<td>Salary</td>
+<td>Below market cash ($80K to $120K) plus significant equity</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>Full technical stack decisions; larger commitments need CEO/board alignment</td>
+</tr>
+<tr>
+<td>Annual tools/infra budget</td>
+<td>$50K to $300K (mostly compute and API costs)</td>
+</tr>
+<tr>
+<td>Funding stage</td>
+<td>Seed to Series A ($1M to $15M raised)</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Build an AI native interactive product (procedural worlds, AI companions, emergent narratives)</li>
+<li>Ship a playable demo or MVP within 12 to 18 months to secure next funding round</li>
+<li>Evaluate build vs. buy for every system: maximize speed to market</li>
+<li>Keep burn rate under control; every month of runway matters</li>
+<li>Prove the technical thesis to investors: "AI can create meaningful interactive narrative at scale"</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AI/ML stack</td>
+<td>PyTorch, HuggingFace, OpenRouter, custom fine tuned models</td>
+</tr>
+<tr>
+<td>Game engine</td>
+<td>Unity, Unreal, or custom WebGL/Three.js</td>
+</tr>
+<tr>
+<td>NPC/narrative</td>
+<td>Custom built on top of raw LLM APIs; fragile, expensive, inconsistent</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>AWS/GCP, vector databases (Pinecone, Weaviate), Redis</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Minimal authored content; relying heavily on procedural generation</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>Raw LLM output is expensive ($0.01 to $0.10 per NPC interaction at scale) and inconsistent</li>
+<li>Building narrative coherence on top of generic LLMs requires months of prompt engineering and guardrails</li>
+<li>No structured lore pipeline; world building data lives in scattered docs and JSON files</li>
+<li>Investor demos need polished narrative, but the team has zero writers</li>
+<li>On device inference is critical for their product thesis, but building a custom runtime is a 12+ month project</li>
+<li>Content quality gap: technically impressive AI but narratively hollow compared to authored games</li>
+</ul>
+<p><strong>What Would Make Them Adopt LoreWeaver</strong></p>
+<ul>
+<li>Director as a drop in runtime SDK: months of custom NPC system work replaced by integration</li>
+<li>Architect to bootstrap structured lore from their concept docs in hours instead of weeks</li>
+<li>On device inference that aligns with their "no cloud dependency" product thesis</li>
+<li>API first design that fits into their existing ML pipeline</li>
+<li>Transparent pricing they can model into their unit economics and pitch to investors</li>
+<li>Technical documentation that respects their engineering sophistication (no marketing fluff)</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"We will build our own"</td>
+<td>How many months have you spent on NPC coherence already? Director gives you a production ready narrative runtime so your team focuses on your unique value prop.</td>
+</tr>
+<tr>
+<td>"We need full control over the model"</td>
+<td>Director supports custom model integration. Use LoreWeaver's default models or bring your own fine tuned models.</td>
+</tr>
+<tr>
+<td>"What if your roadmap diverges from ours?"</td>
+<td>SDK is modular. Adopt the components you need. Architect data exports to standard formats. No monolithic dependency.</td>
+</tr>
+<tr>
+<td>"We cannot add cost to our burn rate"</td>
+<td>Free tier for prototyping. Revenue share on Director means you pay when you earn. Aligns incentives for startups.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Conferences: GDC AI Summit, NeurIPS (AI/ML), AIIDE (AI and Interactive Digital Entertainment), Web Summit</li>
+<li>Communities: AI gaming Discord servers, Hugging Face community, EleutherAI</li>
+<li>Reddit: r/MachineLearning, r/LocalLLaMA, r/gameai, r/gamedev</li>
+<li>Publications: Towards Data Science, AI gaming substacks, a]6z games blog</li>
+<li>Professional: Y Combinator alumni network (if applicable), AngelList, LinkedIn AI gaming groups</li>
+<li>Investor events: Slush, GamesBeat Summit, AI specific demo days</li>
+</ul>
+<hr>
+<h4>Persona 6: "Diane Marchetti", VP of Production at a Mid Tier Publisher</h4>
+<p><strong>Product fit:</strong> Portfolio wide Architect licensing, Director mandated for funded studios</p>
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>VP of Production or Executive Producer</td>
+</tr>
+<tr>
+<td>Company size</td>
+<td>Publisher with 200 to 2,000 employees overseeing 5 to 20 active titles</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>40 to 55</td>
+</tr>
+<tr>
+<td>Experience</td>
+<td>18 to 25 years, rose through production ranks</td>
+</tr>
+<tr>
+<td>Salary</td>
+<td>$180K to $350K USD plus bonus tied to portfolio performance</td>
+</tr>
+<tr>
+<td>Budget authority</td>
+<td>$2M to $20M/year across portfolio tools, services, and outsourcing</td>
+</tr>
+<tr>
+<td>Reports to</td>
+<td>COO, CEO, or Board</td>
+</tr>
+<tr>
+<td>Oversight</td>
+<td>5 to 15 studios (internal and external), each with their own production teams</td>
+</tr>
+</tbody></table>
+<p><strong>Goals and Responsibilities</strong></p>
+<ul>
+<li>Deliver a portfolio of titles on time, on budget, and at quality bar</li>
+<li>Standardize production pipelines across studios to reduce redundant tool spend</li>
+<li>Identify and deploy efficiency gains that scale across the entire portfolio</li>
+<li>Manage publisher relationship with first party platform holders (Sony, Microsoft, Nintendo)</li>
+<li>Reduce content production costs without visible quality degradation</li>
+<li>Report ROI on tools and process investments to the board</li>
+</ul>
+<p><strong>Current Tools and Workflow</strong></p>
+<table>
+<thead><tr>
+<th>Category</th>
+<th>Tools</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Portfolio management</td>
+<td>Jira, Shotgrid (Autodesk), custom dashboards</td>
+</tr>
+<tr>
+<td>Studio oversight</td>
+<td>Monthly milestone reviews, greenlight gates, kill reviews</td>
+</tr>
+<tr>
+<td>Narrative tools</td>
+<td>Inconsistent; each studio uses different tools (articy, Twine, custom)</td>
+</tr>
+<tr>
+<td>Content outsourcing</td>
+<td>Keywords Studios, Pole To Win, Lionbridge (localization)</td>
+</tr>
+<tr>
+<td>Financial tracking</td>
+<td>SAP, NetSuite, or custom ERP</td>
+</tr>
+</tbody></table>
+<p><strong>Pain Points</strong></p>
+<ul>
+<li>Every studio reinvents narrative tooling; no shared infrastructure or best practices</li>
+<li>Content outsourcing costs $40 to $80 per hour; quality varies wildly between vendors</li>
+<li>No visibility into narrative content progress until milestone deliveries (lagging indicator)</li>
+<li>AI adoption is uncoordinated; some studios experiment, others refuse, creating policy gaps</li>
+<li>Cannot mandate specific tools without studio pushback ("you are killing our creative autonomy")</li>
+<li>Board pressure to show AI driven efficiency gains in next quarterly report</li>
+</ul>
+<p><strong>What Would Make Them Adopt LoreWeaver</strong></p>
+<ul>
+<li>Portfolio licensing deal with volume discount across all funded studios</li>
+<li>Measurable ROI data: "Studios using LoreWeaver reduced content outsourcing spend by X%"</li>
+<li>Standardized content quality metrics via Architect's narrative evaluation features</li>
+<li>Low friction deployment; studios can adopt incrementally without workflow overhaul</li>
+<li>Executive dashboard showing content velocity and consistency metrics across portfolio</li>
+<li>Reference customer: one studio in the portfolio pilots successfully, then mandate follows</li>
+</ul>
+<p><strong>Key Objections</strong></p>
+<table>
+<thead><tr>
+<th>Objection</th>
+<th>Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"Our studios will resist mandated tools"</td>
+<td>Start with a voluntary pilot at one willing studio. Let results speak. Successful studios become internal advocates.</td>
+</tr>
+<tr>
+<td>"We are already spending millions on outsourcing"</td>
+<td>LoreWeaver does not replace outsourcers; it makes them more productive. Outsourced writers using Architect produce consistent content faster, reducing revision cycles.</td>
+</tr>
+<tr>
+<td>"AI is a PR risk for our portfolio"</td>
+<td>On device, writer controlled AI avoids the optics of "AI replacing creatives." LoreWeaver is a productivity tool, positioned like Grammarly for narrative design.</td>
+</tr>
+<tr>
+<td>"What is the contract structure?"</td>
+<td>Enterprise licensing with annual commitment, volume pricing, dedicated support, SLA, and data security audit compliance.</td>
+</tr>
+<tr>
+<td>"We need SOC 2 / ISO 27001 compliance"</td>
+<td>On device architecture means no studio data touches LoreWeaver servers. Compliance scope is minimal compared to cloud AI vendors.</td>
+</tr>
+</tbody></table>
+<p><strong>Where They Hang Out</strong></p>
+<ul>
+<li>Conferences: GDC (Production and Team Leadership track), DICE Summit, Gamelab (Barcelona), Gamescom business area</li>
+<li>Communities: IGDA Leadership SIG, private publisher executive groups</li>
+<li>Reddit: Does not use Reddit for professional purposes</li>
+<li>Publications: GamesIndustry.biz, MCV/Develop, Variety gaming coverage</li>
+<li>Professional: Board memberships, advisory roles, speaker circuits at business focused game events</li>
+<li>Deal flow: Game investment summits, Invest Game (London), Nordic Game Conference business track</li>
+</ul>
+<hr>
+<h3>3. Buying Journey Map</h3>
+<p>The table below shows how each persona discovers, evaluates, and purchases LoreWeaver.</p>
+<table>
+<thead><tr>
+<th>Stage</th>
+<th>Jordan (Solo Indie)</th>
+<th>Alex (Narrative Dir.)</th>
+<th>Priya (Tech Dir.)</th>
+<th>Marcus (Live Ops)</th>
+<th>Sanna (AI Startup)</th>
+<th>Diane (Publisher VP)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Awareness</strong></td>
+<td>Reddit post, YouTube tutorial, game jam mention</td>
+<td>GDC Narrative track talk, peer recommendation</td>
+<td>GDC Tools Summit, middleware showcase</td>
+<td>Industry blog post on content velocity, peer at conference</td>
+<td>AI gaming newsletter, HuggingFace community, Twitter/X thread</td>
+<td>GamesIndustry.biz article on AI efficiency, board pressure</td>
+</tr>
+<tr>
+<td><strong>Interest trigger</strong></td>
+<td>"Free tool that exports to my engine"</td>
+<td>"On device AI that keeps my IP safe"</td>
+<td>"Middleware that replaces 12 months of custom NPC code"</td>
+<td>"Dynamic NPC dialogue without cloud latency"</td>
+<td>"Production ready narrative runtime I do not have to build"</td>
+<td>"Portfolio wide efficiency with measurable ROI"</td>
+</tr>
+<tr>
+<td><strong>Research</strong></td>
+<td>Watches demo video, reads docs, tries free tier same day</td>
+<td>Downloads Architect, tests with real project lore, consults narrative team</td>
+<td>Reviews SDK docs, runs benchmark suite, checks console cert requirements</td>
+<td>Requests case study with retention data, runs pilot on one content zone</td>
+<td>Reads API docs, checks model architecture, benchmarks latency</td>
+<td>Requests portfolio pricing, asks for reference customer call</td>
+</tr>
+<tr>
+<td><strong>Evaluation period</strong></td>
+<td>1 to 3 days</td>
+<td>2 to 4 weeks</td>
+<td>4 to 8 weeks</td>
+<td>6 to 12 weeks</td>
+<td>1 to 3 weeks</td>
+<td>3 to 6 months</td>
+</tr>
+<tr>
+<td><strong>Decision makers</strong></td>
+<td>Self</td>
+<td>Narrative Dir. + Studio Head</td>
+<td>Tech Dir. + Producer + Studio Head</td>
+<td>Game Dir. + Tech Dir. + VP of Product</td>
+<td>CTO + CEO</td>
+<td>VP Prod. + CFO + Legal + Board</td>
+</tr>
+<tr>
+<td><strong>Procurement</strong></td>
+<td>Credit card, self serve</td>
+<td>Invoice or PO, small contract</td>
+<td>Enterprise license, legal review, security audit</td>
+<td>Enterprise license with SLA, pilot clause</td>
+<td>Startup pricing, monthly billing, rev share</td>
+<td>Portfolio license, annual contract, volume discount</td>
+</tr>
+<tr>
+<td><strong>Success metric</strong></td>
+<td>"I shipped dialogue faster"</td>
+<td>"My team produces 30% more content with fewer consistency bugs"</td>
+<td>"We cut 6 months off NPC system development"</td>
+<td>"Content velocity doubled; retention up"</td>
+<td>"We launched our MVP 4 months earlier"</td>
+<td>"Three studios adopted it; outsourcing costs down 20%"</td>
+</tr>
+<tr>
+<td><strong>Expansion path</strong></td>
+<td>Upgrades to paid AI features as project grows</td>
+<td>Adds Director for runtime; expands seats</td>
+<td>Rolls out Director to additional game systems</td>
+<td>Full Architect + Director deployment across live team</td>
+<td>Deeper Director integration; co marketing partnership</td>
+<td>Mandates across remaining portfolio studios</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>4. Sources</h3>
+<h4>Salary and Compensation</h4>
+<ul>
+<li><a href="https://www.glassdoor.com/Salaries/narrative-designer-salary-SRCH_KO0,18.htm" target="_blank">Glassdoor: Narrative Designer Salary 2025</a></li>
+<li><a href="https://www.ziprecruiter.com/Salaries/Game-Narrative-Designer-Salary" target="_blank">ZipRecruiter: Game Narrative Designer Salary</a></li>
+<li><a href="https://www.salary.com/research/salary/benchmark/technical-director-salary" target="_blank">Salary.com: Technical Director Salary 2026</a></li>
+<li><a href="https://reg.gdconf.com/2025-salary-report/" target="_blank">GDC 2025 Game Industry Salary Report</a></li>
+</ul>
+<h4>Studio Structure and Roles</h4>
+<ul>
+<li><a href="https://richestsoft.com/blog/game-development-team-structure-roles/" target="_blank">Richestsoft: Game Development Team Structure, Roles and Cost</a></li>
+<li><a href="https://pinglestudio.com/blog/key-roles-in-a-game-development-team-2024-edition" target="_blank">Pingle Studio: Key Roles in Game Development 2024</a></li>
+<li><a href="https://ilogos.biz/roles-in-game-development/" target="_blank">iLogos: Roles in Game Development</a></li>
+<li><a href="https://www.organimi.com/gaming-studio-organizational-structure/" target="_blank">Organimi: Gaming Studio Organizational Structure</a></li>
+</ul>
+<h4>Indie Game Market and Budgets</h4>
+<ul>
+<li><a href="https://www.juegostudio.com/blog/indie-game-development-cost" target="_blank">Juego Studios: Indie Game Development Cost Guide 2026</a></li>
+<li><a href="https://gitnux.org/indie-game-industry-statistics/" target="_blank">Gitnux: Indie Game Industry Statistics 2026</a></li>
+<li><a href="https://www.mordorintelligence.com/industry-reports/indie-game-market" target="_blank">Mordor Intelligence: Indie Game Market</a></li>
+<li><a href="https://vsquad.art/blog/indie-game-budgets-what-it-really-costs-to-build-a-game" target="_blank">vSquad: Indie Game Budgets 2026</a></li>
+</ul>
+<h4>AAA and Live Service Operations</h4>
+<ul>
+<li><a href="https://www.juegostudio.com/blog/guide-to-aaa-game-development-and-studio-strategies" target="_blank">Juego Studios: Guide to AAA Game Development 2026</a></li>
+<li><a href="https://studiokrew.com/blog/indie-vs-aa-vs-aaa-games-budgets-teams-technology-differences/" target="_blank">StudioKrew: Indie vs AA vs AAA Games</a></li>
+<li><a href="https://ilogos.biz/the-essential-guide-to-live-ops/" target="_blank">iLogos: Essential Guide to Live Ops</a></li>
+<li><a href="https://www.pocketgamer.biz/comment-and-opinion/69071/what-is-live-ops-and-why-should-you-care/" target="_blank">PocketGamer.biz: What is Live Ops</a></li>
+</ul>
+<h4>AI in Gaming</h4>
+<ul>
+<li><a href="https://www.gamedeveloper.com/business/one-third-of-game-workers-use-generative-ai-but-half-think-it-s-bad-for-the-industry" target="_blank">GDC State of the Game Industry 2026</a></li>
+<li><a href="https://www.q99studio.com/ai-game-development-2026/" target="_blank">Q99 Studio: Role of AI in Game Development 2026</a></li>
+<li><a href="https://www.jenova.ai/en/resources/game-role-playing-ai-agent" target="_blank">Jenova: AI Game Agents and Procedural Worlds</a></li>
+<li><a href="https://www.seeles.ai/resources/blogs/infinite-worlds-ai-world-generation-2026" target="_blank">Seeles AI: Infinite Worlds and Real Time Generation</a></li>
+</ul>
+<h4>Narrative Tools and Middleware</h4>
+<ul>
+<li><a href="https://www.articy.com/en/" target="_blank">Articy Official Site</a></li>
+<li><a href="https://storyflow-editor.com/blog/best-narrative-design-tools-for-game-developers-2025/" target="_blank">Storyflow: Best Narrative Design Tools 2025</a></li>
+<li><a href="https://blog.arcweave.com/top-10-tools-for-narrative-design" target="_blank">Arcweave Blog: Top 10 Narrative Design Tools</a></li>
+<li><a href="https://www.gamedeveloper.com/design/must-have-tools-and-libraries-for-indie-game-developers-in-2024" target="_blank">Game Developer: Must Have Tools for Indie Devs 2024</a></li>
+</ul>
+<h4>Communities and Conferences</h4>
+<ul>
+<li><a href="https://gdconf.com/" target="_blank">GDC Festival of Gaming 2026</a></li>
+<li><a href="https://tinyhydra.com/game-design-and-development-subreddits/" target="_blank">Tiny Hydra: 100+ Subreddits for Game Designers</a></li>
+<li><a href="https://thehiveindex.com/topics/game-design/platform/reddit/" target="_blank">The Hive Index: Best Game Design Subreddits 2025</a></li>
+</ul>
+<h4>Competitive Landscape</h4>
+<ul>
+<li><a href="https://tracxn.com/d/companies/articy/" target="_blank">Tracxn: Articy Competitors</a></li>
+<li><a href="https://www.crunchbase.com/organization/inworld-ai" target="_blank">Crunchbase: Inworld AI</a></li>
+<li><a href="https://gamesbeat.com/arcweave-raises-850k-to-build-ai-powered-game-creation-tools/" target="_blank">GamesBeat: Arcweave Raises $850K</a></li>
+</ul>
+<hr>
+<p><em>Document prepared for LoreWeaver investor due diligence. March 2026.</em></p>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>

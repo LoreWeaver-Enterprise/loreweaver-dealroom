@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Landscape - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="LoreWeaver">
+                <h2>Deal Room</h2>
+            </div>
+
+            <div class="nav-section">
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="executive-summary.html" class="nav-link">Executive Summary</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Product</div>
+                <a href="product-demo.html" class="nav-link">Product Demo</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Market Sizing</div>
+                <a href="tam-sam-som.html" class="nav-link">TAM / SAM / SOM</a>
+                <a href="narrative-cost-model.html" class="nav-link">Narrative Cost Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Competitive Analysis</div>
+                <a href="competitor-landscape.html" class="nav-link active">Competitor Landscape</a>
+                <a href="market-trends.html" class="nav-link">Market Trends and Timing</a>
+                <a href="competitive-moat.html" class="nav-link">Competitive Moat and IP</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Customers and Strategy</div>
+                <a href="buyer-personas.html" class="nav-link">Buyer Personas</a>
+                <a href="gtm-distribution.html" class="nav-link">GTM and Distribution</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Model</div>
+                <a href="architect-business-model.html" class="nav-link">Architect Business Model</a>
+                <a href="director-business-model.html" class="nav-link">Director Business Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Investment</div>
+                <a href="deal-terms.html" class="nav-link">Deal Terms</a>
+                <a href="timeline-milestones.html" class="nav-link">Timeline and Milestones</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Competitor Landscape <span class="version-badge">v1.0</span></h1>
+                <p class="subtitle">Deep-dive competitive analysis across authoring, AI NPC, and runtime</p>
+            </div>
+
+<p><strong>Prepared for investors. Last updated: March 2026.</strong></p>
+<hr>
+<h3>1. Executive Summary</h3>
+<p>LoreWeaver operates at the intersection of two converging markets: narrative authoring tools (articy:draft, Arcweave, Twine, Ink, Yarn Spinner) and AI NPC/runtime platforms (Inworld AI, Convai, NVIDIA ACE, Artificial Agency). No single competitor covers both authoring and runtime in one integrated pipeline. This gap defines LoreWeaver's core opportunity.</p>
+<p>The narrative authoring market is mature but stagnant. articy:draft remains the professional standard, yet offers zero AI capabilities and no runtime component. The AI NPC market is well funded ($160M+ deployed across startups) but fixated on cloud inference, which creates latency, ongoing cost, and data privacy concerns for game studios. NVIDIA ACE validates on-device AI as the direction of travel, but serves as infrastructure, not a creative tool.</p>
+<p>LoreWeaver's two products, Architect (AI authoring) and Director (on-device runtime), position the company as the only player offering a full pipeline from narrative creation to in-game execution, with creative control retained by writers and zero cloud dependency.</p>
+<p>The competitive window is open. Inworld has pivoted away from gaming toward general purpose real time AI infrastructure. Articy:draft has not shipped AI features. Atelico, the closest philosophical match, is an AI games studio, not a middleware company, and has only raised $5M seed.</p>
+<hr>
+<h3>2. Competitive Matrix</h3>
+<h4>Capability Comparison</h4>
+<table>
+<thead><tr>
+<th>Company</th>
+<th>Authoring Tool</th>
+<th>AI Dialogue</th>
+<th>AI Plot Generation</th>
+<th>Creative Control</th>
+<th>On Device</th>
+<th>Runtime Engine</th>
+<th>Funding</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>LoreWeaver</strong></td>
+<td>Yes (Architect)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Full</td>
+<td>Yes</td>
+<td>Yes (Director)</td>
+<td>Raising €550K</td>
+</tr>
+<tr>
+<td>articy:draft X</td>
+<td>Yes (industry standard)</td>
+<td>No</td>
+<td>No</td>
+<td>Full (manual)</td>
+<td>N/A</td>
+<td>No</td>
+<td>Bootstrapped</td>
+</tr>
+<tr>
+<td>Arcweave</td>
+<td>Yes (browser based)</td>
+<td>Basic AI assistant</td>
+<td>No</td>
+<td>Full (manual)</td>
+<td>N/A</td>
+<td>No</td>
+<td>$850K seed</td>
+</tr>
+<tr>
+<td>Twine</td>
+<td>Yes (open source)</td>
+<td>No</td>
+<td>No</td>
+<td>Full (manual)</td>
+<td>N/A</td>
+<td>No</td>
+<td>None (OSS)</td>
+</tr>
+<tr>
+<td>Ink (Inkle)</td>
+<td>Yes (scripting language)</td>
+<td>No</td>
+<td>No</td>
+<td>Full (manual)</td>
+<td>N/A</td>
+<td>No</td>
+<td>Bootstrapped</td>
+</tr>
+<tr>
+<td>Yarn Spinner</td>
+<td>Yes (Unity focused)</td>
+<td>No</td>
+<td>No</td>
+<td>Full (manual)</td>
+<td>N/A</td>
+<td>No</td>
+<td>Grants only</td>
+</tr>
+<tr>
+<td>Inworld AI</td>
+<td>No</td>
+<td>Yes</td>
+<td>Partial</td>
+<td>Limited</td>
+<td>No (cloud)</td>
+<td>Yes (cloud)</td>
+<td>$125M</td>
+</tr>
+<tr>
+<td>Convai</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Limited</td>
+<td>No (cloud)</td>
+<td>Partial</td>
+<td>$5M</td>
+</tr>
+<tr>
+<td>Charisma.ai</td>
+<td>Partial (story editor)</td>
+<td>Yes</td>
+<td>Partial</td>
+<td>Moderate</td>
+<td>No (cloud)</td>
+<td>Partial</td>
+<td>$650K + £1M grant</td>
+</tr>
+<tr>
+<td>NVIDIA ACE</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Limited</td>
+<td>Yes (RTX only)</td>
+<td>Yes (SDK)</td>
+<td>NVIDIA internal</td>
+</tr>
+<tr>
+<td>Atelico</td>
+<td>No</td>
+<td>Yes</td>
+<td>Partial</td>
+<td>Moderate</td>
+<td>Yes</td>
+<td>Yes (engine)</td>
+<td>$5M seed</td>
+</tr>
+<tr>
+<td>Artificial Agency</td>
+<td>No</td>
+<td>Yes (behavior)</td>
+<td>No</td>
+<td>Limited</td>
+<td>Unknown</td>
+<td>Yes</td>
+<td>$16M</td>
+</tr>
+<tr>
+<td>Bitpart</td>
+<td>No</td>
+<td>Yes (multi agent)</td>
+<td>Partial</td>
+<td>Limited</td>
+<td>Unknown</td>
+<td>Yes (SDK)</td>
+<td>$5.4M seed</td>
+</tr>
+<tr>
+<td>RCT AI</td>
+<td>No</td>
+<td>Partial</td>
+<td>Yes (RL based)</td>
+<td>Limited</td>
+<td>No</td>
+<td>Yes</td>
+<td>$14.2M</td>
+</tr>
+<tr>
+<td>Aarda.ai</td>
+<td>Partial (worldbuilding)</td>
+<td>Yes</td>
+<td>Partial</td>
+<td>Moderate</td>
+<td>Unknown</td>
+<td>No</td>
+<td>Undisclosed</td>
+</tr>
+</tbody></table>
+<h4>Pricing Comparison</h4>
+<table>
+<thead><tr>
+<th>Company</th>
+<th>Free Tier</th>
+<th>Entry Price</th>
+<th>Mid Tier</th>
+<th>Enterprise</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>LoreWeaver Architect</strong></td>
+<td>Yes</td>
+<td>Usage based (AI token markup 6x)</td>
+<td>Usage based</td>
+<td>Usage based</td>
+</tr>
+<tr>
+<td><strong>LoreWeaver Director</strong></td>
+<td>Yes</td>
+<td>1-5% rev share or seat based</td>
+<td>+ Add ons</td>
+<td>Custom</td>
+</tr>
+<tr>
+<td>articy:draft X</td>
+<td>Yes (limited)</td>
+<td>€5.99/user/month</td>
+<td>€49/team/month</td>
+<td>Custom (>€10M budgets)</td>
+</tr>
+<tr>
+<td>Arcweave</td>
+<td>Yes (3 projects, non commercial)</td>
+<td>$15/member/month (annual)</td>
+<td>$25/member/month (Team, annual)</td>
+<td>Custom</td>
+</tr>
+<tr>
+<td>Twine</td>
+<td>Free (open source)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Ink (Inkle)</td>
+<td>Free (MIT license)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Yarn Spinner</td>
+<td>Free (MIT license)</td>
+<td>€69 one time (Unity asset)</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Inworld AI</td>
+<td>Yes</td>
+<td>Usage based ($5/1M chars TTS)</td>
+<td>$25/month Pro</td>
+<td>Custom enterprise</td>
+</tr>
+<tr>
+<td>Convai</td>
+<td>Yes</td>
+<td>$29/month (Indie Dev)</td>
+<td>$99/month (Pro)</td>
+<td>$1,199/month+</td>
+</tr>
+<tr>
+<td>Charisma.ai</td>
+<td>Trial only</td>
+<td>$5 per 50K credits (~200 min)</td>
+<td>Pay as you go</td>
+<td>Custom (dev fee + monthly)</td>
+</tr>
+<tr>
+<td>NVIDIA ACE</td>
+<td>Free dev access</td>
+<td>Free (requires RTX hardware)</td>
+<td>N/A</td>
+<td>Custom licensing</td>
+</tr>
+<tr>
+<td>Atelico</td>
+<td>N/A (not yet launched)</td>
+<td>TBD</td>
+<td>TBD</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>Artificial Agency</td>
+<td>N/A (not yet launched)</td>
+<td>TBD</td>
+<td>TBD</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>Bitpart</td>
+<td>Unknown</td>
+<td>Subscription based (undisclosed)</td>
+<td>Unknown</td>
+<td>Unknown</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>3. Deep Dives by Category</h3>
+<h4>3.1 Narrative Authoring Tools</h4>
+<h5>articy:draft X (Nevigo GmbH)</h5>
+<p><strong>What they do.</strong> The professional standard for narrative design and game writing. articy:draft provides visual flow charts, dialogue trees, database management for game entities, and export pipelines to major engines. Used across AAA and mid-tier studios worldwide.</p>
+<p><strong>Pricing.</strong> Free tier available. Single user starts at €5.99/month. Team bundles from €49/month. Enterprise tier required for projects with budgets exceeding €10M (custom pricing).</p>
+<p><strong>Funding.</strong> Bootstrapped. Nevigo GmbH is based in Bochum, Germany.</p>
+<p><strong>Team.</strong> 11 to 50 employees.</p>
+<p><strong>Key customers.</strong> Disco Elysium, Hogwarts Legacy, The Talos Principle 2, Broken Roads, Syberia: The World Before, Immortals of Aveum, Suzerain.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Deep industry entrenchment. 15+ years of production use across AAA.</li>
+<li>Mature entity database and localization pipeline.</li>
+<li>Proven at scale (Hogwarts Legacy had thousands of dialogue nodes).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Zero AI capabilities. All content is manually authored.</li>
+<li>No runtime component. Exports static data only.</li>
+<li>Windows only until April 2025 Mac release. No browser option.</li>
+<li>Legacy architecture. No real time collaboration.</li>
+</ul>
+<hr>
+<h5>Arcweave</h5>
+<p><strong>What they do.</strong> A browser based collaborative narrative design tool. Offers visual branching editors, real time co-editing, and basic AI assistant features. Targets indie developers and small teams with a modern, accessible UX.</p>
+<p><strong>Pricing.</strong> Free (3 projects, 200 items max, non commercial). Pro at $15/member/month (annual). Team at $25/member/month (annual). Enterprise and Education plans available.</p>
+<p><strong>Funding.</strong> $850K seed (December 2023).</p>
+<p><strong>Team.</strong> 8 employees.</p>
+<p><strong>Key customers.</strong> 20,000+ users. Employees at Netflix, EA, Amazon, and Microsoft use the tool. Notable games: Space Chef, Glasshouse, Ete.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Browser native. No install required.</li>
+<li>Real time collaboration built in.</li>
+<li>Growing community (game jams, IGDA partnership).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>AI features are basic (assistant only, no generation pipeline).</li>
+<li>No runtime engine.</li>
+<li>No on-device AI.</li>
+<li>Small team, limited enterprise support.</li>
+<li>Cannot be used commercially on the free tier.</li>
+</ul>
+<hr>
+<h5>Twine</h5>
+<p><strong>What they do.</strong> Free, open source tool for creating interactive hypertext fiction. Emphasizes visual story structure. No programming knowledge required. Widely used in education, indie games, and interactive fiction communities.</p>
+<p><strong>Pricing.</strong> Free (open source).</p>
+<p><strong>Funding.</strong> None. Community maintained.</p>
+<p><strong>Key customers.</strong> Primarily used in indie interactive fiction, education, and game jams. Not widely adopted in commercial game production.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Zero cost, zero friction.</li>
+<li>Massive community of creators.</li>
+<li>Excellent for prototyping branching narratives.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No AI features.</li>
+<li>No game engine integration pipeline.</li>
+<li>No runtime. Outputs web pages only.</li>
+<li>Not designed for professional game production.</li>
+</ul>
+<hr>
+<h5>Ink (Inkle Studios)</h5>
+<p><strong>What they do.</strong> Open source scripting language designed specifically for branching narrative. Created by Inkle Studios (Cambridge, UK), the developers of 80 Days and Sorcery!. Integrates with Unity, Unreal, Godot, and web via open source plugins.</p>
+<p><strong>Pricing.</strong> Free (MIT license).</p>
+<p><strong>Funding.</strong> Bootstrapped. Inkle Studios is self funded through game sales.</p>
+<p><strong>Team.</strong> ~4 employees at Inkle Studios.</p>
+<p><strong>Key customers.</strong> Heaven's Vault, 80 Days, Sorcery!. Third party adoption in Sea of Thieves (Rare/Microsoft), Banner Saga 3, Falcon Age, NeoCab, A Short Hike, Signs of the Sojourner.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Elegant, writer friendly scripting syntax.</li>
+<li>Battle tested in shipped AAA and indie titles.</li>
+<li>Strong open source ecosystem.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Text only scripting language; no visual editor (Inky editor is minimal).</li>
+<li>No AI features.</li>
+<li>No runtime engine beyond the ink interpreter.</li>
+<li>Maintained by a 4 person game studio, not a dedicated tools company.</li>
+</ul>
+<hr>
+<h5>Yarn Spinner (Yarn Spinner Pty. Ltd.)</h5>
+<p><strong>What they do.</strong> Open source dialogue and narrative scripting tool for Unity (and soon Unreal). Focused on making branching dialogue accessible. Developed by a 3 person team in Australia with community support and grant funding.</p>
+<p><strong>Pricing.</strong> Free (MIT license). Paid Unity Asset Store version at €69 (one time) with additional features like typewriter effects and Text Animator integration.</p>
+<p><strong>Funding.</strong> Epic Mega Grant, NYU Game Center, Australia Council grant, Patreon community funding.</p>
+<p><strong>Key customers.</strong> DREDGE, Night in the Woods, A Short Hike, Lost in Random (EA), Frog Detective Trilogy, Button City, Rift of the NecroDancer.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Deeply integrated with Unity.</li>
+<li>Used in critically acclaimed indie titles.</li>
+<li>Active, passionate open source community.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Unity focused (Unreal support planned for 2026).</li>
+<li>No AI features.</li>
+<li>No runtime engine. Dialogue system only.</li>
+<li>3 person maintenance team. Limited enterprise viability.</li>
+</ul>
+<hr>
+<h4>3.2 AI NPC / Dialogue Platforms</h4>
+<h5>Inworld AI</h5>
+<p><strong>What they do.</strong> Originally the leading AI NPC platform for games, Inworld has pivoted to position itself as general purpose real time AI infrastructure. The company now focuses on voice AI (TTS 1.5), agent runtime, and consumer AI applications beyond gaming. Customers include companion apps, language tutors, and enterprise chatbots alongside game studios.</p>
+<p><strong>Pricing.</strong> Free tier available. Usage based: $5/1M characters (TTS Mini), $10/1M characters (TTS Max). Starter at $10/month, Professional at $25/month. Enterprise with custom pricing. No seat fees; pay per consumption.</p>
+<p><strong>Funding.</strong> $125M raised. $500M valuation (Series B, August 2023). Investors include Lightspeed, Kleiner Perkins, Founders Fund, Microsoft M12, Meta, Intel Capital, Samsung NEXT.</p>
+<p><strong>Team.</strong> ~107 to 117 employees.</p>
+<p><strong>Key customers.</strong> NVIDIA (ACE integration), NBCU, Logitech Streamlabs. Consumer apps: Status by Wishroll, Bible Chat, Talkpal. Hosted a Consumer AI Accelerator with 32 startups.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Massive funding advantage ($125M vs €550K).</li>
+<li>Production grade infrastructure at scale.</li>
+<li>Strong TTS and voice cloning technology.</li>
+<li>Broad investor network (Microsoft, Meta, Intel).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Pivoting away from games toward general real time AI.</li>
+<li>Cloud dependent. Latency and per interaction costs.</li>
+<li>No authoring tool. Developers must build narrative separately.</li>
+<li>No creative control framework for writers.</li>
+<li>Gaming increasingly looks like a secondary use case.</li>
+</ul>
+<hr>
+<h5>Convai</h5>
+<p><strong>What they do.</strong> AI NPC platform enabling 3D characters with conversational and perceptual abilities. Deep partnership with NVIDIA (featured in ACE demos). Provides SDKs for Unreal, Unity, and web. Characters can interact with objects, perceive environments, and hold dynamic conversations.</p>
+<p><strong>Pricing.</strong> Free tier. Indie Dev at $29/month. Professional at $99/month. Scale at $499/month. Business at $1,199/month. Enterprise custom.</p>
+<p><strong>Funding.</strong> $5M (December 2022). Investors: Dune Ventures, Monta Vista Capital, Rainfall Ventures.</p>
+<p><strong>Team.</strong> ~43 employees. $6.5M revenue reported in 2024.</p>
+<p><strong>Key customers.</strong> Featured in NVIDIA ACE demos. Integration partners include NVIDIA, game developers using Unreal and Unity.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Strong NVIDIA partnership provides visibility and distribution.</li>
+<li>Environmental perception (NPCs react to game world).</li>
+<li>Growing revenue ($6.5M in 2024 suggests product market fit).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Cloud dependent.</li>
+<li>No authoring tool. No narrative pipeline.</li>
+<li>No creative control for writers. AI generates responses on the fly.</li>
+<li>Per interaction pricing can become expensive at scale.</li>
+</ul>
+<hr>
+<h5>Charisma.ai</h5>
+<p><strong>What they do.</strong> Conversation engine for interactive storytelling across games, training, and marketing. Offers a story editor where writers create branching flows, then AI handles dialogue delivery with emotion and personality. Targets entertainment (BBC, Channel 4) and enterprise training.</p>
+<p><strong>Pricing.</strong> Free trial. Pro at $5 per 50,000 credits (~200 experience minutes). Enterprise with custom pricing (one off dev fee + monthly platform fee).</p>
+<p><strong>Funding.</strong> $650K from investors (Port Aventura, Wayra, Comcast NBCUniversal LIFT Labs). Additional £1.04M Innovate UK grant for AI storytelling research with Channel 4 and universities.</p>
+<p><strong>Team.</strong> ~9 to 18 employees. Founded 2016, headquartered in Oxford, UK.</p>
+<p><strong>Key customers.</strong> BBC, Channel 4, StoryFutures. Partnership with Keywords Studios (clients include Nintendo, Tencent, EA, Sony).</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Story editor gives writers some creative control.</li>
+<li>Strong media/entertainment partnerships (BBC, Channel 4).</li>
+<li>Keywords Studios partnership opens access to major game studios.</li>
+<li>Longest time in market (founded 2016).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Cloud dependent.</li>
+<li>Limited game engine integration (SDK focused, not middleware).</li>
+<li>Small team with modest funding.</li>
+<li>Pricing based on "experience minutes" is unpredictable for studios.</li>
+<li>Primary traction appears to be in training and marketing, not games.</li>
+</ul>
+<hr>
+<h5>NVIDIA ACE</h5>
+<p><strong>What they do.</strong> NVIDIA's suite of RTX accelerated AI technologies for digital characters in games. Includes TTS, STT, facial animation (Audio2Face), and as of CES 2025, autonomous game character capabilities. Runs on device using RTX hardware. Provides SDKs and plugins for Unreal Engine and Maya.</p>
+<p><strong>Pricing.</strong> Free developer access. Open source components under MIT/Apache licenses. Enterprise production licensing requires custom agreement.</p>
+<p><strong>Funding.</strong> Internal NVIDIA investment. Not a standalone company.</p>
+<p><strong>Key customers.</strong> inZOI (Early Access March 2025), NARAKA: BLADEPOINT MOBILE PC VERSION (NetEase), PUBG: BATTLEGROUNDS (Krafton, AI teammate testing 2026).</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Backed by NVIDIA's resources and distribution.</li>
+<li>On device inference (validates LoreWeaver's thesis).</li>
+<li>Hardware level optimization for RTX GPUs.</li>
+<li>Major game studios already integrating (Krafton, NetEase).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>Requires NVIDIA RTX hardware. No cross platform.</li>
+<li>No authoring tool. Developers must build everything themselves.</li>
+<li>No narrative pipeline. ACE handles animation and voice, not story.</li>
+<li>Infrastructure toolkit, not a creative tool.</li>
+<li>Not available on consoles or mobile (RTX only).</li>
+</ul>
+<hr>
+<h5>Atelico (Studio Atelico)</h5>
+<p><strong>What they do.</strong> AI first games studio building a proprietary on device AI engine. The Atelico Engine runs lifelike NPCs with dialogue, planning, and emergent behaviors without cloud dependency. Founded by veterans from Uber, Meta, and Creative Assembly. Currently building their own games and plan to license the engine.</p>
+<p><strong>Pricing.</strong> Not yet launched publicly. TBD.</p>
+<p><strong>Funding.</strong> $5M seed (August 2025). Led by Air Street Capital. Investors include Factory (Chris Re, Samuel Jackson) and Clay.</p>
+<p><strong>Team.</strong> 7 employees. Founded 2024.</p>
+<p><strong>Key customers.</strong> None yet. Debut titles and public engine version in development.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>On device AI (same thesis as LoreWeaver).</li>
+<li>Strong technical team (ex Uber, Meta, Creative Assembly).</li>
+<li>Published research arguing cloud AI for games is "dead on arrival."</li>
+<li>Supports Unreal, Unity, and Godot.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No authoring tool. Runtime only.</li>
+<li>Pre product. No shipped games or public engine release.</li>
+<li>Games studio first, middleware second. Unclear if licensing is the priority.</li>
+<li>Very small team (7 people) for an ambitious dual mandate (studio + engine).</li>
+</ul>
+<hr>
+<h4>3.3 AI Agent / Runtime</h4>
+<h5>Artificial Agency</h5>
+<p><strong>What they do.</strong> Behavior engine that uses foundation models to create autonomous NPCs. Developers give each NPC motivations, rules, and goals; the engine then generates emergent behavior and reactions. Founded by former Google DeepMind researchers. Based in Edmonton, Alberta.</p>
+<p><strong>Pricing.</strong> Not publicly disclosed. Product in early access.</p>
+<p><strong>Funding.</strong> $16M (announced July 2024).</p>
+<p><strong>Team.</strong> Undisclosed. Founded by ex DeepMind researchers.</p>
+<p><strong>Key customers.</strong> None publicly announced.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>DeepMind pedigree brings credibility and technical depth.</li>
+<li>Behavior engine approach enables emergent gameplay.</li>
+<li>Strong funding for stage ($16M).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No authoring tool.</li>
+<li>No creative control framework. AI drives all behavior.</li>
+<li>Pre product. No shipped titles.</li>
+<li>Behavior focus (not narrative). Different problem space.</li>
+</ul>
+<hr>
+<h5>Bitpart AI</h5>
+<p><strong>What they do.</strong> Provides pre trained NPCs for games using generative AI and automated planners. Their SDK includes "Aesop," an AI Director that orchestrates dynamic interactions between NPCs and players using multi agent planning. Founded by Jeff Orkin (creator of GOAP system for F.E.A.R.) and Sarah Rudzki.</p>
+<p><strong>Pricing.</strong> Subscription based. Specific tiers undisclosed.</p>
+<p><strong>Funding.</strong> $5.37M seed (February 2024). Led by LVP (London Venture Partners). Additional investors: Converge, Crane Venture Partners, NSF.</p>
+<p><strong>Team.</strong> 2 to 10 employees.</p>
+<p><strong>Key customers.</strong> None publicly announced. Team members have shipped 40+ titles in previous roles.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Jeff Orkin's GOAP pedigree (F.E.A.R. is a landmark in game AI).</li>
+<li>Multi agent orchestration is unique.</li>
+<li>Pre trained NPCs lower integration burden.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No authoring tool. Pre built characters, not custom narrative.</li>
+<li>No on device focus.</li>
+<li>Very early stage. No shipped integrations.</li>
+<li>Small team.</li>
+</ul>
+<hr>
+<h5>RCT AI</h5>
+<p><strong>What they do.</strong> Develops AI solutions for gaming using deep reinforcement learning. Their core product, Chaos Box, dynamically generates NPC responses and storylines based on real time player inputs without scripting. Founded 2018, based in Burbank, California.</p>
+<p><strong>Pricing.</strong> Not publicly disclosed.</p>
+<p><strong>Funding.</strong> $14.2M across 3 rounds. Latest: $4M Series A (March 2022). Led by Galaxy Interactive, Republic, Alameda Research.</p>
+<p><strong>Team.</strong> Undisclosed.</p>
+<p><strong>Key customers.</strong> None publicly announced in gaming.</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Reinforcement learning approach is differentiated.</li>
+<li>Decent funding for the category ($14.2M total).</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No authoring tool.</li>
+<li>Last funding round was March 2022 with Alameda Research (collapsed in FTX scandal). Unclear current status.</li>
+<li>No publicly shipped game integrations.</li>
+<li>Crypto/Web3 adjacent positioning may have hurt credibility.</li>
+</ul>
+<hr>
+<h5>Aarda.ai</h5>
+<p><strong>What they do.</strong> AI worldbuilding engine for game narrative. Takes a worldbuilding first approach: developers create comprehensive background contexts (lore, rules, factions), then the AI generates coherent characters and stories within those constraints. Co-founded by Constantin Berthelier (12 year narrative designer) and Kayna Oliveira (robotics/AI engineer).</p>
+<p><strong>Pricing.</strong> Not publicly disclosed.</p>
+<p><strong>Funding.</strong> Undisclosed.</p>
+<p><strong>Team.</strong> Small (2 co-founders identified).</p>
+<p><strong>Key customers.</strong> Released Shadows of Harrow City (January 2025).</p>
+<p><strong>Strengths vs LoreWeaver.</strong></p>
+<ul>
+<li>Worldbuilding first approach is philosophically similar to LoreWeaver.</li>
+<li>Founded by an experienced narrative designer.</li>
+</ul>
+<p><strong>Weaknesses vs LoreWeaver.</strong></p>
+<ul>
+<li>No runtime engine.</li>
+<li>Appears to be pre-product for the platform (one demo game only).</li>
+<li>No disclosed funding or team scale.</li>
+<li>Limited public information suggests very early stage.</li>
+</ul>
+<hr>
+<h4>3.4 Emerging / Adjacent</h4>
+<h5>Player2</h5>
+<p>AI NPC mod platform enabling indie developers to add AI characters to existing games. Offers free APIs and a revenue sharing program ($2M committed to 1,000 indie developers). Hosts game jams and bounty programs. Consumer facing platform, not B2B middleware.</p>
+<h5>Hidden Door</h5>
+<p>AI social storytelling platform. $2M pre seed led by Northzone. Founded by Hilary Mason (former Chief Data Scientist at Bitly) and Matt Brandwein. Group chat adventures with an AI narrator. Adjacent to games but targets a different use case (social text experiences).</p>
+<h5>Replica Studios</h5>
+<p>AI voice engine for games. $2.6M raised (2019 seed). Pricing from $10/month (Starter) to $1,500/month (Enterprise). SAG-AFTRA partnership for ethical AI voice use. Focused on voice only, not narrative or behavior. Complementary rather than competitive.</p>
+<h5>Modl.ai</h5>
+<p>AI driven game testing and virtual players. €8.5M Series A (2022). Backed by Griffin Gaming Partners and M12 (Microsoft). Based in Copenhagen. Focused on QA automation and bot simulation, not narrative. Adjacent technology.</p>
+<hr>
+<h3>4. LoreWeaver Positioning</h3>
+<h4>Why LoreWeaver Wins</h4>
+<p><strong>1. Only full pipeline player.</strong> No competitor offers both authoring (Architect) and runtime (Director) in a single integrated product. Studios currently stitch together articy:draft (authoring) + custom code or Inworld (runtime). LoreWeaver eliminates this gap.</p>
+<p><strong>2. On device by design.</strong> Cloud dependent competitors (Inworld, Convai, Charisma.ai) face structural problems: latency (100ms+ round trips break immersion), per interaction costs (prohibitive at scale), data privacy (studios resist sending player data to third party servers), and platform certification (console manufacturers restrict cloud AI calls during gameplay). NVIDIA ACE validates the on device thesis but locks developers into RTX hardware. LoreWeaver targets cross platform on device execution.</p>
+<p><strong>3. Creative control retained.</strong> AI NPC platforms generate dialogue and behavior on the fly, stripping writers of creative control. Studios with narrative IP (the majority of AAA and premium indie) will not accept this. LoreWeaver's approach (AI assists writers in Architect, then Director executes authored content with controlled variation) preserves the writer's authority.</p>
+<p><strong>4. Authoring incumbents are stagnant.</strong> articy:draft has not shipped AI features despite 15+ years in market. Arcweave's AI assistant is basic. Twine, Ink, and Yarn Spinner are open source dialogue tools with no AI roadmap. The authoring market is waiting for a modern, AI powered entrant.</p>
+<p><strong>5. Pricing alignment.</strong> LoreWeaver's usage based model (Architect) and rev share model (Director) align costs with studio outcomes. articy:draft charges per seat regardless of usage. Inworld and Convai charge per interaction, creating unpredictable bills. LoreWeaver's model scales with success.</p>
+<h4>What Gaps Remain</h4>
+<p><strong>1. Brand and trust.</strong> articy:draft has 15+ years of AAA track record. LoreWeaver must prove reliability through shipped titles.</p>
+<p><strong>2. Funding asymmetry.</strong> Inworld has raised $125M. Artificial Agency has $16M. LoreWeaver's €550K seed must be deployed with extreme capital efficiency.</p>
+<p><strong>3. Atelico is the closest competitor.</strong> Same on device thesis, game industry veterans, and recent funding ($5M). If Atelico pivots from games studio to middleware, they become a direct threat.</p>
+<p><strong>4. NVIDIA ACE is the elephant in the room.</strong> Free, backed by NVIDIA, and already shipping in commercial titles. LoreWeaver's advantage is cross platform support and the authoring tool; NVIDIA ACE will remain RTX only and infrastructure level.</p>
+<p><strong>5. Engine integrations.</strong> Yarn Spinner, Ink, and articy:draft have years of battle tested engine plugins. LoreWeaver must build and maintain robust integrations for Unity, Unreal, and Godot.</p>
+<hr>
+<h3>5. Market Context</h3>
+<table>
+<thead><tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Source</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AI NPC market size (2025)</td>
+<td>$2.0B</td>
+<td>DataInsightsMarket</td>
+</tr>
+<tr>
+<td>AI NPC market CAGR</td>
+<td>26.4% through 2033</td>
+<td>DataInsightsMarket</td>
+</tr>
+<tr>
+<td>NPC generation AI market (2029 forecast)</td>
+<td>$5.51B</td>
+<td>GlobeNewsWire</td>
+</tr>
+<tr>
+<td>AI storytelling software market (2025)</td>
+<td>$2.5B</td>
+<td>Industry reports</td>
+</tr>
+<tr>
+<td>Studios implementing AI NPCs</td>
+<td>54%</td>
+<td>Industry surveys</td>
+</tr>
+<tr>
+<td>Game professionals using gen AI tools</td>
+<td>33%+</td>
+<td>Industry surveys</td>
+</tr>
+<tr>
+<td>Total VC investment in AI gaming (cumulative)</td>
+<td>$1.8B+</td>
+<td>InvestGame</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6. Sources</h3>
+<ul>
+<li><a href="https://inworld.ai/blog/inworld-valued-at-500-million" target="_blank">Inworld AI Blog: $500M Valuation</a></li>
+<li><a href="https://www.globenewswire.com/news-release/2026/01/21/3222492/0/en/Inworld-AI-Launches-TTS-1-5-a-Groundbreaking-Voice-AI-model-for-the-Next-Wave-of-Realtime-AI-Applications.html" target="_blank">Inworld AI TTS 1.5 Launch (Jan 2026)</a></li>
+<li><a href="https://www.eesel.ai/blog/inworld-ai-pricing" target="_blank">Inworld AI Pricing Guide</a></li>
+<li><a href="https://convai.com/pricing" target="_blank">Convai Pricing</a></li>
+<li><a href="https://getlatka.com/companies/convai.com" target="_blank">Convai Revenue Data (Latka)</a></li>
+<li><a href="https://convai.com/blog/elevating-conversational-npcs-nvidia-ace-for-games-taps-convai-for-creating-humanlike-characters" target="_blank">Convai NVIDIA Partnership</a></li>
+<li><a href="https://charisma.ai/pricing" target="_blank">Charisma.ai Pricing</a></li>
+<li><a href="https://www.channel4.com/press/news/consortium-secures-ps104-m-funding-explore-ai-driven-storytelling-tv-film-industries" target="_blank">Charisma.ai Innovate UK Grant</a></li>
+<li><a href="https://www.keywordsstudios.com/en/about-us/news-events/news/keywords-and-charismaai-to-explore-immersive-npcs-using-responsible-ai/" target="_blank">Charisma.ai Keywords Studios Partnership</a></li>
+<li><a href="https://developer.nvidia.com/ace-for-games" target="_blank">NVIDIA ACE Developer Portal</a></li>
+<li><a href="https://www.nvidia.com/en-us/geforce/news/nvidia-ace-autonomous-ai-companions-pubg-naraka-bladepoint/" target="_blank">NVIDIA ACE CES 2025 Announcement</a></li>
+<li><a href="https://www.nvidia.com/en-us/geforce/news/nvidia-ace-naraka-bladepoint-inzoi-launch-this-month/" target="_blank">NVIDIA ACE inZOI and NARAKA Launch</a></li>
+<li><a href="https://www.articy.com/en/" target="_blank">articy:draft X Official Site</a></li>
+<li><a href="https://www.articy.com/shop/pricing/pricing-options/" target="_blank">articy:draft Pricing</a></li>
+<li><a href="https://www.articy.com/en/showcases/" target="_blank">articy:draft Showcases</a></li>
+<li><a href="https://arcweave.com/pricing" target="_blank">Arcweave Pricing</a></li>
+<li><a href="https://blog.arcweave.com/seed-funding" target="_blank">Arcweave Seed Funding Announcement</a></li>
+<li><a href="https://arcweave.com/customers" target="_blank">Arcweave Customers</a></li>
+<li><a href="https://twinery.org/" target="_blank">Twine Official Site</a></li>
+<li><a href="https://www.inklestudios.com/ink/" target="_blank">Ink Official Site (Inkle Studios)</a></li>
+<li><a href="https://github.com/inkle/ink" target="_blank">Ink GitHub Repository</a></li>
+<li><a href="https://yarnspinner.dev/" target="_blank">Yarn Spinner Official Site</a></li>
+<li><a href="https://yarnspinner.dev/blog/yarn-spinner-in-2026" target="_blank">Yarn Spinner 2026 Roadmap</a></li>
+<li><a href="https://assetstore.unity.com/packages/tools/behavior-ai/yarn-spinner-for-unity-the-friendly-dialogue-and-narrative-tool-267061" target="_blank">Yarn Spinner Unity Asset Store</a></li>
+<li><a href="https://atelico.studio/blog/funding-announcement" target="_blank">Studio Atelico $5M Seed Announcement</a></li>
+<li><a href="https://atelico.studio/blog/cloud-ai-for-video-games-is-dead-on-arrival" target="_blank">Atelico Cloud AI Dead on Arrival Blog</a></li>
+<li><a href="https://press.airstreet.com/p/studio-atelico-raises-5m-seed-ai-games" target="_blank">Atelico Air Street Capital Announcement</a></li>
+<li><a href="https://techcrunch.com/2024/07/18/artificial-agency-raises-video-game-npcs-ai/" target="_blank">Artificial Agency $16M Raise (TechCrunch)</a></li>
+<li><a href="https://www.artificial.agency" target="_blank">Artificial Agency Official Site</a></li>
+<li><a href="https://www.crunchbase.com/organization/bitpart-ai" target="_blank">Bitpart AI Crunchbase</a></li>
+<li><a href="https://londonvp.com/our-portfolio/bitpart-ai/" target="_blank">Bitpart AI LVP Portfolio</a></li>
+<li><a href="https://www.crunchbase.com/organization/rct-ai" target="_blank">RCT AI Crunchbase</a></li>
+<li><a href="https://aarda.ai/" target="_blank">Aarda.ai Official Site</a></li>
+<li><a href="https://www.businesswire.com/news/home/20220316005334/en/Hidden-Door-Launches-AI-Game-Platform-to-Build-the-Narrative-Multiverse" target="_blank">Hidden Door Launch Announcement</a></li>
+<li><a href="https://player2.game" target="_blank">Player2 Official Site</a></li>
+<li><a href="https://www.replicastudios.com/" target="_blank">Replica Studios Official Site</a></li>
+<li><a href="https://www.businesswire.com/news/home/20221101006033/en/modl.ai-closes-%E2%82%AC8.5m-Funding-for-AI-Engine-to-Unleash-Bots-and-Transform-Game-Development" target="_blank">Modl.ai €8.5M Funding</a></li>
+<li><a href="https://www.globenewswire.com/news-release/2026/01/29/3228744/28124/en/Non-Player-Character-NPC-Generation-Artificial-Intelligence-Research-Report-2026-5-51-Bn-Market-Opportunities-Trends-Competitive-Analysis-Strategies-Forecasts-2019-2024-2024-2029F-.html" target="_blank">NPC Generation AI Market Report ($5.51B)</a></li>
+<li><a href="https://investgame.net/news/ai-s-ever-growing-presence-in-gaming-1-8b-in-vc-investments/" target="_blank">AI in Gaming VC Investment ($1.8B)</a></li>
+<li><a href="https://lsvp.com/stories/gaming-ai-market-map-the-infinite-power-of-play/" target="_blank">Lightspeed Gaming x AI Market Map</a></li>
+</ul>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>

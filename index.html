@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="LoreWeaver">
+                <h2>Deal Room</h2>
+            </div>
+
+            <div class="nav-section">
+                <a href="index.html" class="nav-link active">Home</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="executive-summary.html" class="nav-link">Executive Summary</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Product</div>
+                <a href="product-demo.html" class="nav-link">Product Demo</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Market Sizing</div>
+                <a href="tam-sam-som.html" class="nav-link">TAM / SAM / SOM</a>
+                <a href="narrative-cost-model.html" class="nav-link">Narrative Cost Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Competitive Analysis</div>
+                <a href="competitor-landscape.html" class="nav-link">Competitor Landscape</a>
+                <a href="market-trends.html" class="nav-link">Market Trends and Timing</a>
+                <a href="competitive-moat.html" class="nav-link">Competitive Moat and IP</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Customers and Strategy</div>
+                <a href="buyer-personas.html" class="nav-link">Buyer Personas</a>
+                <a href="gtm-distribution.html" class="nav-link">GTM and Distribution</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Model</div>
+                <a href="architect-business-model.html" class="nav-link">Architect Business Model</a>
+                <a href="director-business-model.html" class="nav-link">Director Business Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Investment</div>
+                <a href="deal-terms.html" class="nav-link">Deal Terms</a>
+                <a href="timeline-milestones.html" class="nav-link">Timeline and Milestones</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+
+            <!-- Hero: product screenshot + status -->
+            <div class="hero" style="text-align: left; padding: 20px 0 10px;">
+                <h1 style="font-size: 32px; margin-bottom: 16px;">LoreWeaver Deal Room</h1>
+            </div>
+
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 24px;">
+                <img src="architect-7.png" alt="LoreWeaver Architect: entity relationship graph" style="width: 100%; display: block;">
+            </div>
+
+            <!-- Status line: the real signal -->
+            <div style="margin-bottom: 32px;">
+                <p style="font-size: 16px; color: var(--primary-color); font-weight: 600; font-family: 'Inria Serif', serif; margin-bottom: 8px;">Working beta. First revenue April 2026. 64 studios in our pipeline.</p>
+                <p style="color: var(--text-light); font-size: 14px;">AI-native narrative authoring (Architect) and on-device runtime middleware (Director) for games. Raising &euro;550K seed.</p>
+            </div>
+
+            <!-- Three paths -->
+            <div class="quick-links" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 32px;">
+                <a href="executive-summary.html" class="quick-link-group" style="text-decoration: none; cursor: pointer;">
+                    <h3 style="margin-bottom: 4px;">5 Minutes?</h3>
+                    <p style="font-size: 13px; color: var(--text-light);">Read the <strong style="color: var(--primary-color);">Executive Summary</strong>. The full thesis on one page.</p>
+                </a>
+                <a href="tam-sam-som.html" class="quick-link-group" style="text-decoration: none; cursor: pointer;">
+                    <h3 style="margin-bottom: 4px;">Due Diligence?</h3>
+                    <p style="font-size: 13px; color: var(--text-light);">Start with <strong style="color: var(--primary-color);">Market</strong>, then <strong style="color: var(--primary-color);">Competition</strong>, then <strong style="color: var(--primary-color);">Financials</strong>.</p>
+                </a>
+                <a href="deal-terms.html" class="quick-link-group" style="text-decoration: none; cursor: pointer;">
+                    <h3 style="margin-bottom: 4px;">Ready to Invest?</h3>
+                    <p style="font-size: 13px; color: var(--text-light);"><strong style="color: var(--primary-color);">Deal Terms</strong>: &euro;550K at &euro;3.5M pre-money. Cap table, terms, milestones.</p>
+                </a>
+            </div>
+
+            <!-- Key numbers -->
+            <div class="metrics-grid" style="margin-bottom: 32px;">
+                <div class="metric-card">
+                    <div class="metric-value">&euro;550K</div>
+                    <div class="metric-label">Raising</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">&euro;3.5M</div>
+                    <div class="metric-label">Pre-Money</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Apr 2026</div>
+                    <div class="metric-label">First Revenue</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">64</div>
+                    <div class="metric-label">Studios in Pipeline</div>
+                </div>
+            </div>
+
+            <!-- What's in this room -->
+            <h2 style="font-size: 16px; margin-bottom: 16px;">What's in this room</h2>
+            <div class="quick-links">
+                <div class="quick-link-group">
+                    <h3>Product</h3>
+                    <a href="product-demo.html">Product Demo (screenshots)</a>
+                    <a href="competitive-moat.html">Competitive Moat and IP</a>
+                </div>
+                <div class="quick-link-group">
+                    <h3>Market</h3>
+                    <a href="tam-sam-som.html">TAM / SAM / SOM</a>
+                    <a href="narrative-cost-model.html">Narrative Cost Model</a>
+                    <a href="competitor-landscape.html">Competitor Landscape</a>
+                    <a href="market-trends.html">Market Trends and Timing</a>
+                </div>
+                <div class="quick-link-group">
+                    <h3>Business</h3>
+                    <a href="architect-business-model.html">Architect: Free + Tokens</a>
+                    <a href="director-business-model.html">Director: Royalties</a>
+                    <a href="buyer-personas.html">Buyer Personas</a>
+                    <a href="gtm-distribution.html">GTM and Distribution</a>
+                </div>
+                <div class="quick-link-group">
+                    <h3>Investment</h3>
+                    <a href="deal-terms.html">Deal Terms and Cap Table</a>
+                    <a href="timeline-milestones.html">Timeline and Milestones</a>
+                    <a href="executive-summary.html">Executive Summary</a>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>

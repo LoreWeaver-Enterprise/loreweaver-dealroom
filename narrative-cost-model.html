@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Cost Model - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="LoreWeaver">
+                <h2>Deal Room</h2>
+            </div>
+
+            <div class="nav-section">
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="executive-summary.html" class="nav-link">Executive Summary</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Product</div>
+                <a href="product-demo.html" class="nav-link">Product Demo</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Market Sizing</div>
+                <a href="tam-sam-som.html" class="nav-link">TAM / SAM / SOM</a>
+                <a href="narrative-cost-model.html" class="nav-link active">Narrative Cost Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Competitive Analysis</div>
+                <a href="competitor-landscape.html" class="nav-link">Competitor Landscape</a>
+                <a href="market-trends.html" class="nav-link">Market Trends and Timing</a>
+                <a href="competitive-moat.html" class="nav-link">Competitive Moat and IP</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Customers and Strategy</div>
+                <a href="buyer-personas.html" class="nav-link">Buyer Personas</a>
+                <a href="gtm-distribution.html" class="nav-link">GTM and Distribution</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Model</div>
+                <a href="architect-business-model.html" class="nav-link">Architect Business Model</a>
+                <a href="director-business-model.html" class="nav-link">Director Business Model</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Investment</div>
+                <a href="deal-terms.html" class="nav-link">Deal Terms</a>
+                <a href="timeline-milestones.html" class="nav-link">Timeline and Milestones</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Narrative Cost Model <span class="version-badge">v1.0</span></h1>
+                <p class="subtitle">Bottom-up cost analysis of narrative production per gameplay hour</p>
+            </div>
+
+<p><strong>LoreWeaver Market Research | March 2026</strong></p>
+<hr>
+<h3>1. Key Takeaways</h3>
+<ul>
+<li><strong>€38,679 per gameplay hour</strong>: the fully loaded cost to produce narrative content in a first language (base + 30% social taxes + 15% overhead).</li>
+<li><strong>€184,143 per gameplay hour</strong> when scaled to 12 languages, driven by VO production, localization, and QA multiplication.</li>
+<li><strong>€7.9B per year</strong> in estimated global narrative spend across ~19,000 narrative titles producing ~170,000 gameplay hours annually.</li>
+<li><strong>LoreWeaver Architect targets €8,080/gameplay hour</strong> (33% of base cost) across 5 upstream authoring activities.</li>
+<li><strong>LoreWeaver Director targets runtime adaptation</strong> for live service titles via SaaS pricing and 5% content royalty.</li>
+</ul>
+<hr>
+<h3>2. Methodology</h3>
+<p>This model estimates cost per finished hour of gameplay for narrative design and production. Each of the 15 activities follows a four step framework: workflow description, time investment in labor hours, blended hourly wage, and resulting cost per gameplay hour. Wages reflect a blended US/UK/Germany weighting (50%/25%/25%) converted to EUR at the ECB rate of USD 1 = EUR 0.853. Studio tier weighting: AAA 60%, AA 25%, Indie 10%, VN/IF 5%.</p>
+<hr>
+<h3>3. Cost Breakdown by Activity</h3>
+<h4>Pre-Production</h4>
+<table>
+<thead><tr>
+<th>#</th>
+<th>Activity</th>
+<th>Labor Hours / Gameplay Hr</th>
+<th>Blended Wage (€/hr)</th>
+<th>Cost / Gameplay Hr</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Story and World Building</td>
+<td>18</td>
+<td>58</td>
+<td>€1,062</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Script and Dialogue Writing</td>
+<td>31</td>
+<td>52</td>
+<td>€1,700</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Branching Structure and Choice Mapping</td>
+<td>18</td>
+<td>48</td>
+<td>€900</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Narrative Prototyping and Playtesting</td>
+<td>18</td>
+<td>37</td>
+<td>€700</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Pre-Production Subtotal</strong></td>
+<td><strong>85</strong></td>
+<td></td>
+<td><strong>€4,362</strong></td>
+</tr>
+</tbody></table>
+<h4>Production</h4>
+<table>
+<thead><tr>
+<th>#</th>
+<th>Activity</th>
+<th>Labor Hours / Gameplay Hr</th>
+<th>Blended Wage (€/hr)</th>
+<th>Cost / Gameplay Hr</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Localization and Adaptation (per language)</td>
+<td>40</td>
+<td>22</td>
+<td>€900</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Voice-Over Production (per language)</td>
+<td>28</td>
+<td>84</td>
+<td>€6,500</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Motion Capture and Dialogue Animation</td>
+<td>28</td>
+<td>103</td>
+<td>€7,300</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Dialogue Implementation and Integration (per lang)</td>
+<td>13</td>
+<td>34</td>
+<td>€480</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Cinematic and UI Text Design (per language)</td>
+<td>14</td>
+<td>45</td>
+<td>€680</td>
+</tr>
+<tr>
+<td>15</td>
+<td>AI/LLM Integration</td>
+<td>15</td>
+<td>65</td>
+<td>€1,275</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Production Subtotal</strong></td>
+<td><strong>138</strong></td>
+<td></td>
+<td><strong>€17,135</strong></td>
+</tr>
+</tbody></table>
+<h4>Post-Production</h4>
+<table>
+<thead><tr>
+<th>#</th>
+<th>Activity</th>
+<th>Labor Hours / Gameplay Hr</th>
+<th>Blended Wage (€/hr)</th>
+<th>Cost / Gameplay Hr</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>Narrative QA and Polish (per language)</td>
+<td>17</td>
+<td>33</td>
+<td>€560</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Documentation and Knowledge Transfer</td>
+<td>4</td>
+<td>42</td>
+<td>€270</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Accessibility Compliance</td>
+<td>8</td>
+<td>45</td>
+<td>€370</td>
+</tr>
+<tr>
+<td>13</td>
+<td>UGC Moderation</td>
+<td>10</td>
+<td>35</td>
+<td>€380</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Data Analytics and Player Behavior</td>
+<td>9</td>
+<td>52</td>
+<td>€560</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Post-Production Subtotal</strong></td>
+<td><strong>48</strong></td>
+<td></td>
+<td><strong>€2,140</strong></td>
+</tr>
+</tbody></table>
+<h4>Summary</h4>
+<table>
+<thead><tr>
+<th></th>
+<th>Labor Hours</th>
+<th>Cost</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Base cost (first language)</strong></td>
+<td><strong>271</strong></td>
+<td><strong>€26,675</strong></td>
+</tr>
+<tr>
+<td>Social taxes (30%)</td>
+<td></td>
+<td>+€8,003</td>
+</tr>
+<tr>
+<td>Overhead (15%)</td>
+<td></td>
+<td>+€4,002</td>
+</tr>
+<tr>
+<td><strong>Fully loaded first language</strong></td>
+<td></td>
+<td><strong>€38,679</strong></td>
+</tr>
+</tbody></table>
+<h4>Wage Rate Verification</h4>
+<p>The blended wages above were cross-referenced against 2025 industry data. Key findings:</p>
+<table>
+<thead><tr>
+<th>Role</th>
+<th>Document Rate (€/hr)</th>
+<th>Market Range (€/hr)</th>
+<th>Assessment</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Story and World Building (Narrative Designer)</td>
+<td>58</td>
+<td>37 to 61</td>
+<td><strong>Aligned.</strong> GDC 2025 reports $142K avg across all game roles (~€58/hr). Senior narrative designers reach $72/hr (€61/hr) per ZipRecruiter.</td>
+</tr>
+<tr>
+<td>Script and Dialogue Writing (Game Writer)</td>
+<td>52</td>
+<td>32 to 44</td>
+<td><strong>Slightly high.</strong> Glassdoor reports $38 to $51/hr for game writers (€32 to €44). Rate is defensible for senior writers and lead roles.</td>
+</tr>
+<tr>
+<td>Localization (Translator)</td>
+<td>22</td>
+<td>13 to 39</td>
+<td><strong>Aligned.</strong> Freelance game translators earn $15 to $46/hr (€13 to €39); €22 sits at the median.</td>
+</tr>
+<tr>
+<td>Voice-Over Production (blended cast + crew)</td>
+<td>84</td>
+<td>70 to 120+</td>
+<td><strong>Aligned.</strong> Non-union VO talent charges $200 to $250/session; blended with engineers and directors, €84/hr is conservative.</td>
+</tr>
+<tr>
+<td>Motion Capture (blended crew)</td>
+<td>103</td>
+<td>85 to 150+</td>
+<td><strong>Aligned.</strong> Mocap studio day rates and performer fees support this range for blended crew cost.</td>
+</tr>
+<tr>
+<td>Narrative QA</td>
+<td>33</td>
+<td>14 to 22</td>
+<td><strong>High.</strong> Entry level QA averages $16 to $17/hr (€14 to €15). Rate likely reflects senior QA leads, specialized narrative testers, and studio overhead baked in.</td>
+</tr>
+<tr>
+<td>Data Analytics</td>
+<td>52</td>
+<td>40 to 60</td>
+<td><strong>Aligned.</strong> Data analysts in gaming earn $50 to $70/hr (€43 to €60) at mid to senior level.</td>
+</tr>
+</tbody></table>
+<p><strong>Overall assessment:</strong> Wage rates skew toward mid to senior blended averages, consistent with AAA-weighted (60%) modeling. The QA rate is the largest outlier; it may include team lead compensation or embedded overhead not separately broken out.</p>
+<hr>
+<h3>4. Multilingual Scaling</h3>
+<p>Activities 5, 6, 8, 9, and 10 multiply per additional language. Activity 7 (mocap) does not, as animation is language-independent.</p>
+<table>
+<thead><tr>
+<th>Cost Component</th>
+<th>Per Language</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Localization and Adaptation</td>
+<td>€900</td>
+</tr>
+<tr>
+<td>Voice-Over Production</td>
+<td>€6,500</td>
+</tr>
+<tr>
+<td>Dialogue Implementation</td>
+<td>€480</td>
+</tr>
+<tr>
+<td>Narrative QA and Polish</td>
+<td>€560</td>
+</tr>
+<tr>
+<td>Cinematic and UI Text</td>
+<td>€680</td>
+</tr>
+<tr>
+<td><strong>Per-language increment</strong></td>
+<td><strong>€9,120</strong></td>
+</tr>
+<tr>
+<td>With overheads (30% tax + 15% OH)</td>
+<td><strong>€13,224</strong></td>
+</tr>
+</tbody></table>
+<table>
+<thead><tr>
+<th>Languages</th>
+<th>Cumulative Fully Loaded Cost</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1 (base)</td>
+<td>€38,679</td>
+</tr>
+<tr>
+<td>2</td>
+<td>€51,903</td>
+</tr>
+<tr>
+<td>5</td>
+<td>€91,575</td>
+</tr>
+<tr>
+<td>8</td>
+<td>€131,247</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>€184,143</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>5. Annual Industry Volume</h3>
+<p>Steam released ~18,500 games in 2024, up 32% from 2023. In 2025, Steam exceeded 20,000 releases. The model estimates that 19,000 to 20,000 titles per year contain meaningful narrative content.</p>
+<table>
+<thead><tr>
+<th>Tier</th>
+<th>Titles/Year</th>
+<th>Avg Gameplay Hours</th>
+<th>Total Hours</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AAA and Big AA</td>
+<td>~450</td>
+<td>140</td>
+<td>63,000</td>
+</tr>
+<tr>
+<td>Premium Indie</td>
+<td>~3,200</td>
+<td>24</td>
+<td>76,800</td>
+</tr>
+<tr>
+<td>Micro and Experimental</td>
+<td>~15,350</td>
+<td>6.6</td>
+<td>101,310</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~19,000</strong></td>
+<td></td>
+<td><strong>~170,000</strong></td>
+</tr>
+</tbody></table>
+<p>Note: "Narrative content" is defined broadly. Pure narrative genres (visual novels, walking simulators) represented only ~30 titles in 2024 on Steam. The 19,000 figure includes RPGs, action-adventure, simulation, and other genres where narrative design is a meaningful cost line.</p>
+<hr>
+<h3>6. Total Industry Narrative Spend</h3>
+<p>Three scenarios using fully loaded cost of €184,143 per gameplay hour (12 languages):</p>
+<table>
+<thead><tr>
+<th>Scenario</th>
+<th>Releases</th>
+<th>Total Hours</th>
+<th>Annual Spend</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Low</td>
+<td>18,000</td>
+<td>135,000</td>
+<td><strong>€5.95B</strong></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>19,000</td>
+<td>170,000</td>
+<td><strong>€7.92B</strong></td>
+</tr>
+<tr>
+<td>High</td>
+<td>20,000</td>
+<td>180,000</td>
+<td><strong>€8.37B</strong></td>
+</tr>
+</tbody></table>
+<p>These figures represent addressable spend on narrative production only, not total game development budgets.</p>
+<hr>
+<h3>7. What LoreWeaver Targets</h3>
+<h4>Architect (Offline Authoring Tool)</h4>
+<p>Architect automates and accelerates 5 upstream narrative activities:</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>Activity</th>
+<th>Cost / Gameplay Hr</th>
+<th>% of Base</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Story and World Building</td>
+<td>€1,062</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Script and Dialogue Writing</td>
+<td>€1,700</td>
+<td>6.4%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Branching Structure and Choice Mapping</td>
+<td>€900</td>
+<td>3.4%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Narrative Prototyping and Playtesting</td>
+<td>€700</td>
+<td>2.6%</td>
+</tr>
+<tr>
+<td>15</td>
+<td>AI/LLM Integration</td>
+<td>€3,718</td>
+<td>13.9%</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total addressable</strong></td>
+<td><strong>€8,080</strong></td>
+<td><strong>33.3%</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Value proposition:</strong> Even a 30% efficiency gain on these activities saves studios ~€2,400 per gameplay hour in base cost, or ~€3,500 fully loaded.</p>
+<h4>Director (On-Device Runtime)</h4>
+<p>Director targets a different problem: dynamic narrative adaptation in live service and MMO titles. These games generate narrative content continuously rather than shipping a fixed script.</p>
+<table>
+<thead><tr>
+<th>Model Component</th>
+<th>Pricing</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>SaaS license</td>
+<td>Per-title monthly fee</td>
+</tr>
+<tr>
+<td>Content royalty</td>
+<td>5% of narrative content revenue</td>
+</tr>
+</tbody></table>
+<p>Director does not directly reduce the 15 cost lines above. Instead, it enables narrative experiences that are currently impossible to ship at scale, such as personalized quest lines, adaptive NPC dialogue, and emergent storylines, without the per-hour production cost structure.</p>
+<hr>
+<h3>8. Sources and Assumptions</h3>
+<h4>Salary and Rate Sources</h4>
+<ul>
+<li><a href="https://gdconf.com/article/us-game-development-salaries-in-2025-what-our-latest-industry-report-reveals/" target="_blank">GDC 2025 Game Industry Salary Report</a> (avg $142K/yr, 562 respondents)</li>
+<li><a href="https://www.ziprecruiter.com/Salaries/Game-Narrative-Designer-Salary" target="_blank">ZipRecruiter: Game Narrative Designer Salary</a> ($71.69/hr avg)</li>
+<li><a href="https://www.ziprecruiter.com/Salaries/Narrative-Designer-Salary" target="_blank">ZipRecruiter: Narrative Designer Salary</a> ($39.98/hr avg)</li>
+<li><a href="https://www.glassdoor.com/Salaries/narrative-designer-salary-SRCH_KO0,18.htm" target="_blank">Glassdoor: Narrative Designer Salary</a> ($92K/yr avg)</li>
+<li><a href="https://www.glassdoor.com/Salaries/game-writer-salary-SRCH_KO0,11.htm" target="_blank">Glassdoor: Game Writer Salary</a> ($79.6K/yr avg)</li>
+<li><a href="https://www.payscale.com/research/US/Job=QA_Game_Tester/Hourly_Rate" target="_blank">PayScale: QA Game Tester Hourly Rate</a> ($16.71/hr avg)</li>
+<li><a href="https://www.ziprecruiter.com/Salaries/Video-Game-Qa-Tester-Salary" target="_blank">ZipRecruiter: Video Game QA Tester</a> ($17/hr avg)</li>
+<li><a href="https://globalvoiceacademy.com/gvaa-rate-guide-2/" target="_blank">GVAA Voice-Over Rate Guide</a></li>
+<li><a href="https://artlangs.com/news-detail/How-Much-Does-Game-Localization-Cost--A-2025-Guide-for-Developers" target="_blank">Artlangs: Game Localization Cost Guide 2025</a></li>
+<li><a href="https://www.ziprecruiter.com/Salaries/Game-Localization-Salary" target="_blank">ZipRecruiter: Game Localization Salary</a> ($15.27/hr avg employment)</li>
+</ul>
+<h4>Volume Sources</h4>
+<ul>
+<li><a href="https://steamdb.info/stats/releases/" target="_blank">SteamDB: Annual Release Stats</a> (18,500 in 2024; 20,000+ in 2025)</li>
+<li><a href="https://www.pcgamer.com/games/nearly-19-000-games-released-on-steam-in-2024/" target="_blank">PC Gamer: Nearly 19,000 Games Released on Steam in 2024</a></li>
+<li><a href="https://howtomarketagame.com/2026/01/08/how-many-games-were-released-in-2025/" target="_blank">How To Market A Game: 2025 Release Summary</a></li>
+</ul>
+<h4>Key Assumptions</h4>
+<ul>
+<li>Currency conversion: USD 1 = EUR 0.853 (ECB reference rate)</li>
+<li>Studio tier weighting: AAA 60%, AA 25%, Indie 10%, VN/IF 5%</li>
+<li>Regional weighting: US 50%, UK 25%, Germany 25%</li>
+<li>Overhead multiplier: 30% social taxes + 15% general overhead = 1.45x base cost</li>
+<li>All "per language" activities multiply linearly; no economies of scale assumed</li>
+<li>12 languages represents a typical AAA localization scope (EFIGS + CJK + PT, RU, PL, AR)</li>
+</ul>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>
