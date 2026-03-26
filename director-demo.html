@@ -104,9 +104,33 @@
                     <tr><td>Data privacy</td><td>100% on-device</td><td>Cloud</td><td>Cloud</td></tr>
                     <tr><td>Offline capable</td><td>Yes</td><td>No</td><td>No</td></tr>
                     <tr><td>Creative control</td><td>Full (authored + controlled variation)</td><td>Limited</td><td>Limited</td></tr>
+                    <tr style="font-weight: 600; border-top: 2px solid var(--primary-color);">
+                        <td>Open world RPG (500K players)</td><td>&euro;0</td><td>&euro;7.5M to &euro;37.5M</td><td>&euro;15M</td></tr>
                 </tbody>
             </table>
             <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud competitors achieve lower raw latency using large GPU clusters. Director trades slightly higher latency for zero per-session cost, complete data privacy, and offline capability. For RPGs, strategy, and adventure games, 1.5s TTFT is within acceptable UX range.</p>
+
+            <h3>The Math</h3>
+            <p>A 50-hour open world RPG generates approximately 30 NPC interactions per hour of gameplay: dialogue exchanges, quest updates, merchant transactions, ambient NPC remarks, and faction reputation events.</p>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td>Interactions per gameplay hour</td><td>~30</td></tr>
+                    <tr><td>Average playthrough</td><td>50 hours</td></tr>
+                    <tr><td>Interactions per player</td><td>1,500</td></tr>
+                    <tr><td>Players (solid AA hit)</td><td>500,000</td></tr>
+                    <tr><td>Total interactions</td><td>750,000,000</td></tr>
+                </tbody>
+            </table>
+            <table>
+                <thead><tr><th>Platform</th><th>Cost per Interaction</th><th>Cost per Player</th><th>Cost for 500K Players</th></tr></thead>
+                <tbody>
+                    <tr><td>Director</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td></tr>
+                    <tr><td>Inworld AI</td><td>&euro;0.01 to &euro;0.05</td><td>&euro;15 to &euro;75</td><td>&euro;7.5M to &euro;37.5M</td></tr>
+                    <tr><td>Convai</td><td>~&euro;0.02</td><td>~&euro;30</td><td>~&euro;15M</td></tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">At scale, cloud AI narrative costs can exceed the entire game development budget. Director eliminates this cost entirely because inference runs on the player's own hardware.</p>
 
             <h2>Game Integration: Faereld: Dead End</h2>
             <p>Not a tech demo. A complete RPG with Director powering every narrative system.</p>
