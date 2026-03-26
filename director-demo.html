@@ -104,33 +104,23 @@
                     <tr><td>Data privacy</td><td>100% on-device</td><td>Cloud</td><td>Cloud</td></tr>
                     <tr><td>Offline capable</td><td>Yes</td><td>No</td><td>No</td></tr>
                     <tr><td>Creative control</td><td>Full (authored + controlled variation)</td><td>Limited</td><td>Limited</td></tr>
-                    <tr style="font-weight: 600; border-top: 2px solid var(--primary-color);">
-                        <td>Single-player RPG at Witcher 3 scale</td><td>&euro;0</td><td>&euro;800M to &euro;4B</td><td>&euro;1.6B</td></tr>
                 </tbody>
             </table>
             <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud competitors achieve lower raw latency using large GPU clusters. Director trades slightly higher latency for zero per-session cost, complete data privacy, and offline capability. For RPGs, strategy, and adventure games, 1.5s TTFT is within acceptable UX range.</p>
 
-            <h3>The Math: What Would The Witcher 3 Cost on Cloud AI?</h3>
-            <p>Consider a single-player open world RPG at Witcher 3 scale. The game sold 50 million copies. Every NPC conversation, merchant interaction, quest dialogue, and ambient remark would require a cloud API call.</p>
+            <h3>The Real Problem with Cloud AI: Cost Scales with Success</h3>
+            <p>With cloud AI, the more copies your game sells, the more you pay. Every player generates API calls that hit the studio's bill. With Director, the cost of AI narrative is €0 regardless of how many people play.</p>
+            <p>Assume a single-player RPG with 80 hours of gameplay and ~20 NPC interactions per hour (dialogue, merchants, quests, ambient). That is 1,600 interactions per player.</p>
             <table>
-                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <thead><tr><th>Copies Sold</th><th>Total Interactions</th><th>Director</th><th>Cloud AI (at &euro;0.02/interaction)</th></tr></thead>
                 <tbody>
-                    <tr><td>Average playthrough</td><td>80 hours (main story + side content)</td></tr>
-                    <tr><td>NPC interactions per hour</td><td>~20 (dialogue, merchants, quest givers, ambient)</td></tr>
-                    <tr><td>Interactions per player</td><td>1,600</td></tr>
-                    <tr><td>Total copies sold</td><td>50,000,000</td></tr>
-                    <tr><td>Total lifetime interactions</td><td>80,000,000,000</td></tr>
+                    <tr><td>10,000 (indie)</td><td>16M</td><td>&euro;0</td><td>&euro;320,000</td></tr>
+                    <tr><td>100,000 (AA hit)</td><td>160M</td><td>&euro;0</td><td>&euro;3,200,000</td></tr>
+                    <tr><td>1,000,000 (AAA success)</td><td>1.6B</td><td>&euro;0</td><td>&euro;32,000,000</td></tr>
+                    <tr><td>50,000,000 (Witcher 3)</td><td>80B</td><td>&euro;0</td><td>&euro;1,600,000,000</td></tr>
                 </tbody>
             </table>
-            <table>
-                <thead><tr><th>Platform</th><th>Cost per Interaction</th><th>Cost per Player</th><th>Lifetime Cost (50M Players)</th></tr></thead>
-                <tbody>
-                    <tr><td>Director</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td></tr>
-                    <tr><td>Inworld AI</td><td>&euro;0.01 to &euro;0.05</td><td>&euro;16 to &euro;80</td><td>&euro;800M to &euro;4B</td></tr>
-                    <tr><td>Convai</td><td>~&euro;0.02</td><td>~&euro;32</td><td>~&euro;1.6B</td></tr>
-                </tbody>
-            </table>
-            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">The Witcher 3's total development budget was approximately €80M. Running its dialogue through cloud AI would cost 10x to 50x the entire development budget over the game's lifetime. This is why on-device inference is not optional for narrative-heavy games. It is the only economically viable approach.</p>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">The Witcher 3's total development budget was approximately &euro;80M. Running its narrative through cloud AI would cost 20x the entire development budget. Cloud AI for narrative does not scale. On-device inference is the only economically viable approach for story-driven games.</p>
 
             <h2>Game Integration: Faereld: Dead End</h2>
             <p>Not a tech demo. A complete RPG with Director powering every narrative system.</p>
