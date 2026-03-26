@@ -108,18 +108,28 @@
             </table>
             <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud competitors achieve lower raw latency using large GPU clusters. Director trades slightly higher latency for zero per-session cost, complete data privacy, and offline capability. For RPGs, strategy, and adventure games, 1.5s TTFT is within acceptable UX range.</p>
 
-            <h3>What Does Cloud AI Cost Per Game?</h3>
+            <h3>What Does Cloud AI Cost Per Playthrough?</h3>
             <p>Consider a single-player RPG like The Witcher 3: 80 hours of gameplay, roughly 20 NPC interactions per hour. That is 1,600 cloud API calls per player, per playthrough.</p>
             <table>
-                <thead><tr><th></th><th>Director</th><th>Cloud AI (at &euro;0.02/interaction)</th></tr></thead>
+                <thead><tr><th>Scenario</th><th>Cost per Interaction</th><th>Assumption</th><th>Cost per Playthrough</th></tr></thead>
+                <tbody>
+                    <tr><td>Low</td><td>&euro;0.003</td><td>Small model, minimal context, text only</td><td>&euro;4.80</td></tr>
+                    <tr><td>Medium</td><td>&euro;0.02</td><td>Mid-range model, full game state context</td><td>&euro;32</td></tr>
+                    <tr><td>High</td><td>&euro;0.05</td><td>Large model, full context + voice synthesis</td><td>&euro;80</td></tr>
+                </tbody>
+            </table>
+            <p>Even the conservative estimate: <strong>&euro;4.80 per player per playthrough</strong>. For a &euro;20 indie game, that is 24% of the retail price going to inference costs alone. For a &euro;60 AAA title, the medium estimate (&euro;32) consumes more than half the price before platform fees, taxes, or any other cost of goods.</p>
+            <table>
+                <thead><tr><th></th><th>Director</th><th>Cloud AI (Low: &euro;0.003/interaction)</th></tr></thead>
                 <tbody>
                     <tr><td>Interactions per playthrough</td><td>1,600</td><td>1,600</td></tr>
                     <tr style="font-weight: 600; border-top: 2px solid var(--primary-color);">
-                        <td>Cost per playthrough</td><td>&euro;0</td><td>&euro;32</td></tr>
+                        <td>Cost per playthrough</td><td>&euro;0</td><td>&euro;4.80</td></tr>
+                    <tr><td>Cost at 100K players</td><td>&euro;0</td><td>&euro;480,000</td></tr>
+                    <tr><td>Cost at 1M players</td><td>&euro;0</td><td>&euro;4,800,000</td></tr>
                 </tbody>
             </table>
-            <p>A game that retails for &euro;60 would spend <strong>&euro;32 per player on cloud inference alone</strong>. That is more than half the retail price, before platform fees, before taxes, before any other cost of goods. With Director, the narrative AI cost per player is zero because inference runs on the player's own hardware.</p>
-            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud AI narrative does not work economically for story-driven games. On-device inference is the only viable approach.</p>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Using the most conservative cloud estimate. At medium (&euro;0.02) or high (&euro;0.05) per interaction, costs reach &euro;32M or &euro;80M per million players. Cloud AI narrative does not scale for story-driven games. On-device inference is the only economically viable approach.</p>
 
             <h2>Game Integration: Faereld: Dead End</h2>
             <p>Not a tech demo. A complete RPG with Director powering every narrative system.</p>
