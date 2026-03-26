@@ -108,19 +108,18 @@
             </table>
             <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud competitors achieve lower raw latency using large GPU clusters. Director trades slightly higher latency for zero per-session cost, complete data privacy, and offline capability. For RPGs, strategy, and adventure games, 1.5s TTFT is within acceptable UX range.</p>
 
-            <h3>The Real Problem with Cloud AI: Cost Scales with Success</h3>
-            <p>With cloud AI, the more copies your game sells, the more you pay. Every player generates API calls that hit the studio's bill. With Director, the cost of AI narrative is €0 regardless of how many people play.</p>
-            <p>Assume a single-player RPG with 80 hours of gameplay and ~20 NPC interactions per hour (dialogue, merchants, quests, ambient). That is 1,600 interactions per player.</p>
+            <h3>What Does Cloud AI Cost Per Game?</h3>
+            <p>Consider a single-player RPG like The Witcher 3: 80 hours of gameplay, roughly 20 NPC interactions per hour. That is 1,600 cloud API calls per player, per playthrough.</p>
             <table>
-                <thead><tr><th>Copies Sold</th><th>Total Interactions</th><th>Director</th><th>Cloud AI (at &euro;0.02/interaction)</th></tr></thead>
+                <thead><tr><th></th><th>Director</th><th>Cloud AI (at &euro;0.02/interaction)</th></tr></thead>
                 <tbody>
-                    <tr><td>10,000 (indie)</td><td>16M</td><td>&euro;0</td><td>&euro;320,000</td></tr>
-                    <tr><td>100,000 (AA hit)</td><td>160M</td><td>&euro;0</td><td>&euro;3,200,000</td></tr>
-                    <tr><td>1,000,000 (AAA success)</td><td>1.6B</td><td>&euro;0</td><td>&euro;32,000,000</td></tr>
-                    <tr><td>50,000,000 (Witcher 3)</td><td>80B</td><td>&euro;0</td><td>&euro;1,600,000,000</td></tr>
+                    <tr><td>Interactions per playthrough</td><td>1,600</td><td>1,600</td></tr>
+                    <tr style="font-weight: 600; border-top: 2px solid var(--primary-color);">
+                        <td>Cost per playthrough</td><td>&euro;0</td><td>&euro;32</td></tr>
                 </tbody>
             </table>
-            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">The Witcher 3's total development budget was approximately &euro;80M. Running its narrative through cloud AI would cost 20x the entire development budget. Cloud AI for narrative does not scale. On-device inference is the only economically viable approach for story-driven games.</p>
+            <p>A game that retails for &euro;60 would spend <strong>&euro;32 per player on cloud inference alone</strong>. That is more than half the retail price, before platform fees, before taxes, before any other cost of goods. With Director, the narrative AI cost per player is zero because inference runs on the player's own hardware.</p>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud AI narrative does not work economically for story-driven games. On-device inference is the only viable approach.</p>
 
             <h2>Game Integration: Faereld: Dead End</h2>
             <p>Not a tech demo. A complete RPG with Director powering every narrative system.</p>
