@@ -71,20 +71,42 @@
                 <p class="subtitle">Real-time narrative runtime in action</p>
             </div>
 
-            <p>Director takes structured content from Architect and brings it to life inside shipped games. It generates NPC dialogue, manages mood and trust systems, drives dynamic quests, and adapts to player choices. Everything runs on-device with sub-3 second response time.</p>
+            <p>Director takes structured content from Architect and brings it to life inside shipped games. It generates NPC dialogue, manages mood and trust systems, drives dynamic quests, and adapts to player choices. Everything runs on-device at 7.8 tokens/sec with complete privacy.</p>
 
             <table>
                 <thead><tr><th>Spec</th><th>Value</th></tr></thead>
                 <tbody>
-                    <tr><td>Deployment</td><td>On-device (player hardware)</td></tr>
-                    <tr><td>Response time</td><td>Sub-3 seconds for dialogue generation</td></tr>
+                    <tr><td>Valid response rate</td><td>94% (DarkIdol-Llama 8B, 100 RPG scenarios)</td></tr>
+                    <tr><td>Tonal consistency</td><td>72% strong performance (GPT-5 judge)</td></tr>
+                    <tr><td>Intent classification</td><td>86.7% accuracy (954 training examples)</td></tr>
+                    <tr><td>Local inference</td><td>7.8 tokens/sec (DarkIdol-8B on-device)</td></tr>
+                    <tr><td>Game integration</td><td>21/21 systems in Faereld: Dead End</td></tr>
+                    <tr><td>Test coverage</td><td>1,458 lines of E2E and validation tests</td></tr>
+                    <tr><td>Schema</td><td>XSD-validated conflict resolution with mutable/immutable enforcement</td></tr>
                     <tr><td>Model size</td><td>1B to 8B parameters</td></tr>
                     <tr><td>Engine support</td><td>Unity, Unreal plugins (SDK)</td></tr>
                     <tr><td>Cloud dependency</td><td>None (fully local inference)</td></tr>
-                    <tr><td>Input</td><td>Architect export (JSON/XML game state)</td></tr>
-                    <tr><td>Output</td><td>In-game dialogue, quests, NPC behavior</td></tr>
                 </tbody>
             </table>
+
+            <div class="metrics-grid" style="margin: 24px 0;">
+                <div class="metric-card">
+                    <div class="metric-value">94%</div>
+                    <div class="metric-label">Valid Response Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">86.7%</div>
+                    <div class="metric-label">Intent Classification</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">21/21</div>
+                    <div class="metric-label">Game Systems Integrated</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Genres Tested</div>
+                </div>
+            </div>
 
             <hr>
 
