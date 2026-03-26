@@ -71,41 +71,53 @@
                 <p class="subtitle">From raw lore to game-ready data in 8 steps</p>
             </div>
 
-            <p>Architect takes any narrative document and converts it into structured, exportable game data. Upload your lore, and Architect extracts entities, maps relationships, structures narrative beats, and exports to any game engine format.</p>
+            <p style="color: var(--primary-color); font-family: 'Inria Serif', serif; font-size: 18px; font-weight: 700; margin-bottom: 16px;">Architect does not replace writers. It eliminates the manual data entry between creative authorship and game-ready output, giving narrative designers more time to write.</p>
 
-            <table>
-                <thead><tr><th>Spec</th><th>Value</th></tr></thead>
-                <tbody>
-                    <tr><td>API endpoints</td><td>193</td></tr>
-                    <tr><td>Entity types</td><td>13 configurable (6 core + 7 secondary)</td></tr>
-                    <tr><td>Input formats</td><td>21 (11 document + 10 media)</td></tr>
-                    <tr><td>Export formats</td><td>3 (JSON, XML, CSV) with custom templates</td></tr>
-                    <tr><td>Processing time</td><td>5 to 7 minutes per document</td></tr>
-                    <tr><td>Max file size</td><td>100 MB</td></tr>
-                    <tr><td>LLM</td><td>Claude Sonnet 4.5 via OpenRouter (10+ models available)</td></tr>
-                    <tr><td>Auth</td><td>Firebase + JWT, role-based (owner, editor, viewer)</td></tr>
-                    <tr><td>Deployment</td><td>Cloud (Railway + Firebase) or self-hosted</td></tr>
-                </tbody>
-            </table>
+            <p>Studios spend &euro;5,042 per gameplay hour on narrative structuring: cataloging entities, mapping relationships, building dialogue trees, and formatting exports. Architect automates this entire pass for &euro;11.37 in AI token costs. That is a 99.8% cost reduction and a 200x speed improvement.</p>
 
             <div class="metrics-grid" style="margin: 24px 0;">
                 <div class="metric-card">
-                    <div class="metric-value">193</div>
-                    <div class="metric-label">API Endpoints</div>
+                    <div class="metric-value">&euro;5,042</div>
+                    <div class="metric-label">Manual Cost per Gameplay Hour</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">21</div>
-                    <div class="metric-label">File Formats</div>
+                    <div class="metric-value">&euro;11</div>
+                    <div class="metric-label">Architect Cost per Gameplay Hour</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">13</div>
-                    <div class="metric-label">Entity Types</div>
+                    <div class="metric-value">30 min</div>
+                    <div class="metric-label">vs 99 Hours Manual</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">7</div>
-                    <div class="metric-label">Workflow Steps</div>
+                    <div class="metric-value">440x</div>
+                    <div class="metric-label">ROI on Token Spend</div>
                 </div>
             </div>
+
+            <table>
+                <thead><tr><th>Narrative Activity</th><th>Manual Cost</th><th>Manual Hours</th><th>Architect Cost</th><th>Architect Time</th></tr></thead>
+                <tbody>
+                    <tr><td>Entity Extraction (characters, locations, items)</td><td>&euro;1,062</td><td>18 hrs</td><td>&euro;3.84</td><td>~14 min</td></tr>
+                    <tr><td>Relationship Mapping</td><td>&euro;900</td><td>18 hrs</td><td>&euro;0.72</td><td>~1 min</td></tr>
+                    <tr><td>Schema and Structure Definition</td><td>&euro;700</td><td>18 hrs</td><td>&euro;1.44</td><td>~2 min</td></tr>
+                    <tr><td>Dialogue and Script Structuring</td><td>&euro;1,700</td><td>31 hrs</td><td>&euro;3.84</td><td>~10 min</td></tr>
+                    <tr><td>Export to Game Engine Format</td><td>&euro;680</td><td>14 hrs</td><td>&euro;1.53</td><td>~3 min</td></tr>
+                    <tr style="font-weight: 600; border-top: 2px solid var(--primary-color);">
+                        <td>Total (structuring pass)</td><td>&euro;5,042</td><td>99 hrs</td><td>&euro;11.37</td><td>~30 min</td></tr>
+                </tbody>
+            </table>
+
+            <h2>What This Means for Studios</h2>
+            <table>
+                <thead><tr><th>Studio Type</th><th>Typical Title</th><th>Gameplay Hours</th><th>Manual Narrative Cost</th><th>With Architect</th><th>Annual Savings</th></tr></thead>
+                <tbody>
+                    <tr><td>Solo Indie</td><td>5hr narrative game</td><td>5</td><td>&euro;25,210</td><td>&euro;57</td><td>&euro;25,153</td></tr>
+                    <tr><td>Indie Studio</td><td>20hr RPG</td><td>20</td><td>&euro;100,840</td><td>&euro;227</td><td>&euro;100,613</td></tr>
+                    <tr><td>AA Studio</td><td>40hr open world</td><td>40</td><td>&euro;201,680</td><td>&euro;455</td><td>&euro;201,225</td></tr>
+                    <tr><td>AAA Studio</td><td>100hr RPG</td><td>100</td><td>&euro;504,200</td><td>&euro;1,137</td><td>&euro;503,063</td></tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Note: savings apply to the structuring pass (entity extraction, relationship mapping, schema generation, export formatting). Creative authorship, voice-over, motion capture, and localization costs are separate. Architect gives writers more time for creative work by eliminating manual data entry.</p>
 
             <hr>
 
@@ -149,6 +161,29 @@
                 <img src="architect-9.png" alt="Step 8: Export" loading="lazy">
                 <div class="caption">Export to any format: JSON, Unity ScriptableObject, Unreal DataTable, CSV. Custom templates let you match any engine's data pipeline.</div>
             </div>
+
+            <h2>Production Evidence</h2>
+            <table>
+                <thead><tr><th>Test</th><th>Input</th><th>Entities Extracted</th><th>Time</th></tr></thead>
+                <tbody>
+                    <tr><td>Fantasy lore collection</td><td>10 documents, 156K characters</td><td>234 entities, 96 relationships</td><td>14 minutes</td></tr>
+                    <tr><td>Foundation (Asimov novel)</td><td>1 document, 1.3 MB</td><td>273 entities from 6 chunks</td><td>21 minutes</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Technical Details</h2>
+            <table>
+                <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td>Input formats</td><td>21 (11 document + 10 media types)</td></tr>
+                    <tr><td>Export formats</td><td>JSON, XML, CSV with custom templates</td></tr>
+                    <tr><td>Entity types</td><td>13 configurable (6 core + 7 secondary)</td></tr>
+                    <tr><td>Processing</td><td>5 to 7 minutes per document</td></tr>
+                    <tr><td>LLM</td><td>Claude Sonnet 4.5 via OpenRouter (10+ models)</td></tr>
+                    <tr><td>Deployment</td><td>Cloud or self-hosted</td></tr>
+                    <tr><td>Auth</td><td>Firebase + JWT, role-based access</td></tr>
+                </tbody>
+            </table>
 
             <div class="page-footer">
                 LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
