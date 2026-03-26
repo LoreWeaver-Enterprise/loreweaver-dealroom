@@ -71,29 +71,15 @@
                 <p class="subtitle">Real-time narrative runtime in action</p>
             </div>
 
-            <p>Director takes structured content from Architect and brings it to life inside shipped games. It generates NPC dialogue, manages mood and trust systems, drives dynamic quests, and adapts to player choices. Everything runs on-device with 1.5 second time to first token and complete data privacy.</p>
+            <p style="color: var(--primary-color); font-family: 'Inria Serif', serif; font-size: 18px; font-weight: 700; margin-bottom: 16px;">Every player interaction costs the studio &euro;0. Director runs entirely on the player's hardware. No cloud. No API fees. No data leaves the device.</p>
 
-            <table>
-                <thead><tr><th>Spec</th><th>Value</th></tr></thead>
-                <tbody>
-                    <tr><td>Time to first token</td><td>1.5 seconds (streaming, on-device)</td></tr>
-                    <tr><td>Local inference speed</td><td>7.8 tokens/sec (DarkIdol-8B on-device)</td></tr>
-                    <tr><td>RAG retrieval (average)</td><td>30ms full pipeline, 2ms cached</td></tr>
-                    <tr><td>RAG retrieval (P99)</td><td>44ms maximum observed</td></tr>
-                    <tr><td>Valid response rate</td><td>94% (DarkIdol-Llama 8B, 100 RPG scenarios)</td></tr>
-                    <tr><td>Tonal consistency</td><td>72% strong performance (GPT-5 judge)</td></tr>
-                    <tr><td>Intent classification</td><td>86.7% accuracy (954 training examples)</td></tr>
-                    <tr><td>Game integration</td><td>21/21 systems in Faereld: Dead End</td></tr>
-                    <tr><td>Test coverage</td><td>1,458 lines of E2E and validation tests</td></tr>
-                    <tr><td>Schema</td><td>XSD-validated conflict resolution with mutable/immutable enforcement</td></tr>
-                    <tr><td>Vector search</td><td>0.78ms P50 (10K vectors), 15x faster than Python baseline</td></tr>
-                    <tr><td>Model size</td><td>1B to 8B parameters</td></tr>
-                    <tr><td>Engine support</td><td>Unity, Unreal plugins (SDK)</td></tr>
-                    <tr><td>Cloud dependency</td><td>None (fully local inference)</td></tr>
-                </tbody>
-            </table>
+            <p>Director generates NPC dialogue, manages mood and trust systems, drives dynamic quests, and adapts to player choices at runtime. First dialogue line appears in 1.5 seconds on an RTX 3060. The XSD schema validation layer ensures the LLM can never corrupt game state.</p>
 
             <div class="metrics-grid" style="margin: 24px 0;">
+                <div class="metric-card">
+                    <div class="metric-value">&euro;0</div>
+                    <div class="metric-label">Cost per Player Session</div>
+                </div>
                 <div class="metric-card">
                     <div class="metric-value">1.5s</div>
                     <div class="metric-label">Time to First Token</div>
@@ -106,11 +92,36 @@
                     <div class="metric-value">94%</div>
                     <div class="metric-label">Valid Response Rate</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">21/21</div>
-                    <div class="metric-label">Game Systems Integrated</div>
-                </div>
             </div>
+
+            <h2>Director vs Cloud Competitors</h2>
+            <table>
+                <thead><tr><th>Metric</th><th>Director</th><th>Inworld AI</th><th>Convai</th></tr></thead>
+                <tbody>
+                    <tr><td>Cost per interaction</td><td>&euro;0 (on-device)</td><td>~&euro;0.01 to &euro;0.05</td><td>~&euro;0.02</td></tr>
+                    <tr><td>Time to first token</td><td>1.5s (RTX 3060)</td><td>~200 to 500ms (cloud)</td><td>~500ms to 1s (cloud)</td></tr>
+                    <tr><td>Game state awareness</td><td>XSD schema-validated</td><td>None</td><td>None</td></tr>
+                    <tr><td>Data privacy</td><td>100% on-device</td><td>Cloud</td><td>Cloud</td></tr>
+                    <tr><td>Offline capable</td><td>Yes</td><td>No</td><td>No</td></tr>
+                    <tr><td>Creative control</td><td>Full (authored + controlled variation)</td><td>Limited</td><td>Limited</td></tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-light); font-size: 13px; font-style: italic;">Cloud competitors achieve lower raw latency using large GPU clusters. Director trades slightly higher latency for zero per-session cost, complete data privacy, and offline capability. For RPGs, strategy, and adventure games, 1.5s TTFT is within acceptable UX range.</p>
+
+            <h2>Game Integration: Faereld: Dead End</h2>
+            <p>Not a tech demo. A complete RPG with Director powering every narrative system.</p>
+            <table>
+                <thead><tr><th>System</th><th>Count</th></tr></thead>
+                <tbody>
+                    <tr><td>Game systems integrated</td><td>21 / 21</td></tr>
+                    <tr><td>Items</td><td>249</td></tr>
+                    <tr><td>Crafting recipes</td><td>34</td></tr>
+                    <tr><td>Factions (with reputation tracking)</td><td>8</td></tr>
+                    <tr><td>Enemy types</td><td>100+</td></tr>
+                    <tr><td>NPC dialogue</td><td>100% generated at runtime</td></tr>
+                    <tr><td>Fallback on AI failure</td><td>Graceful degradation to scripted content</td></tr>
+                </tbody>
+            </table>
 
             <hr>
 
@@ -134,6 +145,24 @@
                 <img src="director-5.png" alt="Dialogue System" loading="lazy">
                 <div class="caption">Adaptive dialogue with tone-tagged choices (Soft, Neutral, Dismissive). NPC profile, mood state (Wary), and recent interaction effects update in real time. Director maintains persistent memory across conversations.</div>
             </div>
+
+            <h2>Technical Details</h2>
+            <table>
+                <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td>Time to first token</td><td>1.5s (RTX 3060, streaming)</td></tr>
+                    <tr><td>RAG retrieval</td><td>30ms avg, 2ms cached, 44ms max</td></tr>
+                    <tr><td>Vector search</td><td>0.78ms P50 (FAISS HNSW)</td></tr>
+                    <tr><td>Valid response rate</td><td>94% (100 RPG scenarios, 5 genres)</td></tr>
+                    <tr><td>Intent classification</td><td>86.7% across 16 categories</td></tr>
+                    <tr><td>Schema validation</td><td>XSD with mutable/immutable enforcement</td></tr>
+                    <tr><td>Context window</td><td>8,192 tokens</td></tr>
+                    <tr><td>Model sizes</td><td>1B to 8B parameters</td></tr>
+                    <tr><td>Hardware tested</td><td>RTX 3060, Ryzen AI 300 iGPU</td></tr>
+                    <tr><td>Engine support</td><td>Unity, Unreal (SDK)</td></tr>
+                    <tr><td>Cloud dependency</td><td>None</td></tr>
+                </tbody>
+            </table>
 
             <div class="page-footer">
                 LoreWeaver Deal Room &middot; GrimmWyrd Studios &middot; March 2026
