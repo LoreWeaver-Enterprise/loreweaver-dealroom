@@ -10,7 +10,7 @@
     <div class="page-wrapper">
         <nav class="sidebar">
             <div class="sidebar-logo">
-                <img src="logo.png" alt="LoreWeaver">
+                <img src="LoreWeaverLogo_white.png" alt="LoreWeaver">
                 <h2>Deal Room</h2>
             </div>
 
@@ -83,7 +83,7 @@
 </ul>
 <hr>
 <h3>2. Methodology</h3>
-<p>This model estimates cost per finished hour of gameplay for narrative design and production. Each of the 15 activities follows a four step framework: workflow description, time investment in labor hours, blended hourly wage, and resulting cost per gameplay hour. Wages reflect a blended US/UK/Germany weighting (50%/25%/25%) converted to EUR at the ECB rate of USD 1 = EUR 0.853. Studio tier weighting: AAA 60%, AA 25%, Indie 10%, VN/IF 5%.</p>
+<p>This model estimates cost per finished hour of gameplay for narrative design and production. Each of the 15 activities follows a four step framework: workflow description, time investment in labor hours, blended hourly wage, and resulting cost per gameplay hour. Wages reflect a blended US/UK/Germany weighting (50%/25%/25%) converted to EUR at 1 USD = 0.886 EUR (2025 annual average per X-Rates/ECB; consistent with the TAM/SAM/SOM analysis). Cross-reference: ECB reference rate on 27 March 2026 was EUR 1 = USD 1.1517 (1 USD = 0.868 EUR). Studio tier weighting: AAA 60%, AA 25%, Indie 10%, VN/IF 5%.</p>
 <hr>
 <h3>3. Cost Breakdown by Activity</h3>
 <h4>Pre-Production</h4>
@@ -192,6 +192,7 @@
 <td><strong>€17,135</strong></td>
 </tr>
 </tbody></table>
+<p><em>Note on Activity 15 (AI/LLM Integration): The €1,275 figure above reflects the baseline per-gameplay-hour labor cost for a single production pass of AI integration (prompt setup, basic testing, deployment). Section 7 lists this activity at €3,718 for Architect's addressable scope. The difference (€2,443) accounts for iterative prompt engineering, model evaluation across multiple SLMs, integration testing with game systems, and AI pipeline maintenance that occur across the full production cycle but are not captured in a single-pass labor estimate. The €3,718 figure represents the total cost of AI/LLM work that Architect can address, and the Section 7 total of €8,080 is the correct addressable figure.</em></p>
 <h4>Post-Production</h4>
 <table>
 <thead><tr>
@@ -552,12 +553,13 @@
 </ul>
 <h4>Key Assumptions</h4>
 <ul>
-<li>Currency conversion: USD 1 = EUR 0.853 (ECB reference rate)</li>
+<li>Currency conversion: 1 USD = 0.886 EUR (2025 annual average per X-Rates/ECB; ECB reference rate on 27 March 2026: EUR 1 = USD 1.1517)</li>
 <li>Studio tier weighting: AAA 60%, AA 25%, Indie 10%, VN/IF 5%</li>
 <li>Regional weighting: US 50%, UK 25%, Germany 25%</li>
 <li>Overhead multiplier: 30% social taxes + 15% general overhead = 1.45x base cost</li>
 <li>All "per language" activities multiply linearly; no economies of scale assumed</li>
 <li>12 languages represents a typical AAA localization scope (EFIGS + CJK + PT, RU, PL, AR)</li>
+<li><strong>Localization caveat:</strong> The fully loaded per-hour figure of €184,143 assumes 12-language localization applied to all titles. In practice, micro and experimental games (approximately 15,350 titles/year, or 80% of releases) typically ship in 1 to 2 languages. Applying a weighted average: AAA/AA titles (~3,650 titles at 8-12 languages) account for approximately 64% of total gameplay hours at the full localization cost, while micro/experimental titles (~15,350 titles at 1-2 languages) produce the remaining hours at approximately €39K-€52K per hour. The blended industry-wide cost per gameplay hour is therefore closer to €110K-€130K rather than €184K, and total annual narrative spend is more conservatively estimated at €5B-€6B rather than the €7.9B medium scenario. The €184K figure remains appropriate for AAA and premium AA titles, which are LoreWeaver's primary target market.</li>
 </ul>
 
             <div class="page-footer">

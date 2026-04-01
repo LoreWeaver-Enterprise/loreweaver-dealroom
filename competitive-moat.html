@@ -10,7 +10,7 @@
     <div class="page-wrapper">
         <nav class="sidebar">
             <div class="sidebar-logo">
-                <img src="logo.png" alt="LoreWeaver">
+                <img src="LoreWeaverLogo_white.png" alt="LoreWeaver">
                 <h2>Deal Room</h2>
             </div>
 
@@ -86,7 +86,7 @@
                                                 |
                                                 v
 Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training]  &lt;--  Fine-tuned SLM</code></pre>
-<p><strong>Architect</strong> (React + FastAPI + PostgreSQL): A web based authoring tool that ingests raw lore documents, uses LLMs to extract entities and relationships, lets narrative designers edit and refine schemas, and exports structured XML/JSON. Deployed on Railway (backend) and Firebase (frontend). Monetized as a free tool with token based consumption.</p>
+<p><strong>Architect</strong> (React + FastAPI + PostgreSQL): A web based authoring tool that ingests raw lore documents, uses LLMs to extract entities and relationships, lets narrative designers edit and refine schemas, and exports structured XML/JSON. The team deploys it on Railway (backend) and Firebase (frontend). LoreWeaver monetizes it as a free tool with token based consumption.</p>
 <p><strong>RAG Pipeline</strong> (Node.js + Python): A multi pass ingestion system that parses lore into chunks, uses LLM calls for entity extraction, entity info enrichment, and relationship extraction, then generates embeddings and formats data for vector search. Uses BM25 + FAISS HNSW hybrid retrieval with cross encoder reranking.</p>
 <p><strong>Model Training</strong> (Python + Unsloth + HuggingFace): A fine tuning pipeline for small language models (1B to 8B parameters) targeting NPC decision making. Includes a 4 tier evaluation harness (exact match, fuzzy match, LLM judge, valid answer) and an RPG dataset spanning 5 genres with 100 QA sets. Models tested include LFM2 1.2B, DarkIdol Llama 3.1 8B, phi 4, and GLM 4.7 Flash.</p>
 <p><strong>Director</strong> (Python + FastAPI + llama.cpp): The runtime engine that accepts game state as XML or JSON, validates it against XSD schemas, builds prompts with mutable/immutable parameter separation, calls an LLM (local or cloud), validates the response against the request constraints, and returns format matched output. Supports local inference via llama.cpp with configurable generation profiles.</p>
@@ -144,7 +144,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <td>4 tier evaluation harness</td>
 <td>Exact match, fuzzy match, LLM judge, and valid answer tiers for assessing model quality</td>
 <td>Medium</td>
-<td>Well engineered evaluation framework. The tiered approach (especially Tier 4 "valid answer" checking) is tailored to game decision tasks. Similar approaches exist in academic literature but are not packaged for game studios.</td>
+<td>Well engineered evaluation framework. The tiered approach (especially Tier 4 "valid answer" checking) is tailored to game decision tasks. Similar approaches exist in academic literature, but nobody has packaged them for game studios.</td>
 </tr>
 <tr>
 <td>Format contract for training</td>
@@ -169,8 +169,8 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 </tr></thead>
 <tbody>
 <tr>
-<td>7 step lore to export workflow</td>
-<td>Guided process: import, schema generation, schema editing, entity extraction, entity review, relationship linking, export</td>
+<td>8 step lore to export workflow</td>
+<td>Guided process: project setup, lore upload, schema definition, entity extraction, entity management, relationship mapping, narrative structuring, export</td>
 <td>Medium</td>
 <td>The workflow design is the IP, not the code. This specific pipeline (unstructured text to structured game data) does not exist in Articy, Ink, or Yarn Spinner. Those tools start from structured authoring; Architect starts from existing prose.</td>
 </tr>
@@ -178,7 +178,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <td>AI powered schema generation</td>
 <td>LLM suggests entity schemas based on imported lore content</td>
 <td>Medium</td>
-<td>The prompt templates in <code>/backend/prompts/active/</code> encode domain specific knowledge about game entity types. Replicable with effort but not trivial.</td>
+<td>The prompt templates in <code>/backend/prompts/active/</code> encode domain specific knowledge about game entity types. A competitor could replicate this with effort, but not trivially.</td>
 </tr>
 <tr>
 <td>Intelligent relationship resolution</td>
@@ -212,17 +212,17 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <td>Conflict resolution XML schema (XSD)</td>
 <td>Formal schema defining game state parameters with mutable/immutable flags, valid values, value ranges, dtype constraints, and metadata</td>
 <td>High</td>
-<td>This is the single most defensible piece of IP. No competitor has a formally specified, XSD validated contract for game state to LLM interaction. Inworld and Convai use free form dialogue. NVIDIA ACE uses proprietary internal formats. This schema is open enough to be adopted but specific enough to create lock in.</td>
+<td>This is the single most defensible piece of IP. No competitor has a formally specified, XSD validated contract for game state to LLM interaction. Inworld and Convai use free form dialogue. NVIDIA ACE uses proprietary internal formats. This schema stays open enough for adoption but specific enough to create lock in.</td>
 </tr>
 <tr>
 <td>Mutable/immutable parameter enforcement</td>
 <td>System prompt + validation pipeline ensures LLMs only modify parameters marked as mutable</td>
 <td>High</td>
-<td>Solves the core trust problem of LLM driven game state. Game designers define what the AI can and cannot change. This deterministic constraint system is absent from all surveyed competitors.</td>
+<td>Solves the core trust problem of LLM driven game state. Game designers define what the AI can and cannot change. No surveyed competitor offers this deterministic constraint system.</td>
 </tr>
 <tr>
 <td>Round trip format matching</td>
-<td>Input format (JSON or XML) is detected, converted to internal XML, processed, and output is converted back to match input format</td>
+<td>The system detects the input format (JSON or XML), converts it to internal XML, processes it, and converts the output back to match the input format</td>
 <td>Medium</td>
 <td>Elegant engineering that simplifies integration. Not algorithmically complex but reduces integration friction significantly.</td>
 </tr>
@@ -258,7 +258,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <td>Conflict resolution request schema (XSD + JSON Schema)</td>
 <td>Dual format schema defining how game engines communicate with the Director</td>
 <td>High</td>
-<td>If this format is adopted by even a few studios, it becomes a de facto standard. Standards create switching costs.</td>
+<td>If even a few studios adopt this format, it becomes a de facto standard. Standards create switching costs.</td>
 </tr>
 <tr>
 <td>Director response schema</td>
@@ -318,7 +318,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 </tr>
 <tr>
 <td><strong>Inworld AI</strong></td>
-<td>$500M+ funding. Character Engine with three layers (Character Brain, Contextual Mesh, Real Time AI). Sub 200ms TTS latency. Unreal AI Runtime SDK. NVIDIA A100 infrastructure. MCP integrations. Multi provider LLM access. Partnership with NVIDIA.</td>
+<td>~$125M total funding. Character Engine with three layers (Character Brain, Contextual Mesh, Real Time AI). Sub 200ms TTS latency. Unreal AI Runtime SDK. NVIDIA A100 infrastructure. MCP integrations. Multi provider LLM access. Partnership with NVIDIA.</td>
 <td>Deterministic game state control (mutable/immutable enforcement). Formal schema validation. Focus on narrative decisions rather than free form conversation. Offline/local inference capability. No per character API costs.</td>
 <td>Voice AI (TTS/ASR), facial animation, gesture generation, emotional modeling, production scale cloud infrastructure, massive engineering team, AAA studio partnerships.</td>
 </tr>
@@ -330,9 +330,9 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 </tr>
 <tr>
 <td><strong>NVIDIA ACE</strong></td>
-<td>Autonomous game characters that perceive, plan, and act. NVIGI SDK (GPU optimized plugin based inference). Nemotron 4 4B Instruct (2GB VRAM, on device). Distillation and pruning pipeline. Shipping in production games (inZOI, NARAKA). ACE characters as autonomous squad members.</td>
+<td>Autonomous game characters that perceive, plan, and act. NVIGI SDK (GPU optimized plugin based inference). Supports multiple on-device SLMs: Nemotron-4 4B Instruct (2GB VRAM), Mistral-NeMo-Minitron variants (2B/4B/8B, 1.5-5GB VRAM), and Qwen3-8B (open source, added Oct 2025). inZOI's "Smart Zoi" uses a 500M parameter Mistral NeMo Minitron requiring only 1GB VRAM (min RTX 3060 8GB, recommended RTX 5070/4070 Super 12GB). Distillation and pruning pipeline. Shipping in production games (inZOI, NARAKA: BLADEPOINT, PUBG testing 2026). ACE characters as autonomous squad members.</td>
 <td>Open, engine agnostic schema format. Authoring tool for narrative designers (not just engineers). Lore ingestion pipeline. Indie accessible (no NVIDIA hardware requirement for cloud mode).</td>
-<td>Massive R&D budget. Production deployments in shipping AAA games. Hardware level optimization. Audio2Face, Riva ASR/TTS. Autonomous agent behavior (not just dialogue). Distilled 0.5B parameter models that run in 2GB VRAM.</td>
+<td>Massive R&D budget. Production deployments in shipping AAA games. Hardware level optimization. Audio2Face, Riva ASR/TTS. Autonomous agent behavior (not just dialogue). Models as small as 500M parameters running in 1GB VRAM (inZOI). Open source model support (Qwen3).</td>
 </tr>
 <tr>
 <td><strong>Charisma.ai</strong></td>
@@ -378,7 +378,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <tr>
 <td><strong>IP protection</strong></td>
 <td>Weak</td>
-<td>No patents filed. No trade secrets beyond prompt templates and the XML schema. Code is in private repositories but contains no proprietary algorithms that could not be reverse engineered from the product's behavior. The XML schema itself is the most patentable asset.</td>
+<td>No patents filed. No trade secrets beyond prompt templates and the XML schema. Code lives in private repositories but contains no proprietary algorithms that a competitor could not reverse engineer from the product's behavior. The XML schema itself is the most patentable asset.</td>
 </tr>
 </tbody></table>
 <h3>6. Vulnerabilities</h3>
@@ -386,12 +386,12 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <ul>
 <li>The entire RAG pipeline. Microsoft GraphRAG, LangChain, and LlamaIndex provide 80% of the functionality out of the box. The remaining 20% (game specific entity types, relationship extraction prompts) is prompt engineering.</li>
 <li>The model fine tuning pipeline. Unsloth, PEFT, and TRL are public. The RPG dataset format is straightforward. Any team with ML experience could create a comparable evaluation harness.</li>
-<li>A basic version of the Architect's workflow. The 7 step process is a UX design, not a technical barrier. A React application with OpenAI API calls could replicate the core flow.</li>
+<li>A basic version of the Architect's workflow. The 8 step process is a UX design, not a technical barrier. A React application with OpenAI API calls could replicate the core flow.</li>
 </ul>
 <h4>What Unity or Unreal could build natively</h4>
 <ul>
 <li>Unity already has Muse Chat and is investing in AI tooling. A native "import lore, extract entities, export to runtime" workflow inside the Unity Editor would make the Architect unnecessary for Unity projects.</li>
-<li>Unreal's integration with Inworld (via the Unreal AI Runtime SDK) and NVIDIA ACE already provides NPC dialogue capabilities. If Epic added schema validated game state updates to their built in AI tools, the Director's core value proposition would be subsumed.</li>
+<li>Unreal's integration with Inworld (via the Unreal AI Runtime SDK) and NVIDIA ACE already provides NPC dialogue capabilities. If Epic added schema validated game state updates to their built in AI tools, that would subsume the Director's core value proposition.</li>
 <li>Both engines could define their own game state exchange format, instantly eclipsing any third party schema standard.</li>
 </ul>
 <h4>Open source alternatives that exist or could emerge</h4>
@@ -505,7 +505,7 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <tr>
 <td>Build a Discord/community around the XML schema standard</td>
 <td>Medium</td>
-<td>Standards are adopted by communities, not companies. A community that discusses and extends the schema creates organic lock in.</td>
+<td>Communities adopt standards, not companies. A community that discusses and extends the schema creates organic lock in.</td>
 </tr>
 </tbody></table>
 <h3>8. Sources</h3>
@@ -518,6 +518,9 @@ Game Engine  &lt;--  [Director]  &lt;--  LLM Decision  &lt;--  [Model Training] 
 <li><a href="https://www.nvidia.com/en-us/geforce/news/nvidia-ace-autonomous-ai-companions-pubg-naraka-bladepoint/" target="_blank">NVIDIA ACE Autonomous Game Characters</a></li>
 <li><a href="https://developer.nvidia.com/blog/bring-nvidia-ace-ai-characters-to-games-with-the-new-in-game-inference-sdk/" target="_blank">NVIDIA ACE In Game Inference SDK</a></li>
 <li><a href="https://developer.nvidia.com/blog/deploy-the-first-on-device-small-language-model-for-improved-game-character-roleplay/" target="_blank">NVIDIA On Device SLM for Game Character Roleplay</a></li>
+<li><a href="https://developer.nvidia.com/blog/nvidia-ace-adds-open-source-qwen3-slm-for-on-device-deployment-in-pc-games/" target="_blank">NVIDIA ACE Adds Qwen3 SLM for On-Device Deployment (Oct 2025)</a></li>
+<li><a href="https://www.pcgamer.com/hardware/graphics-cards/with-nvidia-ace-taking-up-1-gb-of-vram-in-inzoi-team-green-will-need-to-up-its-memory-game-if-ai-npcs-take-off-in-pc-gaming/" target="_blank">PC Gamer: NVIDIA ACE Takes 1GB VRAM in inZOI (Mar 2025)</a></li>
+<li><a href="https://www.nvidia.com/en-us/geforce/news/nvidia-ace-naraka-bladepoint-inzoi-launch-this-month/" target="_blank">NVIDIA ACE inZOI and NARAKA Launch</a></li>
 <li><a href="https://www.convai.com/" target="_blank">Convai Platform</a></li>
 <li><a href="https://developer.nvidia.com/blog/spotlight-convai-reinvents-non-playable-character-interactions/" target="_blank">Convai NVIDIA Spotlight</a></li>
 <li><a href="https://charisma.ai/" target="_blank">Charisma.ai Platform</a></li>
