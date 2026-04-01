@@ -72,9 +72,55 @@
                     <p class="raise-line">Working beta. First revenue April 2026. Raising &euro;550K seed.</p>
                 </section>
 
-                <div class="hero-media">
-                    <img src="architect-7.png" alt="LoreWeaver Architect: entity relationship graph">
+                <div class="hero-media" style="position: relative;">
+                    <div id="carousel" style="position: relative; overflow: hidden;">
+                        <div id="carousel-track" style="display: flex; transition: transform 0.4s ease;">
+                            <img src="architect-4.png" alt="Architect: Project Dashboard" style="min-width: 100%; display: block;">
+                            <img src="architect-3.png" alt="Architect: Lore Upload" style="min-width: 100%; display: block;">
+                            <img src="architect-5.png" alt="Architect: Schema Definition" style="min-width: 100%; display: block;">
+                            <img src="architect-6.png" alt="Architect: Entity Extraction" style="min-width: 100%; display: block;">
+                            <img src="architect-2.png" alt="Architect: Entity Management" style="min-width: 100%; display: block;">
+                            <img src="architect-7.png" alt="Architect: Relationship Graph" style="min-width: 100%; display: block;">
+                            <img src="architect-8.png" alt="Architect: Narrative Board" style="min-width: 100%; display: block;">
+                            <img src="architect-9.png" alt="Architect: Export" style="min-width: 100%; display: block;">
+                            <img src="director-2.png" alt="Director: Tavern Simulation" style="min-width: 100%; display: block;">
+                            <img src="director-3.png" alt="Director: Social Simulation" style="min-width: 100%; display: block;">
+                            <img src="director-4.png" alt="Director: Survival RPG" style="min-width: 100%; display: block;">
+                            <img src="director-5.png" alt="Director: Dialogue System" style="min-width: 100%; display: block;">
+                        </div>
+                        <button onclick="carouselPrev()" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer; z-index: 2;">&lsaquo;</button>
+                        <button onclick="carouselNext()" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer; z-index: 2;">&rsaquo;</button>
+                    </div>
+                    <div id="carousel-dots" style="text-align: center; padding: 10px 0 4px; display: flex; justify-content: center; gap: 6px;"></div>
+                    <div id="carousel-caption" style="text-align: center; padding: 0 0 8px; font-size: 13px; color: var(--text-light);"></div>
                 </div>
+                <script>
+                (function() {
+                    var track = document.getElementById('carousel-track');
+                    var imgs = track.querySelectorAll('img');
+                    var dotsC = document.getElementById('carousel-dots');
+                    var capC = document.getElementById('carousel-caption');
+                    var idx = 0;
+                    var total = imgs.length;
+                    for (var i = 0; i < total; i++) {
+                        var dot = document.createElement('span');
+                        dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:var(--text-light);opacity:0.3;cursor:pointer;transition:opacity 0.2s;';
+                        dot.dataset.i = i;
+                        dot.onclick = function() { goTo(parseInt(this.dataset.i)); };
+                        dotsC.appendChild(dot);
+                    }
+                    function goTo(n) {
+                        idx = ((n % total) + total) % total;
+                        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+                        var dots = dotsC.querySelectorAll('span');
+                        for (var j = 0; j < dots.length; j++) dots[j].style.opacity = j === idx ? '1' : '0.3';
+                        capC.textContent = imgs[idx].alt;
+                    }
+                    window.carouselPrev = function() { goTo(idx - 1); };
+                    window.carouselNext = function() { goTo(idx + 1); };
+                    goTo(0);
+                })();
+                </script>
 
                 <section class="summary-panel">
                     <div class="summary-panel-header">
