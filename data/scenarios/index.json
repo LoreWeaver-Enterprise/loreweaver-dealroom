@@ -1,0 +1,112 @@
+{
+  "scenarios": [
+    {
+      "file": "bootstrap_low.json",
+      "scenario": "Bootstrap",
+      "variant": "Low",
+      "gaming_only": false
+    },
+    {
+      "file": "bootstrap_medium.json",
+      "scenario": "Bootstrap",
+      "variant": "Medium",
+      "gaming_only": false
+    },
+    {
+      "file": "bootstrap_high.json",
+      "scenario": "Bootstrap",
+      "variant": "High",
+      "gaming_only": false
+    },
+    {
+      "file": "preseed_low.json",
+      "scenario": "Pre-Seed",
+      "variant": "Low",
+      "gaming_only": false
+    },
+    {
+      "file": "preseed_medium.json",
+      "scenario": "Pre-Seed",
+      "variant": "Medium",
+      "gaming_only": false
+    },
+    {
+      "file": "preseed_high.json",
+      "scenario": "Pre-Seed",
+      "variant": "High",
+      "gaming_only": false
+    },
+    {
+      "file": "seed_low.json",
+      "scenario": "Seed",
+      "variant": "Low",
+      "gaming_only": false
+    },
+    {
+      "file": "seed_medium.json",
+      "scenario": "Seed",
+      "variant": "Medium",
+      "gaming_only": false
+    },
+    {
+      "file": "seed_high.json",
+      "scenario": "Seed",
+      "variant": "High",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesa_low.json",
+      "scenario": "Series A",
+      "variant": "Low",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesa_medium.json",
+      "scenario": "Series A",
+      "variant": "Medium",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesa_high.json",
+      "scenario": "Series A",
+      "variant": "High",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesb_low.json",
+      "scenario": "Series B",
+      "variant": "Low",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesb_medium.json",
+      "scenario": "Series B",
+      "variant": "Medium",
+      "gaming_only": false
+    },
+    {
+      "file": "seriesb_high.json",
+      "scenario": "Series B",
+      "variant": "High",
+      "gaming_only": false
+    },
+    {
+      "file": "preseed_low_go.json",
+      "scenario": "Pre-Seed",
+      "variant": "Low",
+      "gaming_only": true
+    },
+    {
+      "file": "preseed_medium_go.json",
+      "scenario": "Pre-Seed",
+      "variant": "Medium",
+      "gaming_only": true
+    },
+    {
+      "file": "preseed_high_go.json",
+      "scenario": "Pre-Seed",
+      "variant": "High",
+      "gaming_only": true
+    }
+  ]
+}

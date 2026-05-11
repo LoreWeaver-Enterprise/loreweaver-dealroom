@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financials - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        /* ── Financial Model Dashboard overrides ── */
+        :root {
+            --fm-bg: #0f172a;
+            --fm-card: #1e293b;
+            --fm-card-border: #334155;
+            --fm-text: #e2e8f0;
+            --fm-text-muted: #94a3b8;
+            --fm-accent: #3b82f6;
+            --fm-positive: #22c55e;
+            --fm-negative: #ef4444;
+            --fm-architect: #3b82f6;
+            --fm-director: #22c55e;
+            --fm-addons: #06b6d4;
+            --fm-beyond: #a855f7;
+        }
+
+        .fm-shell {
+            max-width: 1280px;
+        }
+
+        .fm-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+            margin-top: 24px;
+        }
+
+        /* ── Sidebar controls ── */
+        .fm-controls {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+        }
+
+        .fm-panel {
+            background: var(--fm-card);
+            border: 1px solid var(--fm-card-border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .fm-panel-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--fm-accent);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .fm-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .fm-radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--fm-text-muted);
+            transition: all 0.15s ease;
+        }
+
+        .fm-radio-group label:hover {
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--fm-text);
+        }
+
+        .fm-radio-group input[type="radio"] {
+            accent-color: var(--fm-accent);
+            width: 14px;
+            height: 14px;
+        }
+
+        .fm-radio-group input[type="radio"]:checked + span {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .fm-checkbox-group {
+            margin-top: 4px;
+        }
+
+        .fm-checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--fm-text-muted);
+            transition: all 0.15s ease;
+        }
+
+        .fm-checkbox-group label:hover {
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--fm-text);
+        }
+
+        .fm-checkbox-group input[type="checkbox"] {
+            accent-color: var(--fm-accent);
+            width: 14px;
+            height: 14px;
+        }
+
+        .fm-divider {
+            border: none;
+            border-top: 1px solid var(--fm-card-border);
+            margin: 14px 0;
+        }
+
+        .fm-placeholder-text {
+            font-size: 12px;
+            color: var(--fm-text-muted);
+            font-style: italic;
+            line-height: 1.5;
+            padding: 4px 0;
+        }
+
+        /* ── Chart area ── */
+        .fm-charts {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .fm-chart-card {
+            background: var(--fm-card);
+            border: 1px solid var(--fm-card-border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .fm-chart-title {
+            font-family: 'Inria Serif', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .fm-chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 320px;
+        }
+
+        .fm-chart-wrap canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* ── Metric cards ── */
+        .fm-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+        }
+
+        .fm-metric {
+            background: var(--fm-card);
+            border: 1px solid var(--fm-card-border);
+            border-radius: 10px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .fm-metric-value {
+            font-family: 'Inria Serif', Georgia, serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--fm-accent);
+            line-height: 1.2;
+        }
+
+        .fm-metric-value.positive { color: var(--fm-positive); }
+        .fm-metric-value.negative { color: var(--fm-negative); }
+
+        .fm-metric-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--fm-text-muted);
+            margin-top: 6px;
+        }
+
+        /* ── P&L Table ── */
+        .fm-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .fm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .fm-table thead {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .fm-table th {
+            padding: 10px 12px;
+            text-align: right;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--fm-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--fm-card-border);
+        }
+
+        .fm-table th:first-child {
+            text-align: left;
+        }
+
+        .fm-table td {
+            padding: 8px 12px;
+            text-align: right;
+            color: var(--fm-text);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        .fm-table td:first-child {
+            text-align: left;
+            color: var(--fm-text-muted);
+            font-weight: 500;
+        }
+
+        .fm-table tr.fm-row-highlight {
+            background: rgba(59, 130, 246, 0.06);
+        }
+
+        .fm-table tr.fm-row-highlight td {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .fm-table .fm-cell-pos { color: var(--fm-positive); }
+        .fm-table .fm-cell-neg { color: var(--fm-negative); }
+
+        /* ── Loading / Error states ── */
+        .fm-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--fm-text-muted);
+            font-size: 14px;
+        }
+
+        .fm-loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--fm-card-border);
+            border-top-color: var(--fm-accent);
+            border-radius: 50%;
+            animation: fm-spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes fm-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .fm-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: var(--fm-negative);
+            font-size: 13px;
+        }
+
+        /* ── Legend pills ── */
+        .fm-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .fm-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--fm-text-muted);
+        }
+
+        .fm-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+        }
+
+        /* ── Custom scenario inputs ── */
+        .input-group { margin-bottom: 0.75rem; }
+        .input-group label { display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.25rem; }
+        .input-group input[type="range"] { width: 100%; }
+        .input-group span { font-size: 0.8rem; color: #3b82f6; font-weight: bold; }
+        .input-group select { width: 100%; background: #1e293b; color: #e2e8f0; border: 1px solid #475569; padding: 0.25rem; border-radius: 0.25rem; }
+        #run-custom-btn { width: 100%; padding: 0.75rem; background: #3b82f6; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; margin-top: 1rem; }
+        #run-custom-btn:disabled { background: #475569; cursor: not-allowed; }
+        #run-custom-btn:hover:not(:disabled) { background: #2563eb; }
+        #export-custom-btn { width: 100%; padding: 0.5rem; background: #22c55e; color: white; border: none; border-radius: 0.5rem; cursor: pointer; margin-top: 0.5rem; }
+        .hidden { display: none; }
+        .fm-section-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--fm-accent); font-weight: 700; margin: 0.75rem 0 0.4rem; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .fm-layout {
+                grid-template-columns: 1fr;
+            }
+            .fm-controls {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .fm-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="images/LoreWeaverLogo_white (1).png" alt="LoreWeaver">
+                <h2>Investor Diligence Room</h2>
+            </div>
+
+            <div class="sidebar-intro">
+                <p>Start with the thesis, then move through product, market, business model, and terms.</p>
+            </div>
+
+            <div class="nav-section nav-section-primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link">Product</a>
+                <a href="market.html" class="nav-link">Market</a>
+                <a href="financials.html" class="nav-link active">Financials</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="traction.html" class="nav-link">Traction</a>
+                <a href="roadmap.html" class="nav-link">Roadmap</a>
+                <a href="sources-research.html" class="nav-link">Sources &amp; Research</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content" style="background: var(--fm-bg, var(--bg-body));">
+            <div class="content-shell fm-shell">
+                <div class="page-header">
+                    <div class="eyebrow">LoreWeaver Deal Room</div>
+                    <h1>Financials <span class="version-badge">Interactive</span></h1>
+                    <p class="subtitle">10-year scenario projections covering revenue, cash flow, team growth, and P&amp;L.</p>
+                </div>
+
+                <section class="summary-panel" style="margin-bottom: 28px;">
+                    <div class="summary-panel-header">
+                        <h2>Headline numbers (Series B / Medium scenario)</h2>
+                        <span class="summary-panel-note">Live engine below lets you switch scenarios.</span>
+                    </div>
+                    <div class="metrics-grid metrics-grid-three" style="margin-top: 16px;">
+                        <div class="metric-card">
+                            <div class="metric-value">&euro;50.2M</div>
+                            <div class="metric-label">Y5 Revenue</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">&euro;457M</div>
+                            <div class="metric-label">Y10 Revenue</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">&euro;510M</div>
+                            <div class="metric-label">Y10 ARR</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">Month 30</div>
+                            <div class="metric-label">First Profitable Month</div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="fm-layout">
+                    <!-- ════════ LEFT: Scenario Controls ════════ -->
+                    <aside class="fm-controls">
+                        <!-- Funding Scenario -->
+                        <div class="fm-panel">
+                            <div class="fm-panel-title">Funding Scenario</div>
+                            <div class="fm-radio-group" id="scenario-group">
+                                <label><input type="radio" name="scenario" value="bootstrap"><span>Bootstrap</span></label>
+                                <label><input type="radio" name="scenario" value="pre_seed"><span>Pre-Seed</span></label>
+                                <label><input type="radio" name="scenario" value="seed"><span>Seed</span></label>
+                                <label><input type="radio" name="scenario" value="series_a"><span>Series A</span></label>
+                                <label><input type="radio" name="scenario" value="series_b" checked><span>Series B</span></label>
+                            </div>
+
+                            <hr class="fm-divider">
+
+                            <div class="fm-panel-title">Variant</div>
+                            <div class="fm-radio-group" id="variant-group">
+                                <label><input type="radio" name="variant" value="low"><span>Low</span></label>
+                                <label><input type="radio" name="variant" value="medium" checked><span>Medium</span></label>
+                                <label><input type="radio" name="variant" value="high"><span>High</span></label>
+                            </div>
+
+                            <hr class="fm-divider">
+
+                            <div class="fm-checkbox-group">
+                                <label><input type="checkbox" id="gaming-only"><span>Gaming Only</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Custom Scenario -->
+                        <div class="fm-panel">
+                            <div class="fm-panel-title">Custom Scenario</div>
+
+                            <div class="fm-section-label">Funding</div>
+                            <div class="input-group">
+                                <label>Funding Scenario</label>
+                                <select id="custom-funding">
+                                    <option value="Bootstrap">Bootstrap</option>
+                                    <option value="Pre-Seed">Pre-Seed</option>
+                                    <option value="Seed">Seed</option>
+                                    <option value="Series A">Series A</option>
+                                    <option value="Series B" selected>Series B</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Business Loan</label>
+                                <input type="range" id="custom-loan" min="0" max="500000" step="10000" value="100000">
+                                <span id="custom-loan-val">EUR 100K</span>
+                            </div>
+
+                            <div class="fm-section-label">Sales &amp; Growth</div>
+                            <div class="input-group">
+                                <label>Close Rate</label>
+                                <input type="range" id="custom-close-rate" min="0.01" max="0.25" step="0.005" value="0.075">
+                                <span id="custom-close-rate-val">7.5%</span>
+                            </div>
+                            <div class="input-group">
+                                <label>PLG Conversion</label>
+                                <input type="range" id="custom-plg" min="0.05" max="0.50" step="0.05" value="0.20">
+                                <span id="custom-plg-val">20%</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Organic Signups/mo</label>
+                                <input type="range" id="custom-organic" min="10" max="100" step="5" value="30">
+                                <span id="custom-organic-val">30</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Organic Growth/mo</label>
+                                <input type="range" id="custom-growth" min="0.01" max="0.15" step="0.01" value="0.05">
+                                <span id="custom-growth-val">5%</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Solo Churn/mo</label>
+                                <input type="range" id="custom-churn" min="0.02" max="0.10" step="0.005" value="0.05">
+                                <span id="custom-churn-val">5%</span>
+                            </div>
+
+                            <div class="fm-section-label">Pricing</div>
+                            <div class="input-group">
+                                <label>Token Markup</label>
+                                <input type="range" id="custom-markup" min="3" max="10" step="1" value="5">
+                                <span id="custom-markup-val">5x</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Director Royalty</label>
+                                <input type="range" id="custom-director-royalty" min="0.005" max="0.05" step="0.005" value="0.01">
+                                <span id="custom-director-royalty-val">1%</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Beyond Gaming Royalty</label>
+                                <input type="range" id="custom-bg-royalty" min="0.01" max="0.10" step="0.01" value="0.05">
+                                <span id="custom-bg-royalty-val">5%</span>
+                            </div>
+
+                            <div class="fm-section-label">Market</div>
+                            <div class="input-group">
+                                <label>BG Market 2035</label>
+                                <input type="range" id="custom-bg-market" min="200000000000" max="1000000000000" step="50000000000" value="400000000000">
+                                <span id="custom-bg-market-val">EUR 400B</span>
+                            </div>
+                            <div class="input-group">
+                                <label>BG Penetration 2035</label>
+                                <input type="range" id="custom-bg-pen" min="0.01" max="0.50" step="0.01" value="0.05">
+                                <span id="custom-bg-pen-val">5%</span>
+                            </div>
+
+                            <hr class="fm-divider">
+                            <div class="input-group">
+                                <label><input type="checkbox" id="custom-gaming-only"> Gaming Only</label>
+                            </div>
+                            <button id="run-custom-btn" disabled>
+                                <span id="run-btn-text">Loading engine...</span>
+                                <span id="run-spinner" class="hidden">Running...</span>
+                            </button>
+                            <button id="export-custom-btn" class="hidden">Export as JSON</button>
+                        </div>
+
+                        <!-- Saved Variants -->
+                        <div class="fm-panel">
+                            <div class="fm-panel-title">Saved Variants</div>
+                            <p class="fm-placeholder-text">Saved variants &mdash; coming soon.</p>
+                        </div>
+                    </aside>
+
+                    <!-- ════════ RIGHT: Charts & Data ════════ -->
+                    <section class="fm-charts" id="fm-charts">
+                        <!-- Key Metric Cards -->
+                        <div class="fm-metrics" id="fm-metrics">
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-y5-arr">--</div><div class="fm-metric-label">Y5 ARR</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-y10-arr">--</div><div class="fm-metric-label">Y10 ARR</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-y5-team">--</div><div class="fm-metric-label">Y5 Team</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-y10-team">--</div><div class="fm-metric-label">Y10 Team</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-min-cash">--</div><div class="fm-metric-label">Min Cash</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-breakeven">--</div><div class="fm-metric-label">Breakeven Mo.</div></div>
+                            <div class="fm-metric"><div class="fm-metric-value" id="m-bg-start">--</div><div class="fm-metric-label">BG Start Mo.</div></div>
+                        </div>
+
+                        <!-- Revenue Breakdown -->
+                        <div class="fm-chart-card">
+                            <div class="fm-chart-title">Revenue Breakdown</div>
+                            <div class="fm-legend">
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:#3b82f6"></div>Architect</div>
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:#22c55e"></div>Director Royalties</div>
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:#06b6d4"></div>Director Add-ons</div>
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:#a855f7"></div>Beyond Gaming</div>
+                            </div>
+                            <div class="fm-chart-wrap"><canvas id="chart-revenue"></canvas></div>
+                        </div>
+
+                        <!-- Cash Flow -->
+                        <div class="fm-chart-card">
+                            <div class="fm-chart-title">Cash Flow</div>
+                            <div class="fm-chart-wrap"><canvas id="chart-cashflow"></canvas></div>
+                        </div>
+
+                        <!-- Team & Customers -->
+                        <div class="fm-chart-card">
+                            <div class="fm-chart-title">Team &amp; Customers</div>
+                            <div class="fm-legend">
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:rgba(59,130,246,0.6)"></div>Headcount</div>
+                                <div class="fm-legend-item"><div class="fm-legend-dot" style="background:#ECC457"></div>Total Customers</div>
+                            </div>
+                            <div class="fm-chart-wrap"><canvas id="chart-team"></canvas></div>
+                        </div>
+
+                        <!-- P&L Table -->
+                        <div class="fm-chart-card">
+                            <div class="fm-chart-title">Profit &amp; Loss Summary</div>
+                            <div class="fm-table-wrap">
+                                <table class="fm-table" id="fm-pl-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th>
+                                            <th>Y6</th><th>Y7</th><th>Y8</th><th>Y9</th><th>Y10</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fm-pl-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="content-shell fm-shell" style="margin-top: 40px;">
+
+                <section class="summary-panel" style="margin-bottom: 28px;">
+                    <div class="summary-panel-header">
+                        <h2>Downloads</h2>
+                        <span class="summary-panel-note">Series B / Medium master model and supporting data.</span>
+                    </div>
+                    <ul class="takeaway-list">
+                        <li><a href="../../excel_outputs/LoreWeaver_Model_v6_Series%20B_Medium.xlsx">Full financial model (xlsx, Series B / Medium)</a></li>
+                        <li>Monthly cash flow CSV (coming soon, available on request)</li>
+                    </ul>
+                </section>
+
+                <section class="fm-chart-card" style="background: var(--fm-card); border: 1px solid var(--fm-card-border); margin-bottom: 24px;">
+                    <div class="fm-chart-title">P&amp;L summary (Series B / Medium, EUR)</div>
+                    <div class="fm-table-wrap">
+                        <table class="fm-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th>
+                                    <th>Y6</th><th>Y7</th><th>Y8</th><th>Y9</th><th>Y10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Revenue</td><td>0.3M</td><td>1.6M</td><td>6.6M</td><td>21.3M</td><td>50.2M</td><td>85.4M</td><td>153.4M</td><td>242.5M</td><td>351.2M</td><td>457.0M</td></tr>
+                                <tr><td>Gross margin</td><td>76%</td><td>80%</td><td>82%</td><td>83%</td><td>83%</td><td>83%</td><td>83%</td><td>83%</td><td>83%</td><td>83%</td></tr>
+                                <tr class="fm-row-highlight"><td>EBITDA</td><td>-47K</td><td>31K</td><td>346K</td><td>4.3M</td><td>17.0M</td><td>32.9M</td><td>68.3M</td><td>114.3M</td><td>173.5M</td><td>227.3M</td></tr>
+                                <tr class="fm-row-highlight"><td>Net income</td><td>-47K</td><td>26K</td><td>294K</td><td>3.7M</td><td>14.5M</td><td>27.9M</td><td>58.0M</td><td>97.2M</td><td>147.5M</td><td>264.0M</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="fm-chart-card" style="background: var(--fm-card); border: 1px solid var(--fm-card-border); margin-bottom: 24px;">
+                    <div class="fm-chart-title">Revenue breakdown by segment (EUR)</div>
+                    <div class="fm-table-wrap">
+                        <table class="fm-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th><th>Y10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Architect (SaaS)</td><td>0.3M</td><td>1.2M</td><td>4.5M</td><td>14.9M</td><td>36.6M</td><td>169M</td></tr>
+                                <tr><td>Director Gaming</td><td>3K</td><td>0.2M</td><td>1.5M</td><td>4.7M</td><td>8.7M</td><td>54M</td></tr>
+                                <tr><td>Beyond Gaming</td><td>0</td><td>0.2M</td><td>0.6M</td><td>1.7M</td><td>4.9M</td><td>234M</td></tr>
+                                <tr class="fm-row-highlight"><td>Total</td><td>0.3M</td><td>1.6M</td><td>6.6M</td><td>21.3M</td><td>50.2M</td><td>457M</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="fm-chart-card" style="background: var(--fm-card); border: 1px solid var(--fm-card-border); margin-bottom: 24px;">
+                    <div class="fm-chart-title">Headcount plan</div>
+                    <div class="fm-table-wrap">
+                        <table class="fm-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th><th>Y6</th><th>Y7</th><th>Y8</th><th>Y9</th><th>Y10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fm-row-highlight"><td>Total team</td><td>5</td><td>12</td><td>22</td><td>30</td><td>38</td><td>56</td><td>78</td><td>100</td><td>122</td><td>142</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="summary-panel">
+                    <div class="summary-panel-header">
+                        <h2>Key assumptions (Series B / Medium)</h2>
+                    </div>
+                    <ul class="takeaway-list">
+                        <li>Funding path: €550K pre-seed (Apr 2026), €2.5M seed (Q3 2027), €10M Series A (Month 30), €30M Series B (Month 42).</li>
+                        <li>Architect pricing: 5x token markup on consumption above subscription tier.</li>
+                        <li>Director: 1% gaming royalty, 5% beyond-gaming royalty, on-device inference (no cloud cost per session).</li>
+                        <li>Churn: 5% monthly solo, 4.5% indie, 2% AA, 1.5% AAA.</li>
+                        <li>Beyond Gaming revenue starts in Month 24, ramps with vertical pilots (digital twins, AV, mil sim, film/TV).</li>
+                        <li>Gross margin expands 76% to 83% Y1 to Y5 as AI cost deflation (20% annual) outpaces price.</li>
+                        <li>First profitable month: Month 30. Min cash trough roughly €1.85M negative pre Series A bridge.</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; LoreWeaver &middot; April 2026
+            </div>
+        </main>
+    </div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  Theme toggle (shared across deal room)                     -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  Financial Model Dashboard Logic                            -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+    'use strict';
+
+    // ── Chart.js global defaults for dark theme ──
+    Chart.defaults.color = '#94a3b8';
+    Chart.defaults.borderColor = 'rgba(51,65,85,0.5)';
+    Chart.defaults.font.family = "'Open Sans', sans-serif";
+    Chart.defaults.font.size = 11;
+    Chart.defaults.plugins.tooltip.backgroundColor = '#1e293b';
+    Chart.defaults.plugins.tooltip.borderColor = '#334155';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.titleColor = '#e2e8f0';
+    Chart.defaults.plugins.tooltip.bodyColor = '#cbd5e1';
+    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.legend.display = false;
+
+    // ── Currency formatter ──
+    var eurK = function(v) {
+        if (v == null) return '--';
+        if (Math.abs(v) >= 1e6) return '\u20ac' + (v / 1e6).toFixed(1) + 'M';
+        if (Math.abs(v) >= 1e3) return '\u20ac' + (v / 1e3).toFixed(0) + 'K';
+        return '\u20ac' + v.toFixed(0);
+    };
+
+    var fmtMonth = function(m) {
+        if (m == null || m === '--') return '--';
+        return 'Mo ' + m;
+    };
+
+    // ── Chart instances ──
+    var revenueChart = null;
+    var cashChart = null;
+    var teamChart = null;
+
+    // ── State ──
+    var currentData = null;
+
+    // ═══════════════════════════════════════════
+    //  DATA LOADING
+    // ═══════════════════════════════════════════
+
+    function getScenarioFilename() {
+        var scenario = document.querySelector('input[name="scenario"]:checked').value;
+        var variant = document.querySelector('input[name="variant"]:checked').value;
+        var gamingOnly = document.getElementById('gaming-only').checked;
+        var suffix = gamingOnly ? '_gaming_only' : '';
+        return scenario + '_' + variant + suffix + '.json';
+    }
+
+    async function loadScenario() {
+        var filename = getScenarioFilename();
+        var chartsEl = document.getElementById('fm-charts');
+
+        try {
+            var resp = await fetch('data/scenarios/' + filename);
+            if (!resp.ok) {
+                showFallback(filename);
+                return;
+            }
+            var data = await resp.json();
+            currentData = data;
+            renderDashboard(data);
+        } catch (e) {
+            showFallback(filename);
+        }
+    }
+
+    function showFallback(filename) {
+        // Use demo data when JSON files are not yet available
+        var data = generateDemoData();
+        currentData = data;
+        renderDashboard(data);
+    }
+
+    // ═══════════════════════════════════════════
+    //  DEMO DATA GENERATOR
+    //  Produces plausible placeholder numbers
+    //  until the real scenario JSONs land.
+    // ═══════════════════════════════════════════
+
+    function generateDemoData() {
+        var scenario = document.querySelector('input[name="scenario"]:checked').value;
+        var variant = document.querySelector('input[name="variant"]:checked').value;
+        var gamingOnly = document.getElementById('gaming-only').checked;
+
+        // Funding amounts by scenario
+        var funding = {
+            bootstrap: 0,
+            pre_seed: 150000,
+            seed: 550000,
+            series_a: 2500000,
+            series_b: 8000000
+        };
+        var variantMult = { low: 0.7, medium: 1.0, high: 1.4 };
+        var mult = variantMult[variant];
+        var cash0 = funding[scenario] || 0;
+
+        // Growth base rates (per year)
+        var baseArchitect =  [20000, 80000, 200000, 500000, 1000000, 1600000, 2400000, 3200000, 4000000, 4800000];
+        var baseDirector =   [0,     0,     30000,  120000, 400000,  900000,  1600000, 2800000, 4200000, 6000000];
+        var baseAddons =     [0,     0,     5000,   25000,  80000,   200000,  400000,  700000,  1100000, 1600000];
+        var baseBeyond =     [0,     0,     0,      0,      50000,   200000,  500000,  1000000, 1800000, 3000000];
+        var baseTeam =       [2,     3,     5,      8,      14,      22,      32,      45,      55,      65];
+        var baseCust =       [5,     18,    45,     90,     180,     320,     500,     750,     1050,    1400];
+
+        // Apply scenario scaling (more funding = faster growth in later years)
+        var scenarioScale = { bootstrap: 0.5, pre_seed: 0.7, seed: 1.0, series_a: 1.5, series_b: 2.0 };
+        var sScale = scenarioScale[scenario];
+
+        var architect = [], director = [], addons = [], beyond = [];
+        var team = [], customers = [];
+        var revenue = [], cogs = [], grossProfit = [], personnel = [], opex = [], ebitda = [], netIncome = [], cashBal = [];
+
+        var runningCash = cash0;
+
+        for (var y = 0; y < 10; y++) {
+            var yearScale = y < 2 ? 1.0 : sScale; // Funding impact kicks in after Y2
+            var a = Math.round(baseArchitect[y] * mult * yearScale);
+            var d = Math.round(baseDirector[y] * mult * yearScale);
+            var ad = Math.round(baseAddons[y] * mult * yearScale);
+            var bg = gamingOnly ? 0 : Math.round(baseBeyond[y] * mult * yearScale);
+
+            architect.push(a);
+            director.push(d);
+            addons.push(ad);
+            beyond.push(bg);
+
+            var totalRev = a + d + ad + bg;
+            revenue.push(totalRev);
+
+            var c = Math.round(totalRev * 0.15);
+            cogs.push(c);
+
+            var gp = totalRev - c;
+            grossProfit.push(gp);
+
+            var t = Math.round(baseTeam[y] * (y < 2 ? 1 : Math.sqrt(sScale)));
+            team.push(t);
+
+            var cust = Math.round(baseCust[y] * mult * yearScale);
+            customers.push(cust);
+
+            var pers = Math.round(t * 65000); // avg cost per person
+            personnel.push(pers);
+
+            var ox = Math.round(totalRev * 0.08 + t * 3000);
+            opex.push(ox);
+
+            var eb = gp - pers - ox;
+            ebitda.push(eb);
+
+            var ni = Math.round(eb * 0.85); // rough tax
+            netIncome.push(ni);
+
+            runningCash += ni;
+            cashBal.push(runningCash);
+        }
+
+        // Monthly cash for 120 months (interpolated)
+        var monthlyCash = [];
+        var mCash = cash0;
+        for (var m = 0; m < 120; m++) {
+            var yIdx = Math.floor(m / 12);
+            var monthlyNet = (netIncome[yIdx] || netIncome[9]) / 12;
+            mCash += monthlyNet;
+            monthlyCash.push(Math.round(mCash));
+        }
+
+        // Find key metrics
+        var minCash = Math.min.apply(null, monthlyCash);
+        var breakevenMonth = null;
+        for (var i = 0; i < monthlyCash.length; i++) {
+            if (i > 0 && monthlyCash[i] > monthlyCash[i - 1] && ebitda[Math.floor(i / 12)] > 0) {
+                breakevenMonth = i;
+                break;
+            }
+        }
+        var bgStartMonth = gamingOnly ? null : 48;
+
+        return {
+            summary: {
+                y5_arr: revenue[4],
+                y10_arr: revenue[9],
+                y5_team: team[4],
+                y10_team: team[9],
+                min_cash: minCash,
+                breakeven_month: breakevenMonth,
+                bg_start_month: bgStartMonth
+            },
+            annual: {
+                revenue: {
+                    architect: architect,
+                    director_royalties: director,
+                    director_addons: addons,
+                    beyond_gaming: beyond,
+                    total: revenue
+                },
+                cogs: cogs,
+                gross_profit: grossProfit,
+                personnel: personnel,
+                opex: opex,
+                ebitda: ebitda,
+                net_income: netIncome,
+                cash_balance: cashBal,
+                team: team,
+                customers: customers
+            },
+            monthly: {
+                cash_balance: monthlyCash
+            }
+        };
+    }
+
+    // ═══════════════════════════════════════════
+    //  RENDER
+    // ═══════════════════════════════════════════
+
+    function renderDashboard(data) {
+        updateMetricCards(data.summary);
+        updateRevenueChart(data.annual.revenue);
+        updateCashChart(data.monthly.cash_balance);
+        updateTeamChart(data.annual.team, data.annual.customers);
+        updatePLTable(data.annual);
+    }
+
+    // ── Metric Cards ──
+    function updateMetricCards(s) {
+        setText('m-y5-arr', eurK(s.y5_arr));
+        setText('m-y10-arr', eurK(s.y10_arr));
+        setText('m-y5-team', s.y5_team != null ? s.y5_team : '--');
+        setText('m-y10-team', s.y10_team != null ? s.y10_team : '--');
+        setText('m-min-cash', eurK(s.min_cash));
+        setClass('m-min-cash', s.min_cash < 0 ? 'fm-metric-value negative' : 'fm-metric-value positive');
+        setText('m-breakeven', s.breakeven_month != null ? fmtMonth(s.breakeven_month) : 'N/A');
+        setText('m-bg-start', s.bg_start_month != null ? fmtMonth(s.bg_start_month) : 'N/A');
+    }
+
+    function setText(id, val) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = val;
+    }
+
+    function setClass(id, cls) {
+        var el = document.getElementById(id);
+        if (el) el.className = cls;
+    }
+
+    // ── Revenue Chart (Stacked Area) ──
+    function updateRevenueChart(rev) {
+        var labels = [];
+        for (var i = 1; i <= 10; i++) labels.push('Y' + i);
+
+        var datasets = [
+            { label: 'Architect', data: rev.architect, backgroundColor: 'rgba(59,130,246,0.5)', borderColor: '#3b82f6', fill: true, order: 4 },
+            { label: 'Director Royalties', data: rev.director_royalties, backgroundColor: 'rgba(34,197,94,0.5)', borderColor: '#22c55e', fill: true, order: 3 },
+            { label: 'Director Add-ons', data: rev.director_addons, backgroundColor: 'rgba(6,182,212,0.5)', borderColor: '#06b6d4', fill: true, order: 2 },
+            { label: 'Beyond Gaming', data: rev.beyond_gaming, backgroundColor: 'rgba(168,85,247,0.5)', borderColor: '#a855f7', fill: true, order: 1 },
+        ];
+
+        var config = {
+            type: 'line',
+            data: { labels: labels, datasets: datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: {
+                        stacked: true,
+                        ticks: { callback: function(v) { return eurK(v); } },
+                        grid: { color: 'rgba(51,65,85,0.3)' }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) { return ctx.dataset.label + ': ' + eurK(ctx.parsed.y); }
+                        }
+                    }
+                },
+                elements: {
+                    line: { tension: 0.3, borderWidth: 2 },
+                    point: { radius: 3, hoverRadius: 5 }
+                }
+            }
+        };
+
+        if (revenueChart) {
+            revenueChart.data = config.data;
+            revenueChart.update();
+        } else {
+            revenueChart = new Chart(document.getElementById('chart-revenue'), config);
+        }
+    }
+
+    // ── Cash Flow Chart (line, green/red) ──
+    function updateCashChart(monthlyCash) {
+        var labels = [];
+        for (var i = 0; i < monthlyCash.length; i++) labels.push(i);
+
+        // Segment coloring: green above 0, red below 0
+        var segmentColor = function(ctx) {
+            var yVal = ctx.p1.parsed.y;
+            return yVal >= 0 ? '#22c55e' : '#ef4444';
+        };
+
+        var bgColor = function(ctx) {
+            var yVal = ctx.p1.parsed.y;
+            return yVal >= 0 ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)';
+        };
+
+        var config = {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Cash Balance',
+                    data: monthlyCash,
+                    segment: {
+                        borderColor: segmentColor,
+                        backgroundColor: bgColor
+                    },
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34,197,94,0.12)',
+                    fill: true,
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    pointHoverRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            callback: function(v, i) {
+                                return i % 12 === 0 ? 'Y' + (i / 12 + 1) : '';
+                            },
+                            maxRotation: 0
+                        }
+                    },
+                    y: {
+                        ticks: { callback: function(v) { return eurK(v); } },
+                        grid: { color: 'rgba(51,65,85,0.3)' }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(items) { return 'Month ' + items[0].label; },
+                            label: function(ctx) { return 'Cash: ' + eurK(ctx.parsed.y); }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            zeroLine: {
+                                type: 'line',
+                                yMin: 0, yMax: 0,
+                                borderColor: 'rgba(148,163,184,0.4)',
+                                borderWidth: 1,
+                                borderDash: [4, 4]
+                            }
+                        }
+                    }
+                },
+                elements: { line: { tension: 0.2 } }
+            }
+        };
+
+        if (cashChart) {
+            cashChart.data = config.data;
+            cashChart.update();
+        } else {
+            cashChart = new Chart(document.getElementById('chart-cashflow'), config);
+        }
+
+        // Draw zero line manually via plugin if annotation plugin not loaded
+        drawZeroLine('chart-cashflow', cashChart);
+    }
+
+    // Simple zero-line draw fallback
+    function drawZeroLine(canvasId, chart) {
+        if (!chart) return;
+        var zeroPlugin = {
+            id: 'zeroLine_' + canvasId,
+            afterDraw: function(c) {
+                var yScale = c.scales.y;
+                if (!yScale) return;
+                var yPixel = yScale.getPixelForValue(0);
+                if (yPixel < yScale.top || yPixel > yScale.bottom) return;
+                var ctx = c.ctx;
+                ctx.save();
+                ctx.beginPath();
+                ctx.setLineDash([5, 4]);
+                ctx.strokeStyle = 'rgba(148,163,184,0.5)';
+                ctx.lineWidth = 1;
+                ctx.moveTo(c.chartArea.left, yPixel);
+                ctx.lineTo(c.chartArea.right, yPixel);
+                ctx.stroke();
+                ctx.restore();
+            }
+        };
+        // Register once
+        if (!chart._zeroPluginAdded) {
+            chart.config.plugins = chart.config.plugins || [];
+            chart.config.plugins.push(zeroPlugin);
+            chart._zeroPluginAdded = true;
+            chart.update();
+        }
+    }
+
+    // ── Team & Customers Chart (dual axis) ──
+    function updateTeamChart(teamArr, custArr) {
+        var labels = [];
+        for (var i = 1; i <= 10; i++) labels.push('Y' + i);
+
+        var config = {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Headcount',
+                        data: teamArr,
+                        backgroundColor: 'rgba(59,130,246,0.55)',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        yAxisID: 'yTeam',
+                        order: 2
+                    },
+                    {
+                        label: 'Total Customers',
+                        data: custArr,
+                        type: 'line',
+                        borderColor: '#ECC457',
+                        backgroundColor: 'rgba(236,196,87,0.1)',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ECC457',
+                        fill: false,
+                        tension: 0.3,
+                        yAxisID: 'yCust',
+                        order: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    x: { grid: { display: false } },
+                    yTeam: {
+                        position: 'left',
+                        title: { display: true, text: 'Headcount', color: '#94a3b8' },
+                        grid: { color: 'rgba(51,65,85,0.3)' },
+                        beginAtZero: true
+                    },
+                    yCust: {
+                        position: 'right',
+                        title: { display: true, text: 'Customers', color: '#94a3b8' },
+                        grid: { display: false },
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                return ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        if (teamChart) {
+            teamChart.data = config.data;
+            teamChart.options.scales.yTeam = config.options.scales.yTeam;
+            teamChart.options.scales.yCust = config.options.scales.yCust;
+            teamChart.update();
+        } else {
+            teamChart = new Chart(document.getElementById('chart-team'), config);
+        }
+    }
+
+    // ── P&L Table ──
+    function updatePLTable(annual) {
+        var rows = [
+            { label: 'Revenue',       data: annual.revenue.total,  highlight: false },
+            { label: 'COGS',          data: annual.cogs,           highlight: false },
+            { label: 'Gross Profit',  data: annual.gross_profit,   highlight: true  },
+            { label: 'Personnel',     data: annual.personnel,      highlight: false },
+            { label: 'OpEx',          data: annual.opex,           highlight: false },
+            { label: 'EBITDA',        data: annual.ebitda,         highlight: true  },
+            { label: 'Net Income',    data: annual.net_income,     highlight: true  },
+            { label: 'Cash Balance',  data: annual.cash_balance,   highlight: true  },
+        ];
+
+        var tbody = document.getElementById('fm-pl-body');
+        tbody.innerHTML = '';
+
+        rows.forEach(function(row) {
+            var tr = document.createElement('tr');
+            if (row.highlight) tr.className = 'fm-row-highlight';
+
+            var tdLabel = document.createElement('td');
+            tdLabel.textContent = row.label;
+            tr.appendChild(tdLabel);
+
+            for (var y = 0; y < 10; y++) {
+                var td = document.createElement('td');
+                var val = row.data[y];
+                td.textContent = eurK(val);
+                if (val < 0) td.className = 'fm-cell-neg';
+                else if (val > 0 && row.highlight) td.className = 'fm-cell-pos';
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+        });
+    }
+
+    // ═══════════════════════════════════════════
+    //  EVENT LISTENERS
+    // ═══════════════════════════════════════════
+
+    document.querySelectorAll('input[name="scenario"]').forEach(function(el) {
+        el.addEventListener('change', loadScenario);
+    });
+
+    document.querySelectorAll('input[name="variant"]').forEach(function(el) {
+        el.addEventListener('change', loadScenario);
+    });
+
+    document.getElementById('gaming-only').addEventListener('change', loadScenario);
+
+    // ═══════════════════════════════════════════
+    //  PYODIDE WORKER. Custom Scenario
+    // ═══════════════════════════════════════════
+
+    var worker = new Worker('js/pyodide-worker.js');
+    var engineLoaded = false;
+    var lastCustomResult = null;
+
+    worker.onmessage = function(e) {
+        if (e.data.type === 'ready') {
+            engineLoaded = true;
+            document.getElementById('run-custom-btn').disabled = false;
+            document.getElementById('run-btn-text').textContent = 'Run Simulation';
+        }
+        if (e.data.type === 'result') {
+            renderDashboard(e.data.data);
+            document.getElementById('run-spinner').classList.add('hidden');
+            document.getElementById('run-btn-text').classList.remove('hidden');
+            document.getElementById('export-custom-btn').classList.remove('hidden');
+            lastCustomResult = e.data.data;
+        }
+        if (e.data.type === 'error') {
+            alert('Engine error: ' + e.data.message);
+            document.getElementById('run-spinner').classList.add('hidden');
+            document.getElementById('run-btn-text').classList.remove('hidden');
+        }
+    };
+
+    // Collect inputs and run custom scenario
+    document.getElementById('run-custom-btn').addEventListener('click', function() {
+        document.getElementById('run-spinner').classList.remove('hidden');
+        document.getElementById('run-btn-text').classList.add('hidden');
+
+        var params = {
+            funding_scenario: document.getElementById('custom-funding').value,
+            usage_variant: 'Low',
+            gaming_only: document.getElementById('custom-gaming-only').checked,
+            overrides: {
+                funding_amount: parseFloat(document.getElementById('custom-loan').value),
+                close_rate_start: parseFloat(document.getElementById('custom-close-rate').value),
+                organic_conversion_to_paid: parseFloat(document.getElementById('custom-plg').value),
+                solo_churn: parseFloat(document.getElementById('custom-churn').value),
+                markup_multiplier: parseFloat(document.getElementById('custom-markup').value),
+                beyond_gaming_royalty: parseFloat(document.getElementById('custom-bg-royalty').value),
+                director_royalty: parseFloat(document.getElementById('custom-director-royalty').value),
+                beyond_gaming_market_2035: parseFloat(document.getElementById('custom-bg-market').value),
+                beyond_gaming_penetration_2035: parseFloat(document.getElementById('custom-bg-pen').value)
+            }
+        };
+
+        worker.postMessage({ type: 'run', params: params });
+    });
+
+    // Update slider labels on input
+    document.querySelectorAll('.fm-panel input[type="range"]').forEach(function(slider) {
+        slider.addEventListener('input', function() {
+            var span = document.getElementById(this.id + '-val');
+            if (!span) return;
+            var v = parseFloat(this.value);
+            if (this.id.indexOf('rate') !== -1 || this.id.indexOf('plg') !== -1 || this.id.indexOf('churn') !== -1 || this.id.indexOf('royalty') !== -1 || this.id.indexOf('pen') !== -1 || this.id.indexOf('growth') !== -1) {
+                span.textContent = (v * 100).toFixed(1) + '%';
+            } else if (this.id.indexOf('market') !== -1) {
+                span.textContent = 'EUR ' + (v / 1e9).toFixed(0) + 'B';
+            } else if (this.id.indexOf('loan') !== -1) {
+                span.textContent = 'EUR ' + (v / 1000).toFixed(0) + 'K';
+            } else if (this.id.indexOf('markup') !== -1) {
+                span.textContent = v + 'x';
+            } else {
+                span.textContent = v;
+            }
+        });
+    });
+
+    // Export custom result as JSON download
+    document.getElementById('export-custom-btn').addEventListener('click', function() {
+        if (!lastCustomResult) return;
+        var blob = new Blob([JSON.stringify(lastCustomResult, null, 2)], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'custom_scenario.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    // ── Initial load ──
+    document.addEventListener('DOMContentLoaded', function() {
+        loadScenario();
+    });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 24px 0 40px;
+        }
+        .team-card {
+            background: var(--bg-card, #ffffff);
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 2px solid var(--border-color, #e2e8f0);
+        }
+        .team-name {
+            font-family: 'Inria Serif', Georgia, serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 4px;
+            color: var(--text-heading, #0f172a);
+        }
+        .team-role {
+            font-size: 13px;
+            color: var(--text-muted, #64748b);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .team-bio {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-body, #334155);
+            margin-bottom: 14px;
+        }
+        .team-linkedin {
+            font-size: 13px;
+            color: var(--accent-color, #3b82f6);
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .team-linkedin:hover {
+            text-decoration: underline;
+        }
+
+        .advisor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 20px 0 40px;
+        }
+        .advisor-card {
+            background: var(--bg-card, #ffffff);
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .advisor-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color, #e2e8f0);
+        }
+        .advisor-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .advisor-name {
+            font-family: 'Inria Serif', Georgia, serif;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 2px;
+            color: var(--text-heading, #0f172a);
+        }
+        .advisor-role {
+            font-size: 12px;
+            color: var(--text-muted, #64748b);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .advisor-linkedin {
+            font-size: 12px;
+            color: var(--accent-color, #3b82f6);
+            text-decoration: none;
+        }
+        .advisor-linkedin:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="images/LoreWeaverLogo_white (1).png" alt="LoreWeaver">
+                <h2>Investor Diligence Room</h2>
+            </div>
+
+            <div class="sidebar-intro">
+                <p>Start with the thesis, then move through product, market, business model, and terms.</p>
+            </div>
+
+            <div class="nav-section nav-section-primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link">Product</a>
+                <a href="market.html" class="nav-link">Market</a>
+                <a href="financials.html" class="nav-link">Financials</a>
+                <a href="team.html" class="nav-link active">Team</a>
+                <a href="traction.html" class="nav-link">Traction</a>
+                <a href="roadmap.html" class="nav-link">Roadmap</a>
+                <a href="sources-research.html" class="nav-link">Sources &amp; Research</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="content-shell">
+                <div class="page-header">
+                    <div class="eyebrow">LoreWeaver Deal Room</div>
+                    <h1>Team</h1>
+                    <p class="subtitle">Founders, advisors, and the post-round hiring plan.</p>
+                </div>
+
+                <section>
+                    <h2 style="margin-top: 24px;">Team</h2>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img class="team-photo" src="assets/Rijk.jpg" alt="Rijk Groenewoud">
+                            <div class="team-name">Rijk Groenewoud</div>
+                            <div class="team-role">CEO and Product</div>
+                            <p class="team-bio">Founder. 15+ years in tabletop RPG design and worldbuilding. Drives product vision, narrative schema architecture, and the LoreWeaver-as-platform thesis bridging Architect (authoring) and Director (runtime).</p>
+                            <a class="team-linkedin" href="https://www.linkedin.com/in/rijk-groenewoud/" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                        <div class="team-card">
+                            <img class="team-photo" src="assets/John.jpg" alt="John Lewis">
+                            <div class="team-name">John Lewis</div>
+                            <div class="team-role">CTO</div>
+                            <p class="team-bio">40 years in software and game systems design. Leads the Director runtime, on-device inference pipeline, and conflict-resolution schema. Sets the engineering bar for schema validity and integration into Unity, Unreal, and Godot.</p>
+                            <a class="team-linkedin" href="https://nl.linkedin.com/in/johnklewis" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                        <div class="team-card">
+                            <img class="team-photo" src="assets/Jesse.png" alt="Jesse Hammond">
+                            <div class="team-name">Jesse Hammond</div>
+                            <div class="team-role">AI Engineer</div>
+                            <p class="team-bio">Builds the Architect AI operations stack, the 15 structured-output pipelines, and the model orchestration layer. Focus on schema-constrained generation and the 99.8% cost reduction versus naive LLM workflows.</p>
+                            <a class="team-linkedin" href="https://www.linkedin.com/in/jesserhammond/" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 style="margin-top: 32px;">Advisors</h2>
+                    <div class="advisor-grid">
+                        <div class="advisor-card">
+                            <img class="advisor-photo" src="assets/Stephan.jpg" alt="Stephan Meijerhof">
+                            <div class="advisor-info">
+                                <div class="advisor-name">Stephan Meijerhof</div>
+                                <div class="advisor-role">Marketing. Crusader Kings 3, Stellaris (Paradox).</div>
+                                <a class="advisor-linkedin" href="https://www.linkedin.com/in/stephanmeijerhof/" target="_blank" rel="noopener">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-photo" src="assets/Arjan.jpg" alt="Arjan Terpstra">
+                            <div class="advisor-info">
+                                <div class="advisor-name">Arjan Terpstra</div>
+                                <div class="advisor-role">Narrative. Horizon Forbidden West (Guerrilla Games).</div>
+                                <a class="advisor-linkedin" href="https://www.linkedin.com/in/arjan-terpstra-3779a14/" target="_blank" rel="noopener">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-photo" src="assets/Pawel.jpg" alt="Pawel Skorupka">
+                            <div class="advisor-info">
+                                <div class="advisor-name">Pawel Skorupka</div>
+                                <div class="advisor-role">Engine. Hellblade, Dying Light 2.</div>
+                                <a class="advisor-linkedin" href="https://www.linkedin.com/in/pawe%C5%82-skorupka-38700567/" target="_blank" rel="noopener">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="summary-panel" style="margin-top: 24px;">
+                    <div class="summary-panel-header">
+                        <h2>Why this team</h2>
+                    </div>
+                    <ul class="takeaway-list">
+                        <li>15+ years of tabletop RPG and worldbuilding craft (Rijk), giving Architect a designer's eye, not a tool maker's.</li>
+                        <li>40 years of game design and systems engineering (John), grounding Director in shipping-quality runtime architecture.</li>
+                        <li>AAA shipping experience across the advisor bench: narrative pipelines (Horizon Forbidden West), engine work (Hellblade, Dying Light 2), and grand-strategy marketing (Crusader Kings 3, Stellaris).</li>
+                    </ul>
+                </section>
+
+                <section class="summary-panel" style="margin-top: 24px;">
+                    <div class="summary-panel-header">
+                        <h2>Post-round hiring plan</h2>
+                    </div>
+                    <ul class="takeaway-list">
+                        <li>One senior engine engineer to harden the Director runtime and ship Unity and Unreal integrations.</li>
+                        <li>One GTM hire (developer relations and partnerships) to convert the 8 signed LOIs and the university pilot pipeline into paid pilots.</li>
+                        <li>Optional contractor budget for a part-time community manager once the Discord crosses 250 active users.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; LoreWeaver &middot; April 2026
+            </div>
+        </main>
+    </div>
+
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="images/LoreWeaverLogo_white (1).png" alt="LoreWeaver">
+                <h2>Investor Diligence Room</h2>
+            </div>
+
+            <div class="sidebar-intro">
+                <p>The narrative infrastructure layer for games and simulation. Architect (live), Director (runtime).</p>
+            </div>
+
+            <div class="nav-section nav-section-primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link active">Product</a>
+                <a href="market.html" class="nav-link">Market</a>
+                <a href="financials.html" class="nav-link">Financials</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="traction.html" class="nav-link">Traction</a>
+                <a href="roadmap.html" class="nav-link">Roadmap</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">References</div>
+                <a href="sources-research.html" class="nav-link">Sources &amp; Research</a>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="content-shell">
+                <div class="page-header">
+                    <div class="eyebrow">LoreWeaver Deal Room</div>
+                    <h1>Product</h1>
+                    <p class="subtitle">Architect is the structured authoring SaaS. Director is the on-device runtime. Together they form the only integrated narrative stack.</p>
+                </div>
+
+                <section class="page-intro">
+                    <div class="page-context">
+                        <div class="eyebrow">Product</div>
+                        <div class="page-context-meta">6 min read &middot; Investor diligence view</div>
+                    </div>
+                    <div class="summary-panel compact-summary">
+                        <div class="summary-panel-header">
+                            <h2>Key takeaways</h2>
+                        </div>
+                        <ul class="takeaway-list">
+                            <li><strong>Architect (live today)</strong> cuts narrative production cost by 99.8% (&euro;41,250 manual to &euro;85 with Architect) across 15 AI operations.</li>
+                            <li><strong>Director (on-device runtime)</strong> hits 99.99% schema validity, 1.5s on-device time-to-first-sentence, 1% royalty above &euro;100K per title.</li>
+                            <li><strong>Defensibility</strong> sits in the XSD-validated schema contract, mutable/immutable parameter enforcement, and creator + player telemetry flywheel.</li>
+                            <li><strong>The combined stack</strong> means Architect's structured output feeds Director better inputs than any competitor can access.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-body">
+
+<h2>1. Architect, live today</h2>
+
+<p>Architect compresses narrative production workflow into structured, engine-ready output. The product is in working beta with 30 users on it now.</p>
+
+<h3>Workflow: Input to AI Processing to Output</h3>
+
+<table>
+<thead><tr>
+<th>Stage</th>
+<th>What happens</th>
+<th>Output</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Upload raw lore documents, design notes, world bible, free-form prose.</td>
+<td>Project workspace seeded with unstructured source material.</td>
+</tr>
+<tr>
+<td>AI Processing</td>
+<td>15 structured AI operations across entity extraction, relationship inference, schema generation, narrative board structuring, conflict modeling.</td>
+<td>Validated entities, relationships, quests, scenes ready for review.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Export to engine-ready formats (JSON, XML, CSV) with schema validation built in.</td>
+<td>Game-ready narrative data, drop-in for Unity, Unreal, Godot pipelines.</td>
+</tr>
+</tbody></table>
+
+<h3>The cost compression that matters</h3>
+
+<table>
+<thead><tr>
+<th>Approach</th>
+<th>Cost for one mid-size RPG narrative pack</th>
+<th>Time</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Manual (narrative designer plus tech writer)</td>
+<td>&euro;41,250</td>
+<td>6 to 8 weeks</td>
+</tr>
+<tr>
+<td>Architect</td>
+<td>&euro;85</td>
+<td>2 to 3 days</td>
+</tr>
+<tr>
+<td><strong>Reduction</strong></td>
+<td><strong>99.8%</strong></td>
+<td><strong>15 to 20x faster</strong></td>
+</tr>
+</tbody></table>
+
+<p>The savings are not from removing the writer. They are from removing the structured production work: tagging, schema fitting, validation, export, format conversion, change tracking. The writer retains creative authorship; Architect removes the engineering tax around it.</p>
+
+<h2>2. Director, on-device runtime</h2>
+
+<p>Director is the runtime layer. It executes Architect-authored narrative inside the game engine, on-device, with no cloud inference cost and no telemetry leaving the player's machine.</p>
+
+<div class="metrics-grid metrics-grid-three" style="margin: 24px 0;">
+    <div class="metric-card">
+        <div class="metric-value">99.99%</div>
+        <div class="metric-label">Schema validity</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">1.5s</div>
+        <div class="metric-label">On-device TTFS</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">1%</div>
+        <div class="metric-label">Royalty above &euro;100K/title</div>
+    </div>
+</div>
+
+<p>The runtime takes authored narrative state (entities, relationships, mutable/immutable parameters) and lets the LLM make decisions inside a validated schema. The engine sees only schema-valid responses. The LLM never gets to break game state.</p>
+
+<p>This solves the structural problem cloud NPC engines cannot solve:</p>
+
+<ul>
+<li><strong>No cloud inference cost.</strong> Cloud competitors charge per interaction. At AAA scale this is prohibitive. On-device is zero marginal cost.</li>
+<li><strong>1.5s TTFS at consumer hardware targets.</strong> Cloud round-trips alone are 1000ms or more before any generation.</li>
+<li><strong>No player data leaves the device.</strong> Studios cannot ship cloud NPC chat on console without manufacturer approval that does not exist.</li>
+<li><strong>Schema-validated output.</strong> Game designers control exactly what the AI can and cannot change.</li>
+</ul>
+
+<p>Business model: free SDK, 1% royalty on net revenue above &euro;100K per title. Architect users get Director integration as part of the pipeline.</p>
+
+<h2>3. Defensibility</h2>
+
+<p>Four overlapping defensibility layers, ranked by how hard each is to copy.</p>
+
+<h3>The schema contract</h3>
+
+<p>The conflict resolution XML schema with mutable/immutable parameter enforcement is the single most defensible technical asset. It is the only formally specified, validated contract for game-state-to-LLM interaction that exists in the market.</p>
+
+<table>
+<thead><tr>
+<th>Capability</th>
+<th>What it does</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>XSD-validated contract</td>
+<td>Formal schema defining how game engines communicate with the LLM.</td>
+</tr>
+<tr>
+<td>Mutable / immutable flags</td>
+<td>Designers declare exactly what the AI can and cannot change at runtime.</td>
+</tr>
+<tr>
+<td>Response validation</td>
+<td>Type coercion, range checking, valid-value enforcement before results reach game logic.</td>
+</tr>
+<tr>
+<td>Round-trip format matching</td>
+<td>JSON or XML in, same format out.</td>
+</tr>
+</tbody></table>
+
+<p>Inworld and Convai use free-form dialogue. NVIDIA ACE uses proprietary internal formats. None of them give designers schema-level control over AI behavior. If studios adopt the LoreWeaver schema, it becomes a de facto standard with switching costs measured in re-authoring entire narrative packs.</p>
+
+<h3>Creator plus player telemetry flywheel</h3>
+
+<p>Architect captures authored structure: entities, relationships, intents, schema choices. Director captures runtime telemetry: what schemas hold up under play, which mutable parameters get exercised, which decisions break immersion. Both feed back into the model and into the next iteration of the product.</p>
+
+<p>Competitors have one side or the other. LoreWeaver has both, and the two compound. Better authoring leads to better runtime decisions, which build trust, which drives deeper adoption of the authoring layer.</p>
+
+<h3>Pipeline integration switching costs</h3>
+
+<p>Once a studio builds its world in Architect, the narrative data is shaped around Architect's schemas. Switching means re-authoring. Director multiplies that lock-in: a shipped title using Director's runtime contract cannot trivially swap to a competitor without rebuilding all runtime integration. Standards create gravity.</p>
+
+<h3>Cross-domain expertise</h3>
+
+<p>The team combines AI, game development, and narrative design. Most competitors approach from one angle: AI teams that understand models but not game production, tooling teams that understand pipelines but not emergence, or narrative teams that understand story but not systems. The combination is rare and explains why everyone else builds NPC chat: it is the obvious product when you understand only LLMs.</p>
+
+<h2>4. The combined narrative stack</h2>
+
+<p>Architect and Director are designed as one system. Architect's structured output is exactly the input shape Director needs to run constrained on-device emergence well. Owning both sides compounds in three ways.</p>
+
+<ol>
+<li><strong>Data quality.</strong> Director does not need a larger model to outperform competitors. It needs better upstream data. Architect provides it.</li>
+<li><strong>Schema standardisation.</strong> Architect emits the contract; Director enforces it. The same schema definitions live across authoring and runtime. Competitors cannot ship this without rebuilding both sides.</li>
+<li><strong>Workflow lock-in.</strong> Studios building in Architect ship through Director because the integration cost is zero. Studios shipping through Director author in Architect because nothing else emits the right schema.</li>
+</ol>
+
+<p>The combined stack is the moat. Single-product competitors face the choice of building authoring (years of game-tooling work) or runtime (years of game-engine work) before they can compete on the integrated story. LoreWeaver has both in market.</p>
+
+                </section>
+            </div>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; LoreWeaver &middot; May 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>
