@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor FAQ - LoreWeaver Deal Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 24px 0 32px; }
+        .faq-toc a { display: block; padding: 12px 14px; background: var(--bg-light); border-radius: 8px; color: var(--text-color); text-decoration: none; border: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+        .faq-toc a:hover { border-color: var(--accent-color); }
+        .faq-toc a span { display: block; color: var(--text-light); font-size: 12px; margin-top: 2px; }
+        .faq-section { margin: 40px 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .faq-section h2 { margin-top: 0; }
+        .faq-item { margin: 22px 0; padding: 16px 18px; background: var(--bg-light); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .faq-q { font-weight: 600; color: var(--text-color); margin: 0 0 8px; font-size: 15px; }
+        .faq-q .qnum { color: var(--accent-color); margin-right: 8px; font-variant-numeric: tabular-nums; }
+        .faq-a { color: var(--text-light); margin: 0; font-size: 14px; line-height: 1.6; }
+        .faq-a strong { color: var(--text-color); }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="../images/LoreWeaverLogo_white (1).png" alt="LoreWeaver">
+                <h2>Investor Diligence Room</h2>
+            </div>
+
+            <div class="sidebar-intro">
+                <p>Start with the thesis, then move through product, market, business model, and terms.</p>
+            </div>
+
+            <div class="nav-section nav-section-primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link">Product</a>
+                <a href="market.html" class="nav-link">Market</a>
+                <a href="financials.html" class="nav-link">Financials</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="traction.html" class="nav-link">Traction</a>
+                <a href="roadmap.html" class="nav-link">Roadmap</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">References</div>
+                <a href="sources-research.html" class="nav-link">Sources &amp; Research</a>
+                <a href="legal.html" class="nav-link">Legal</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+                <span class="theme-toggle-icon" id="theme-icon"></span> <span id="theme-label"></span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div class="content-shell">
+                <div class="page-header">
+                    <div class="eyebrow">LoreWeaver Deal Room</div>
+                    <h1>Investor FAQ <span class="version-badge">v1.0</span></h1>
+                    <p class="subtitle">The questions a sharp pre-seed VC will ask, answered in one place.</p>
+                </div>
+
+                <section class="page-intro">
+                    <div class="page-context">
+                        <div class="eyebrow">FAQ</div>
+                        <div class="page-context-meta">15 min read &middot; Investor diligence view</div>
+                    </div>
+                    <div class="intro-grid">
+                        <div class="intro-card intro-card-primary">
+                            <div class="intro-label">What this page covers</div>
+                            <p>60+ questions grouped by category. Numbers reflect the canonical Series B / Medium scenario. Where this page and the live cap table or financial model disagree, the live source wins.</p>
+                        </div>
+                        <div class="intro-card">
+                            <div class="intro-label">How to use it</div>
+                            <p>Skim the table of contents, jump to the category you care about. Each answer is short and self-contained.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="faq-toc">
+                    <a href="#company"><strong>1. Company and founders</strong><span>Who, what, where, name notes</span></a>
+                    <a href="#architect"><strong>2. Architect</strong><span>Live SaaS, 30 users, EUR 100 first revenue</span></a>
+                    <a href="#director"><strong>3. Director</strong><span>On-device runtime, 8 LOIs, 1% royalty</span></a>
+                    <a href="#market"><strong>4. Market and competition</strong><span>Infrastructure layer positioning</span></a>
+                    <a href="#model"><strong>5. Business model and pricing</strong><span>SaaS plus royalty</span></a>
+                    <a href="#traction"><strong>6. Traction and pipeline</strong><span>Users, LOIs, revenue path</span></a>
+                    <a href="#financials"><strong>7. Financials</strong><span>Series B / Medium canonical</span></a>
+                    <a href="#round"><strong>8. The round</strong><span>EUR 550K, EUR 3.5M pre, 18+ months</span></a>
+                    <a href="#captable"><strong>9. Cap table and SAFEs</strong><span>20 SAFEs, tiers, EUR 500 floor</span></a>
+                    <a href="#legal"><strong>10. Legal and corporate structure</strong><span>Loreweaver Holding B.V., STAK, 3-BV</span></a>
+                    <a href="#team"><strong>11. Team and advisors</strong><span>Hiring, dependencies</span></a>
+                    <a href="#risks"><strong>12. Risks and mitigations</strong><span>Honest list</span></a>
+                    <a href="#exit"><strong>13. Exit and comparables</strong><span>Likely acquirers, multiples</span></a>
+                </div>
+
+                <section class="content-body">
+
+                <div class="faq-section" id="company">
+                    <h2>1. Company and founders</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.1</span>What does LoreWeaver do in one sentence?</p><p class="faq-a">LoreWeaver builds the narrative infrastructure layer for games and simulated worlds: Architect (live SaaS) turns unstructured story content into engine-ready data, and Director (on-device runtime AI) runs adaptive narrative and NPC behavior in shipped games.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.2</span>Who are the founders?</p><p class="faq-a">Rijk Groenewoud (CEO) and John Lewis (CTO) are co-founders, 45.5% each pre-round, both unpaid to date. Rijk leads investor relations, GTM, product vision, and built Architect plus the financial model. John has 30+ years of software engineering and built the Director core pipeline.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.3</span>Why does Rijk also appear as "Frederik Pieter Groenewoud" on legal documents?</p><p class="faq-a">Frederik Pieter Groenewoud is the full legal name on Dutch government records (paspoort, KvK, contracts). Rijk is the daily-use first name; it is the second of the three given names and is what every collaborator, investor, and customer knows him by. The two names refer to the same person. Legal documents (notary deed, SAFE agreements, NDAs) use the full legal form; everything else uses Rijk.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.4</span>Is "John Lewis" the CTO related to the US Congressman or the UK retailer?</p><p class="faq-a">No. John Lewis (Tyler) is a US-based software engineer; the "John Lewis" name is a common one in English-speaking countries. He sometimes goes by Tyler in informal contexts. He has no relation to the late US Congressman or the UK department store chain.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.5</span>Where is the company based?</p><p class="faq-a">Statutory seat Amsterdam, Noord-Holland (Veemkade 256, 1019 HD Amsterdam). Dutch holding entity. Engineering is distributed (NL, US, EU).</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.6</span>How long have the founders worked together?</p><p class="faq-a">Rijk and John have collaborated since 2023, first on the indie title that produced the Architect prototype, then full-time on LoreWeaver from late 2024 onward.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.7</span>What is the founders' relevant prior experience?</p><p class="faq-a">Rijk founded and ran an indie studio for 5+ years and led business development on multiple shipped projects. John has 30+ years across systems software and AI architecture.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">1.8</span>What attracted you to this problem?</p><p class="faq-a">Both founders shipped a narrative-heavy game and hit the same wall: narrative work scales linearly with content while AI inference costs collapse exponentially. The integrated authoring-plus-runtime stack is the obvious response, and no incumbent had built it.</p></div>
+                </div>
+
+                <div class="faq-section" id="architect">
+                    <h2>2. Architect (live SaaS product)</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.1</span>What is Architect?</p><p class="faq-a">A live B2B SaaS authoring tool that converts unstructured narrative inputs (design docs, world bibles, lore wikis) into engine-ready structured data: Unreal DataTables, Unity ScriptableObjects, and JSON. 15 AI operations from lore upload to export.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.2</span>What is the demonstrated cost reduction?</p><p class="faq-a">99.8% versus manual structuring. The comparison is hourly narrative-designer cost to produce the same engine-ready dataset by hand, measured against Architect's token-pass cost at our 4x markup.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.3</span>How many users does Architect have?</p><p class="faq-a">30 active users as of March 2026, all individually onboarded. EUR 100 in first booked revenue in April 2026 (Stripe). Pricing is usage-based on AI tokens at a 4x markup; users pay only for what they consume.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.4</span>Is it really live?</p><p class="faq-a">Yes. Production app at the URL shown in the deal room. Stripe integration is live. The Architect demo page walks through the 15 AI operations against a real project.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.5</span>What does an Architect customer pay per month on average?</p><p class="faq-a">Average revenue per user in the first cohort is small (single digits to low double-digits in EUR) because most users are still in evaluation. The model assumes that converted studios scale token consumption sharply once a project enters production.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.6</span>Why is Architect free at the entry tier?</p><p class="faq-a">We strip procurement friction. A narrative designer can sign up, paste in a world bible, and see results inside ten minutes without raising a PO. We monetize when usage scales, the same pattern as AWS, Twilio, and Vercel.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.7</span>What stops someone from building this themselves with ChatGPT and prompts?</p><p class="faq-a">You can produce a few good entities by hand-prompting. You cannot produce a self-consistent 1,500-entity lore graph with referential integrity, dialogue trees that respect character voice, and engine-ready typed exports. The 15-operation pipeline (extraction, normalization, relationship graph, schema mapping, validation, export) is the product.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">2.8</span>What is the technical moat for Architect?</p><p class="faq-a">The structured-data pipeline and the validation layer. We do not bet on prompt-engineering tricks; we bet on the only AI authoring tool that produces typed output ready to drop into a shipping engine.</p></div>
+                </div>
+
+                <div class="faq-section" id="director">
+                    <h2>3. Director (on-device runtime AI)</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.1</span>What is Director?</p><p class="faq-a">An on-device runtime AI engine. It generates live NPC behavior, dynamic plot, and adaptive dialogue while a game is running, on the player's hardware, with no cloud inference cost to the studio.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.2</span>Is Director shipping?</p><p class="faq-a">Not in a commercial title yet. Director is pre-revenue. We have 8 signed LOIs from game studios, multiple active pilots, and a TRL 4 prototype with a 94% valid response rate across 100 RPG scenarios.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.3</span>Why on-device and not cloud?</p><p class="faq-a">Three reasons. (1) Per-player cloud inference is a margin killer for studios; a free-to-play game with one million daily users cannot afford a per-prompt OpenAI bill. (2) Latency: sub-three-second response on-device beats any round trip to a hyperscaler. (3) Data privacy: nothing leaves the device, which removes a class of compliance problems in EU and UK markets.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.4</span>What models does Director run?</p><p class="faq-a">Optimized small language models (SLMs) selected per platform tier. The runtime is model-agnostic by design; we ship the orchestration, memory, validation, and steering layer on top.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.5</span>How is Director priced?</p><p class="faq-a">1% royalty on revenue above EUR 100,000 per shipped title. Free during development, free below the threshold, royalty kicks in only once the studio is making real money. Compare to Unreal Engine's 5% rate (above USD 1M lifetime).</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.6</span>Why 1% above EUR 100K and not a flat license?</p><p class="faq-a">A flat license up-front gates indie adoption, which is exactly the market that drives organic distribution. A pure-royalty model aligns our revenue with the studio's commercial outcome. The EUR 100K floor protects small indies entirely; the 1% rate is small enough that no CFO blocks the integration on cost grounds.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.7</span>Who validates the on-device thesis?</p><p class="faq-a">NVIDIA ACE is the loudest external validation: NVIDIA is investing significantly in on-device narrative AI, but it is RTX-only infrastructure and ships no creative tools. Director sits on top of that direction of travel as the creative and orchestration layer.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">3.8</span>What is the technical risk on Director?</p><p class="faq-a">Two things: (a) on-device SLM quality continues to improve, but generation quality at low parameter counts remains the binding constraint; (b) engine integration work (Unreal, Unity) is real engineering effort per title. We mitigate (a) by being model-agnostic and improving the orchestration layer faster than model quality plateaus; we mitigate (b) by building reusable Unreal and Unity middleware shipped as one SDK.</p></div>
+                </div>
+
+                <div class="faq-section" id="market">
+                    <h2>4. Market and competition</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.1</span>How big is the market?</p><p class="faq-a">Combined TAM 2030 (low case): EUR 5.0B. Architect TAM 2025: EUR 2.6B. Director TAM 2035 (gaming plus beyond-gaming, low case): EUR 1.4B. Beyond-gaming applications (digital twins, AV and robotics simulation, military training, film and TV, training) push the long-range TAM materially higher; we keep the headline number conservative.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.2</span>Who are the closest competitors?</p><p class="faq-a">articy:draft X is the 15-year incumbent for authoring; it added bolt-on AI extensions but has no structured-data pipeline and no AI-powered runtime. Inworld AI raised about USD 125M, depended on cloud inference, and pivoted away from gaming after the unit economics did not work. Convai operates in a similar cloud-NPC space and faces the same headwind. Twine and Ink are open-source authoring tools that pre-date AI.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.3</span>What is the unique position?</p><p class="faq-a">LoreWeaver is the only stack with both an integrated authoring layer (Architect) and an on-device runtime layer (Director). No competitor covers both. articy authors but does not run AI at runtime; Inworld and Convai run AI at runtime but cannot scale economically and do not own authoring.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.4</span>The "world models" companies are raising billions. Are you competing with them?</p><p class="faq-a">No: complementary. Runway, Luma, World Labs, Decart, and AMI Labs collectively are around USD 20.9B in combined valuation building world generation. They produce environments. None of them produce stories, persistent characters, or quest structures beyond about 60 seconds. Director is the narrative layer that sits on top of those models. They are top-of-funnel for us, not competition.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.5</span>Why has nobody built this before?</p><p class="faq-a">Three pre-conditions had to align: (1) inference cost drops of about 90% in two years, (2) small language models good enough to run on consumer hardware, and (3) studios admitting that hand-authored narrative does not scale to modern content expectations. All three only converged in the past 24 months.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.6</span>What stops Epic, Unity, or NVIDIA from copying you?</p><p class="faq-a">Epic and Unity are engine companies; their incentive is to maintain platform neutrality, not to ship narrative AI. NVIDIA validated the direction with ACE but explicitly does not ship creative tools. The market gap is intentional on their part. If Unity ships a competing layer, our middleware still runs on Unreal (and vice versa); our value is portable across engines, theirs is not.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">4.7</span>What is the "narrative infrastructure layer" framing?</p><p class="faq-a">We position LoreWeaver as the layer between game engines and AI inference: the same way Stripe sits between commerce and payment rails, or Twilio sits between applications and telecom. Studios build games; LoreWeaver provides the narrative pipes.</p></div>
+                </div>
+
+                <div class="faq-section" id="model">
+                    <h2>5. Business model and pricing</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.1</span>What is the revenue mix between Architect and Director?</p><p class="faq-a">Architect dominates revenue in years 1 to 2 (the wedge), Director becomes the larger line by year 4 as the first royalty-bearing titles ship.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.2</span>What is Architect's gross margin?</p><p class="faq-a">Gross margin scales with the 4x markup on AI tokens. At full scale, blended gross margin sits in the high 70% to mid 80% range, in line with typical usage-based AI SaaS.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.3</span>What is Director's gross margin?</p><p class="faq-a">On-device runtime carries no per-player cloud cost, so Director gross margin is structurally higher than any cloud-NPC competitor: above 90% once shipped. The cost base is engineering and integration, not inference.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.4</span>What is the CAC profile?</p><p class="faq-a">Architect customer acquisition is content-led and developer-led (community, demos, integrations). Director customer acquisition is enterprise sales into studios with a 6-to-18 month cycle; LOI to revenue is the relevant funnel metric, and we expect a meaningful share of the 8 current LOIs to convert.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.5</span>What does the model assume for net retention?</p><p class="faq-a">Architect: usage expansion drives net retention above 100% as customer projects scale from prototype to production. Director: per-title royalty creates a "land and expand" pattern across a studio's catalog.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">5.6</span>Are you a SaaS or a royalty business?</p><p class="faq-a">Both, intentionally. Architect is usage-based SaaS and provides predictable monthly revenue from many small customers; Director is royalty-based and provides large lumpy revenue from a few shipped titles. Together they smooth the curve.</p></div>
+                </div>
+
+                <div class="faq-section" id="traction">
+                    <h2>6. Traction and pipeline</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">6.1</span>What proof do you have today?</p><p class="faq-a">Architect: 30 active users, first revenue EUR 100 in April 2026, Stripe live. Director: 8 LOIs with named studios, multiple active pilots, TRL 4 validated prototype. Community: 82 Discord members, 170,000+ organic Reddit reach. Six advisors on board, three with AAA credentials.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">6.2</span>The revenue number is small. Why does it matter?</p><p class="faq-a">EUR 100 in April 2026 is not material as revenue; it is material as proof of the procurement and billing path. Stripe is wired in, the contract template is signed, the invoice path works. Every subsequent customer is a function of distribution, not infrastructure.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">6.3</span>What is the Director pipeline?</p><p class="faq-a">8 signed LOIs covering studios across the EU, UK, and US. Active pilots include both indie and mid-tier developers. We are not naming counterparties publicly until they choose to announce.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">6.4</span>What does the pilot-to-royalty conversion look like?</p><p class="faq-a">A typical pilot runs 6 to 12 months, ends in either a production integration or a no-go decision. Production integration is followed by 12 to 36 months until ship, then royalty starts above EUR 100K per title. We model conversion conservatively.</p></div>
+                </div>
+
+                <div class="faq-section" id="financials">
+                    <h2>7. Financials (Series B / Medium canonical)</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.1</span>Which scenario is canonical?</p><p class="faq-a">Series B / Medium is the planning baseline. Every headline number elsewhere in the deal room maps to this scenario.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.2</span>What is the headline revenue trajectory?</p><p class="faq-a">Y5 revenue EUR 50.2M. Y10 revenue EUR 457M, Y10 ARR EUR 510M. Breakeven Month 30.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.3</span>What is the burn rate at start of round?</p><p class="faq-a">The model shows the burn rate at month 0 in the executive summary card; it scales as we hire. The EUR 550K round plus a EUR 100K loan (lined up) funds approximately 18+ months of operations at the planned hire curve.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.4</span>How are the projections built?</p><p class="faq-a">Bottom-up. Each beyond-gaming customer goes through a pipeline (contact, signed, live) with tier-specific parameters. The simulation is deterministic (no random sampling): churn uses a median-lifetime threshold and tier selection uses a round-robin weighted sequence. Platform revenue grows from signing date using tier-specific growth rates.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.5</span>When does the company become profitable?</p><p class="faq-a">Breakeven Month 30, profitable from Year 3 onward in the canonical scenario.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.6</span>What is the funding plan after pre-seed?</p><p class="faq-a">Pre-seed EUR 550K (now), Seed EUR 2.5M (Month 18), Series A EUR 10M (Month 30), Series B EUR 30M (Month 42). Each round is sized to the milestone it funds rather than to a target dilution percentage.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.7</span>What are the most sensitive assumptions in the model?</p><p class="faq-a">Three things: (1) Director LOI-to-revenue conversion rate, (2) Architect ARPU expansion as customers enter production, (3) timing of the first royalty-bearing title shipping. Sensitivity analysis is in the financial model page.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">7.8</span>What about the beyond-gaming TAM?</p><p class="faq-a">We do not depend on it. The canonical case relies on gaming alone. Beyond-gaming (digital twins, AV and robotics simulation, training, film and TV) is upside in the model and represents an estimated USD 150B to 250B by 2030 across categories.</p></div>
+                </div>
+
+                <div class="faq-section" id="round">
+                    <h2>8. The round</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.1</span>How much are you raising and on what terms?</p><p class="faq-a">EUR 550K pre-seed at EUR 3.5M pre-money valuation. 13.6% dilution from new capital. 10% ESOP top-up sits pre-money. Plus a EUR 100K loan lined up separately.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.2</span>What is the runway?</p><p class="faq-a">18+ months at the planned hire curve, calculated against the EUR 550K plus the EUR 100K loan.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.3</span>Why this valuation?</p><p class="faq-a">EUR 3.5M pre-money reflects (a) Architect live with paying users, (b) 8 Director LOIs, (c) an advisor bench with AAA credentials, (d) a working financial model, and (e) a credible path to Seed at Month 18. It is a discount to the band for pre-seed AI tooling rounds in EU and remains acceptable to family-and-friends investors who came in earlier.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.4</span>What instrument are you using?</p><p class="faq-a">Post-money SAFEs with a EUR 3.5M cap. No discount. Standard pro-rata language for qualifying investors.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.5</span>How much is committed?</p><p class="faq-a">20 SAFEs signed and paid as of the date of this document.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.6</span>What is the use of proceeds?</p><p class="faq-a">Headcount (engineering, sales, BD), Director pilot enablement, Architect growth (developer relations, integrations, content), legal and incorporation costs, and operating reserve. Detailed breakdown is on the Deal Terms page.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.7</span>Who is leading the round?</p><p class="faq-a">We are running the round ourselves and are open to a lead. The current SAFE-stack structure does not require a lead, but we will negotiate lead-specific terms if a fit appears.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">8.8</span>What is the timeline?</p><p class="faq-a">Closing on a rolling basis. Hard close target Q3 2026.</p></div>
+                </div>
+
+                <div class="faq-section" id="captable">
+                    <h2>9. Cap table and SAFE structure</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.1</span>What does the pre-round cap table look like?</p><p class="faq-a">Rijk Groenewoud 45.5%, John Lewis 45.5%, Jesse Hammond 9% (3% vested, 6% on a 4-year schedule), plus a 10% ESOP option pool reserved.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.2</span>How many SAFEs are signed and paid?</p><p class="faq-a">20 SAFEs are signed and paid into the round.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.3</span>Are the SAFEs tiered?</p><p class="faq-a">Yes. There are multiple SAFE tiers reflecting the family-and-friends, professional angel, and institutional contributors. Tier-specific terms are documented in the cap table folder; the cap is consistent across tiers at EUR 3.5M post-money.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.4</span>What is the EUR 500 floor amendment?</p><p class="faq-a">An amendment introduced after the family-and-friends round established a minimum SAFE ticket of EUR 500 to keep administration manageable. Pre-existing smaller commitments are honored; new commitments respect the EUR 500 floor.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.5</span>What happens to founder ownership at conversion?</p><p class="faq-a">Post pre-seed, founders retain greater than 50% combined voting control. Full waterfall is in the cap table file.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.6</span>What is the ESOP plan?</p><p class="faq-a">10% ESOP pool sits pre-money and is topped up at each priced round to maintain a healthy unallocated balance. ESOP grants follow a standard 4-year vest with a 1-year cliff.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.7</span>Where is the cap table?</p><p class="faq-a">Live cap table in the deal room. The figures here are the round-snapshot numbers; the live file is the canonical source.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">9.8</span>Will previous SAFE holders have anti-dilution protection?</p><p class="faq-a">Standard post-money SAFE: most-favored-nation language for early signers, no separate anti-dilution beyond cap conversion.</p></div>
+                </div>
+
+                <div class="faq-section" id="legal">
+                    <h2>10. Legal and corporate structure</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.1</span>What is the legal entity?</p><p class="faq-a">Loreweaver Holding B.V., a Dutch besloten vennootschap, statutory seat Amsterdam, Noord-Holland. Incorporation is in flight with the notary at the time of this document.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.2</span>What is the planned post-round structure?</p><p class="faq-a">A three-BV structure: Loreweaver Holding B.V. owns the operating entity and IP entity; founders hold their personal stakes through a STAK (stichting administratiekantoor) for clean voting and economic-rights separation. The STAK pattern is standard practice for Dutch tech companies and simplifies later financings.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.3</span>Why STAK?</p><p class="faq-a">STAK keeps administrative trading of certificates (economic rights) clean while consolidating voting in the foundation. Practically: simpler future rounds, simpler ESOP administration, simpler exit mechanics.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.4</span>Who is the notary?</p><p class="faq-a">Engaged and in flight. The notary deed for incorporation and the holding structure is being executed in parallel with this round. We will share the notary's identity and the draft deed under NDA on request.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.5</span>What IP is held by the entity?</p><p class="faq-a">All Architect and Director source code, models, and trademarks. Founder IP assignments are signed.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.6</span>Are there any outstanding liabilities or claims?</p><p class="faq-a">None known. No litigation, no employment disputes, no IP claims against the company.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">10.7</span>What is the tax structure?</p><p class="faq-a">Dutch holding plus operating BV is the most tax-efficient structure for a NL-based startup with international customers; the innovatiebox regime is available once we qualify, which materially lowers the effective tax rate on IP-derived profits.</p></div>
+                </div>
+
+                <div class="faq-section" id="team">
+                    <h2>11. Team, advisors, and hiring plan</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.1</span>What is the current headcount?</p><p class="faq-a">5 people. Two founders (Rijk, John), one AI engineer (Jesse Hammond), one BD and marketing lead (Kiomi ten Damme), one UI and artist (Kemal Novruzlu). All currently unpaid except Kemal, who is paid via a partner studio and loaned in.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.2</span>Who are the advisors and what credentials do they bring?</p><p class="faq-a">Stephan Meijerhof, 15+ years games marketing, Crusader Kings 3 and Stellaris (Paradox). Arjan Terpstra, 15+ years narrative design, Horizon Forbidden West (Guerrilla Games). Pawel Skorupka, 10+ years AAA engine engineering, Hellblade and Dying Light 2. Jon Heiner, ex-Optiver and ex-Cutler Group, co-founder Boldbeam and Giant Games (strategy and tech).</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.3</span>Are advisors compensated?</p><p class="faq-a">Yes, in equity through the ESOP. Jon Heiner currently holds 1.94% as advisor. Other advisor grants are documented in the cap table.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.4</span>What is the 12-month hiring plan with this round?</p><p class="faq-a">Senior backend engineer, AI research engineer, technical artist or engine engineer, BD lead for Director, and a part-time finance and operations contractor. Plan is sequenced against milestone reviews and round runway, not hired all at once.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.5</span>Why are the founders still unpaid?</p><p class="faq-a">We deliberately deferred salaries to extend runway and keep dilution low going into the round. Founder salaries start at modest below-market levels post-close (covered by the round) and rise on a public schedule tied to revenue milestones.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.6</span>How dependent is the company on the two founders?</p><p class="faq-a">Materially. Rijk owns investor relations and product vision; John owns the Director core architecture. Mitigations: Jesse Hammond can maintain the LLM pipeline if John is out; Jon Heiner provides strategic backup on the BD side; design and architectural decisions are documented.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">11.7</span>What is the cultural and operational model?</p><p class="faq-a">Distributed-first, written-first, async-by-default. Weekly sync, monthly strategy review, quarterly board. We work from documents, not chat.</p></div>
+                </div>
+
+                <div class="faq-section" id="risks">
+                    <h2>12. Risks and mitigations</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.1</span>What are the largest risks?</p><p class="faq-a">(1) Director is pre-revenue and depends on game-studio sales cycles. (2) On-device SLMs may plateau in quality before the use case is fully covered. (3) Founder concentration: two people own most of the critical knowledge. (4) Architect ARPU is unproven at production scale. (5) Competitive entry from an incumbent engine vendor or a well-funded model lab.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.2</span>How do you mitigate game-studio sales-cycle risk?</p><p class="faq-a">Architect produces revenue in months, not years; it carries the company while Director pilots mature. We do not need a Director royalty to hit Seed-stage milestones.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.3</span>How do you mitigate on-device LLM constraints?</p><p class="faq-a">Model-agnostic runtime. We do not bet on a single model; we bet on the orchestration, memory, and validation layer that wraps any sufficiently capable SLM. As models improve, our product improves; as quantization improves, our addressable hardware floor drops.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.4</span>How do you mitigate founder concentration?</p><p class="faq-a">Documentation discipline (architecture, decisions, code), backup advisors, and a hiring plan that explicitly de-risks both critical paths within 12 months of round close.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.5</span>What if Unity or Epic ships a competing layer?</p><p class="faq-a">Our middleware ships against both engines. Engine-vendor moves typically lock to one ecosystem and ship slow. The first credible competitor by an incumbent is a positive market signal as well as a threat.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.6</span>What if Architect's 4x markup compresses?</p><p class="faq-a">Pricing power follows differentiation. As long as Architect produces typed, engine-ready output and competitors produce free text, the markup holds. If markups compress in the long run, we offset with higher token volume and Director royalties.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.7</span>What if a model lab moves into authoring or runtime?</p><p class="faq-a">Model labs do not ship game-engine middleware or signed studio integrations. The distance between a research model and a shipped Unreal SDK is the distance we own. If a model lab acquires that capability, it is a likely buyer.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">12.8</span>What about regulatory risk?</p><p class="faq-a">EU AI Act compliance applies; on-device inference removes a significant share of the data-processing surface, which simplifies compliance materially compared to a cloud-NPC competitor.</p></div>
+                </div>
+
+                <div class="faq-section" id="exit">
+                    <h2>13. Exit and comparables</h2>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">13.1</span>What are the most relevant exit comparables?</p><p class="faq-a">Unity acquisition of Weta Digital tools and prior narrative tooling acquisitions in the engine space. Epic acquisitions of Quixel, ArtStation, and Sketchfab. Microsoft acquisition of ZeniMax and Activision (different scale, same logic). On the AI infra side, the world-model fundraise comp set (Runway, Luma, World Labs, Decart, AMI Labs) sets the strategic-value bar.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">13.2</span>Who are the likely acquirers in 5 to 7 years?</p><p class="faq-a">Engine vendors (Epic, Unity), platform holders (Microsoft, Sony, Tencent), and AI infrastructure leaders that need a creative content layer (NVIDIA, a frontier model lab). Beyond gaming, simulation and digital-twin platform vendors (Siemens, Dassault, NVIDIA Omniverse).</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">13.3</span>What return profile are you optimizing for?</p><p class="faq-a">A 10-to-15-year company. We model exit scenarios for sensitivity, but operate the business as if the IPO path is the primary outcome. Seed-stage acquirers do not get a meeting until the company has the revenue and product evidence to set terms.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">13.4</span>What multiples are realistic for an exit?</p><p class="faq-a">Strategic acquirers of infrastructure-layer software at scale pay 10x to 20x forward ARR; AI infra premia have pushed multiples higher in 2024 to 2026 windows. We do not promise a specific multiple; we promise to build a business that earns one.</p></div>
+                    <div class="faq-item"><p class="faq-q"><span class="qnum">13.5</span>What is the dividend or distribution policy?</p><p class="faq-a">None planned. Profits reinvested into product and growth.</p></div>
+                </div>
+
+                </section>
+            </div>
+
+            <div class="page-footer">
+                LoreWeaver Deal Room &middot; LoreWeaver &middot; March 2026
+            </div>
+        </main>
+    </div>
+<script>
+(function() {
+    var theme = localStorage.getItem('dealroom-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    function updateBtn(t) {
+        var icon = document.getElementById('theme-icon');
+        var label = document.getElementById('theme-label');
+        if (icon) icon.textContent = '';
+        if (label) label.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    window.toggleTheme = function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('dealroom-theme', next);
+        updateBtn(next);
+    };
+    document.addEventListener('DOMContentLoaded', function() { updateBtn(theme); });
+})();
+</script>
+</body>
+</html>
